@@ -12,9 +12,11 @@ import lgZoom from 'lightgallery/plugins/zoom'
 import { images } from '../../data/constans_gallery'
 import './Gallery.css'
 
+const imagesForEachPage = 12
+
 const imageGroups = []
-for (let i = 0; i < images.length; i += 12) {
-  imageGroups.push(images.slice(i, i + 12))
+for (let i = 0; i < images.length; i += imagesForEachPage) {
+  imageGroups.push(images.slice(i, i + imagesForEachPage))
 }
 
 export function Gallery() {
@@ -38,7 +40,7 @@ export function Gallery() {
         plugins={[lgThumbnail, lgZoom]}
       >
         {imageGroups[page].map((image, index) => (
-          <a href={image.src} className='w-[18rem]' key={index}>
+          <a href={image.src} key={index}>
             <img alt={image.alt} src={image.src} loading='lazy' />
           </a>
         ))}

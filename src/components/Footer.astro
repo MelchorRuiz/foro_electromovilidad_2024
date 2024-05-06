@@ -1,7 +1,7 @@
 <footer>
     <div class="contact">
-        <h2>CONTACTO</h3>
-        <img src="\FernandoAranda.webp" alt="Foto de Fernando Aranda">
+        <h2>CONTACTO</h2>
+        <img src="\FernandoAranda.webp" alt="Foto de Fernando Aranda" />
         <div>
             <h4>Fernando Aranda</h4>
             <h5>Manager Foro Electromovilidad y Semiconductores</h5>
@@ -10,11 +10,11 @@
     </div>
     <div class="logos">
         <div class="igeco">
-            <img src="\igeco_bn.webp" alt="igeco">
-            <img src="\deutsche_messe_bn.webp" alt="igeco">
+            <img src="\igeco_bn.webp" alt="igeco" />
+            <img src="\deutsche_messe_bn.webp" alt="igeco" />
         </div>
         <div class="gto">
-            <img src="\gto_veda.webp" alt="gto">
+            <img src="\gto_veda.webp" alt="gto" />
         </div>
     </div>
 </footer>
@@ -26,7 +26,7 @@
     }
 
     .contact {
-        min-height: calc(100vh - 100px);
+        min-height: calc(100vh - 80px);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -35,7 +35,7 @@
     }
 
     .contact h2 {
-        font-size: 3em;
+        font-size: 2em;
         font-family: "Jersey 15", sans-serif;
         font-weight: 400;
         text-shadow: 1px 1px 2px black;
@@ -46,36 +46,108 @@
         text-align: center;
     }
 
+    .contact img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px black;
+    }
+
     .contact h4 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .contact h5 {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 
     .contact p {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
     }
-    
+
     .logos {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 100px;
-        background-color: #003C43;
+        height: 80px;
+        background-color: #003c43;
+        padding: 0 1em;
     }
 
     .igeco {
         display: flex;
-        max-width: 180px;
-        padding: 10px;
+        max-width: 100px;
     }
 
     .gto {
         display: flex;
-        max-width: 180px;
-        padding: 10px;
+        max-width: 80px;
+    }
+
+    @media (min-width: 768px) {
+        .contact {
+            min-height: calc(100vh - 100px);
+        }
+        .contact h2 {
+            font-size: 2.25em;
+        }
+        .contact img {
+            width: 250px;
+            height: 250px;
+        }
+        .contact h4 {
+            font-size: 1.8rem;
+        }
+        .contact h5 {
+            font-size: 1.1rem;
+        }
+        .contact p {
+            font-size: 0.9rem;
+        }
+        .logos {
+            height: 100px;
+            padding: 0 2em;
+        }
+        .igeco {
+            max-width: 140px;
+        }
+        .gto {
+            max-width: 120px;
+        }
+    }
+    @media (min-width: 1280px) {
+        .contact {
+            min-height: calc(100vh - 120px);
+        }
+        .contact h2 {
+            font-size: 2.5em;
+        }
+        .contact img {
+            width: 300px;
+            height: 300px;
+        }
+        .contact h2 {
+            font-size: 4em;
+        }
+        .contact h4 {
+            font-size: 2rem;
+        }
+        .contact h5 {
+            font-size: 1.3rem;
+        }
+        .contact p {
+            font-size: 1rem;
+        }
+        .logos {
+            height: 120px;
+            padding: 0 3em;
+        }
+        .igeco {
+            max-width: 180px;
+        }
+        .gto {
+            max-width: 140px;
+        }
     }
 </style>

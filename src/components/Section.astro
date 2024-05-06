@@ -18,24 +18,33 @@ const { id, subtitle } = Astro.props
   section {
     width: 100%;
     min-height: fit-content;
-    padding: 3em 7em;
+    padding: 1em 2em;
   }
   h2 {
     margin-bottom: 1rem;
     color: white;
-    font-size: 3em;
+    font-size: 2rem;
     font-family: 'Jersey 15', sans-serif;
     font-weight: 400;
     text-shadow: 1px 1px 2px black;
     line-height: 1;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     section {
-      padding: 3em 2em;
+      padding: 1.5em 4em;
     }
     h2 {
-      font-size: 2em;
+      font-size: 2.5rem;
     }
   }
+  @media (min-width: 1024px) {
+    section {
+      padding: 2em 6em;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+  }
+
 </style>

@@ -7,7 +7,7 @@
 <style>
     section.hero {
         width: 100%;
-        min-height: 100vh;
+        min-height: calc(100vh - 80px);
         background: url('/electromobility.jpg') no-repeat center center/cover;
         padding: 5em 1em;
         display: flex;
@@ -17,12 +17,13 @@
         color: white;
     }
     h1 {
-        font-size: 5em;
+        font-size: 3em;
         font-family: "Jersey 15", sans-serif;
         font-weight: 400;
         font-style: normal;
         text-shadow: 1px 1px 2px black;
         line-height: 1;
+        text-align: center;
     }
     .separator {
         width: 10%;
@@ -30,5 +31,25 @@
         background: white;
         margin: 1em 0;
         border-radius: 1em;
+    }
+    h3 {
+        text-align: center;
+    }
+
+    @media (min-width: 768px) {
+        h1 {
+            font-size: 4em;
+        }
+        .separator {
+            width: 20%;
+        }
+    }
+    @media (min-width: 1024px) {
+        h1 {
+            font-size: 5em;
+        }
+        .separator {
+            width: 30%;
+        }
     }
 </style>
