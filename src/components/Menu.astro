@@ -1,0 +1,59 @@
+<nav class='container mx-auto flex justify-between items-center relative'>
+  <img src='/deutsche_messe_bn.webp' alt='logo' class='w-52' />
+  <ul class='hidden md:flex list-none justify-center gap-4 text-white'>
+    <li>
+      <a href=' index.php'>Nosotros</a>
+      <li><a href='about.php'>About</a></li>
+      <li><a href='contact.php'>Contact</a></li>
+      <li><a href='login.php'>Login</a></li>
+      <li><a href='register.php'>Register</a></li>
+    </li>
+  </ul>
+  <div class='menuMobile md:hidden p-5'>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      fill='none'
+      viewBox='0 0 24 24'
+      stroke-width='1.5'
+      stroke='white'
+      class='w-9 h-9 cursor-pointer'
+      onclick="document.querySelector('.menuMobile ul').classList.toggle('invisible')"
+    >
+      <path
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
+    </svg>
+
+    <ul
+      class='invisible list-none text-white absolute w-full top-14 left-0 bg-[#145D66] p-4 rounded-lg *:py-2 px-4'
+    >
+      <li>
+        <a href=' index.php'>Nosotros</a>
+      </li>
+      <li>
+        <a href='about.php'>About</a>
+      </li>
+      <li>
+        <a href='contact.php'>Contact</a>
+      </li>
+      <li>
+        <a href='login.php'>Login</a>
+      </li>
+      <li>
+        <a href='register.php'>Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<script is:inline>
+  document.body.addEventListener('click', (e) => {
+    const menuMobile = e.target.closest('.menuMobile')
+    if (!menuMobile) {
+      const mobileMenu = document.querySelector('.menuMobile ul')
+      if (mobileMenu) {
+        mobileMenu.classList.add('invisible')
+      }
+    }
+  })
+</script>
