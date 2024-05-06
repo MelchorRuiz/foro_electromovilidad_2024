@@ -1,32 +1,41 @@
 ---
 interface Props {
-    id?: string;
-	subtitle: string;
+  id?: string
+  subtitle: string
 }
 
-const { id, subtitle } = Astro.props;
+const { id, subtitle } = Astro.props
 
 /*´${id_name ? id=${id_name} : {}}´*/
 ---
 
-<section {...(id ?  {id} : {})}>
-    <h2>{subtitle}</h2>
-    <slot />
+<section {...id ? { id } : {}}>
+  <h2>{subtitle}</h2>
+  <slot />
 </section>
 
 <style>
+  section {
+    width: 100%;
+    min-height: fit-content;
+    padding: 3em 7em;
+  }
+  h2 {
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 3em;
+    font-family: 'Jersey 15', sans-serif;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px black;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
     section {
-        width: 100%;
-        min-height: fit-content;
-        padding: 3em 7em;
+      padding: 3em 2em;
     }
     h2 {
-        margin-bottom: 1rem;
-        color: white;
-        font-size: 3em;
-        font-family: "Jersey 15", sans-serif;
-        font-weight: 400;
-        text-shadow: 1px 1px 2px black;
-        line-height: 1;
+      font-size: 2em;
     }
+  }
 </style>

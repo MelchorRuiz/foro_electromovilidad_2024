@@ -9,8 +9,8 @@ import 'lightgallery/css/lg-thumbnail.css'
 // import plugins if you need
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lgZoom from 'lightgallery/plugins/zoom'
-
-import { images } from '../data/constans_gallery'
+import { images } from '../../data/constans_gallery'
+import './Gallery.css'
 
 const imageGroups = []
 for (let i = 0; i < images.length; i += 12) {

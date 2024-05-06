@@ -1,50 +1,58 @@
 ---
-import Section from "./Section.astro";
+import Section from './Section.astro'
 
-import { images } from "../data/constans_segmentos";
+import { images } from '../data/constans_segmentos'
 ---
 
-<Section subtitle="Segmentos de enfoque">
-    <div id="images-container">
-        {
-            images.map((image) => (
-                <div class="img" style={`background-image: url('${image.src}')`}>
-                    <p class="text-center text-sm mt-2">{image.text}</p>
-                </div>
-            ))
-        }
-    </div>
-
-    <style>
-        #images-container {
-            height: calc(100% - 3em - 1rem);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        .img {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-end;
-            width: 380px;
-            height: 200px;
-            background: center/cover;
-            margin: 10px;
-            transition: transform ease 0.3s;
-        }
-        .img:hover {
-            transform: scale(1.05);
-        }
-        .img p {
-            background: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(0, 0, 3, .973));
-            color: white;
-            width: 100%;
-            padding: 15px;
-            font-size: 1.2em;
-            font-weight: 500;
-            text-align: left;
-        }
-    </style></Section
->
+<Section subtitle='Segmentos de enfoque'>
+  <div id='images-container'>
+    {
+      images.map((image) => (
+        <div class='img' style={`background-image: url('${image.src}')`}>
+          <p class='text-center text-sm mt-2'>{image.text}</p>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+<style>
+  #images-container {
+    height: calc(100% - 3em - 1rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 380px;
+    height: 200px;
+    background: center/cover;
+    margin: 10px;
+    transition: transform ease 0.3s;
+  }
+  .img:hover {
+    transform: scale(1.05);
+  }
+  .img p {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 0, 0, 0),
+      rgba(0, 0, 3, 0.973)
+    );
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: left;
+  }
+  @media screen and (max-width: 768px) {
+    .img {
+      width: 320px;
+    }
+  }
+</style>

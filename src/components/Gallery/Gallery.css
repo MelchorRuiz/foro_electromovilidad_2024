@@ -1,0 +1,14 @@
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+@media screen and (min-width: 768px) {
+    .image-gallery{
+        max-width: 1000px;
+    }
+}
