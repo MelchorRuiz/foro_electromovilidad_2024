@@ -38,9 +38,9 @@ export function Gallery() {
                 speed={500}
                 plugins={[lgThumbnail, lgZoom]}
             >
-                {imageGroups[page].map((image) => (
-                    <a href={image.src} className='w-[18rem]'>
-                        <img alt={image.alt} src={image.src} />
+                {imageGroups[page].map((image, index) => (
+                    <a href={image.src} className='w-[18rem]' key={index}>
+                        <img alt={image.alt} src={image.src} loading="lazy" />
                     </a>
                 ))}
             </LightGallery>
