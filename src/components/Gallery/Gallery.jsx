@@ -1,5 +1,5 @@
 import LightGallery from 'lightgallery/react'
-import React, { useState } from 'react' // Import the useState hook
+import React, { useState, useEffect } from 'react'
 
 // import styles
 import 'lightgallery/css/lightgallery.css'
@@ -12,30 +12,48 @@ import lgZoom from 'lightgallery/plugins/zoom'
 import { images } from '../../data/constans_gallery'
 import './Gallery.css'
 
-const imagesForEachPage = 12
-
-const imageGroups = []
-for (let i = 0; i < images.length; i += imagesForEachPage) {
-  imageGroups.push(images.slice(i, i + imagesForEachPage))
-}
-
 export function Gallery() {
-  const onInit = () => {
-    console.log('lightGallery has been initialized')
-  }
-
-  const onAfterOpen = () => {
-    console.log('lightGallery has been opened')
-  }
-
   const [page, setPage] = useState(0) // Use the useState hook to initialize the page state variable
+  const [imagesForEachPage, setImagesForEachPage] = useState(12) // Initialize imagesForEachPage state variable
+
+  useEffect(() => {
+    // Define the matchMedia instances
+    const tabletMatch = window.matchMedia('(min-width: 768px)')
+    const laptopMatch = window.matchMedia('(min-width: 1024px)')
+    const desktopMatch = window.matchMedia('(min-width: 1280px)')
+
+    // Function to update the state based on the matchMedia instances
+    const updateImagesPerPage = () => {
+      if (desktopMatch.matches) {
+        setImagesForEachPage(12)
+      } else if (laptopMatch.matches) {
+        setImagesForEachPage(9)
+      } else if (tabletMatch.matches){
+        setImagesForEachPage(6)
+      } else {
+        setImagesForEachPage(3)
+      }
+      setPage(0)
+    }
+
+    // Update the state when the component mounts
+    updateImagesPerPage()
+
+    tabletMatch.onchange = updateImagesPerPage
+    laptopMatch.onchange = updateImagesPerPage
+    desktopMatch.onchange = updateImagesPerPage
+  }, [])
+
+  // make groups of images based on the imagesForEachPage
+  const imageGroups = []
+  for (let i = 0; i < images.length; i += imagesForEachPage) {
+    imageGroups.push(images.slice(i, i + imagesForEachPage))
+  }
 
   return (
     <>
       <LightGallery
         elementClassNames='flex flex-wrap justify-center gap-5'
-        onInit={onInit}
-        onAfterOpen={onAfterOpen}
         speed={500}
         plugins={[lgThumbnail, lgZoom]}
       >
