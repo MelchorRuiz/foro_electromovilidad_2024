@@ -33,6 +33,7 @@ export function Contact() {
       setCities(cities);
     };
   
+    setCity('');
     fetchData();
   }, [state])
 
