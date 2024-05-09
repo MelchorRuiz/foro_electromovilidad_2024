@@ -1,24 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Header from '../components/Hero.astro'
+import Hero from '../components/Hero.astro'
 import SegmentosDeEnfoque from '../components/SegmentosDeEnfoque.astro'
 import Programa from '../components/Programa.astro'
 import Ponentes from '../components/Ponentes.astro'
-import Galeria from '../components/Galeria.astro'
-import Contacto from '../components/Contacto.astro'
 import Footer from '../components/Footer.astro'
+import Section from '../components/Section.astro'
+import { Gallery } from '../components/Gallery/Gallery.jsx'
+import { Contact } from '../components/Contact/Contact.jsx'
 ---
 
 <Layout title='IGECO | Foro Electromovilidad'>
-  <Header />
+  <Hero />
   <main>
     <SegmentosDeEnfoque />
     <Programa />
     <Ponentes />
-    <Galeria />
-    <Contacto />
+    <Section id='galeria' subtitle='Galeria'>
+      <Gallery client:idle />
+    </Section>
+    <Section id="registro" subtitle="Contáctanos">
+      <Contact client:idle />
+    </Section>
   </main>
-  <Footer />
 </Layout>
 
 <style></style>

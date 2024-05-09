@@ -51,7 +51,7 @@ export function Gallery() {
   }
 
   return (
-    <>
+    <div>
       <LightGallery
         elementClassNames='flex flex-wrap justify-center gap-5'
         speed={500}
@@ -76,6 +76,6 @@ export function Gallery() {
           </button>
         ))}
       </div>
-    </>
+    </div>
   )
 }
