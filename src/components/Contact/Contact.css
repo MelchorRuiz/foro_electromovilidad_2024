@@ -2,9 +2,6 @@ form {
     display: flex;
     flex-wrap: wrap;
 }
-form div:first-child {
-    width: 100%;
-}
 form div {
     width: 100%;
 }
@@ -32,17 +29,23 @@ button[type="submit"] {
 
 @media (min-width: 768px) {
     form {
-        gap: 4%;
+        gap: 2%;
     }
     form div {
-        width: 48%;
+        width: 49%;
     }   
+    form div:first-child {
+        width: 100%;
+    }
 }
 @media (min-width: 1024px) {
-    form {
-        gap: 3.5%;
+    form div:first-child {
+        width: 49%;
     }
-    form div {
-        width: 31%;
+    form div:nth-child(4) {
+        width: 23.5%;
+    }
+    form div:nth-child(5) {
+        width: 23.5%;
     }
 }

@@ -7,6 +7,14 @@ export function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setName('')
+    setEmail('')
+    setPhone('')
+    setCompany('')
+    setPosition('')
+    setState('')
+    setCity('')
+    e.target.reset()
     alert(`Gracias por enviar tus datos, ${name}!`)
   }
 
@@ -29,7 +37,7 @@ export function Contact() {
       const response = await fetch('https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/CL_GEO_AREA/null/es/BISE/2.0/e6593d42-e989-a9ee-117d-f4bf12620431?type=json');
       const { CODE } = await response.json();
       const currentState = CODE.find((code) => code.Description === state);
-      const cities = currentState ? CODE.filter((code) => code.value.startsWith(currentState.value)).slice(0, -4) : [];
+      const cities = currentState ? CODE.filter((code) => code.value.startsWith(currentState.value)).slice(1, -4) : [];
       setCities(cities);
     };
   
