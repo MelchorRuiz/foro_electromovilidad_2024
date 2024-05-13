@@ -8,15 +8,7 @@ import { InputField, SelectField } from './Fields.jsx';
 import './Contact.css'
 
 export function Contact() {
-  const {
-    name,
-    email,
-    phone,
-    company,
-    position,
-    state,
-    city
-  } = useContactFormStore();
+  const { name, email, phone, company, position, state, city } = useContactFormStore();
 
   const {
     register,
@@ -51,18 +43,25 @@ export function Contact() {
     }
   }, [state])
 
-  const watchValues = { name_watch, email_watch, phone_watch, company_watch, position_watch, state_watch, city_watch }  
+  const watchValues = { name_watch, email_watch, phone_watch, company_watch, position_watch, state_watch, city_watch }
   useFormEffects(watchValues);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <InputField label="Nombre" defaultValue={name} register={register} name="name" />
-      <InputField label="Email" defaultValue={email} register={register} name="email" />
-      <InputField label="Teléfono" defaultValue={phone} register={register} name="phone" />
-      <InputField label="Empresa" defaultValue={company} register={register} name="company" />
-      <InputField label="Cargo" defaultValue={position} register={register} name="position" />
-      <SelectField label="Estado" options={states} defaultValue={state} register={register} name="state" />
-      <SelectField label="Municipio" options={cities} defaultValue={city} register={register} name="city" />
+      <InputField label="Nombre" defaultValue={name} register={register} errors={errors} name="name"
+        validation={{ required: 'El nombre es requerido' }} />
+      <InputField label="Email" defaultValue={email} register={register} errors={errors} name="email"
+        validation={{ required: 'El email es requerido', pattern: { value: /^\S+@\S+$/i, message: 'Email inválido' } }} />
+      <InputField label="Teléfono" defaultValue={phone} register={register} errors={errors} name="phone"
+        validation={{ required: 'El teléfono es requerido', pattern: { value: /^\d+$/, message: 'Teléfono inválido' } }} />
+      <InputField label="Empresa" defaultValue={company} register={register} errors={errors} name="company"
+        validation={{ required: 'La empresa es requerida' }} />
+      <InputField label="Cargo" defaultValue={position} register={register} errors={errors} name="position"
+        validation={{ required: 'El cargo es requerido' }} />
+      <SelectField label="Estado" options={states} defaultValue={state} register={register} errors={errors} name="state"
+        validation={{ required: 'El estado es requerido' }} />
+      <SelectField label="Municipio" options={cities} defaultValue={city} register={register} errors={errors} name="city"
+        validation={{ required: 'El municipio es requerido' }} />
       <br />
       <button type="submit">Enviar</button>
     </form>
