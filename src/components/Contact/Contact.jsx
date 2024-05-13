@@ -1,9 +1,9 @@
-import { useContactFormStore } from '../../store/contact-form'
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+
+import { useContactFormStore } from '../../store/contact-form'
 import { locationData } from '../../data/constans_states_and_cities'
 import useFormEffects from './useFormEffects';
-
 import { InputField, SelectField } from './Fields.jsx';
 import './Contact.css'
 
