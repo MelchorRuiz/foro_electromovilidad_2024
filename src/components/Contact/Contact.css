@@ -12,6 +12,7 @@ form input, form select {
     border: 1px solid #ccc;
     border-radius: 0.3em !important;
     box-sizing: border-box;
+    padding: 0.5rem 0.75rem;
 }
 form label {
     color: white

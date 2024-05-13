@@ -20,7 +20,7 @@ import { Contact } from '../components/Contact/Contact.jsx'
       <Gallery client:idle />
     </Section>
     <Section id="registro" subtitle="Contáctanos">
-      <Contact client:idle />
+      <Contact client:only="react" />
     </Section>
   </main>
 </Layout>
