@@ -20,7 +20,7 @@ export const useContactFormStore = create(
             setState: (state) => set({ state }),
             setCity: (city) => set({ city }),
 
-            reset: () => set({
+            resetForm: () => set({
                 name: '',
                 email: '',
                 phone: '',

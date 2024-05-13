@@ -19,16 +19,20 @@ export function Contact() {
     setCompany,
     setPosition,
     setState, 
-    setCity } = useContactFormStore();
+    setCity,
+    resetForm } = useContactFormStore();
 
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data)
+    reset()
+    resetForm()
   }
 
   const states = Object.keys(locationData)
