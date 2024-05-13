@@ -2,6 +2,7 @@ import { useContactFormStore } from '../../store/contact-form'
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { locationData } from '../../data/constans_states_and_cities'
+import useFormEffects from './useFormEffects';
 import './Contact.css'
 
 export function Contact() {
@@ -12,15 +13,7 @@ export function Contact() {
     company,
     position,
     state,
-    city,
-    setName,
-    setEmail,
-    setPhone,
-    setCompany,
-    setPosition,
-    setState,
-    setCity,
-    reset
+    city
   } = useContactFormStore();
 
   const {
@@ -45,7 +38,7 @@ export function Contact() {
   const city_watch = watch('city')
 
   useEffect(() => {
-    const states =  Object.keys(locationData)
+    const states = Object.keys(locationData)
     setStates(states)
   }, [])
 
@@ -56,32 +49,8 @@ export function Contact() {
     }
   }, [state])
 
-  useEffect(() => {
-    setName(name_watch)
-  }, [name_watch])
-  useEffect(() => {
-    setEmail(email_watch)
-  }, [email_watch])
-  useEffect(() => {
-    setPhone(phone_watch)
-  }, [phone_watch])
-  useEffect(() => {
-    setCompany(company_watch)
-  }, [company_watch])
-  useEffect(() => {
-    setPosition(position_watch)
-  }, [position_watch])
-  useEffect(() => {
-    if (state_watch) {
-      setState(state_watch)
-      setCity('')
-    }
-  }, [state_watch])
-  useEffect(() => {
-    if (city_watch) {
-      setCity(city_watch)
-    } 
-  }, [city_watch])
+  const watchValues = { name_watch, email_watch, phone_watch, company_watch, position_watch, state_watch, city_watch }  
+  useFormEffects(watchValues);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
