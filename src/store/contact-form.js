@@ -19,6 +19,16 @@ export const useContactFormStore = create(
             setPosition: (position) => set({ position }),
             setState: (state) => set({ state }),
             setCity: (city) => set({ city }),
+
+            reset: () => set({
+                name: '',
+                email: '',
+                phone: '',
+                company: '',
+                position: '',
+                state: '',
+                city: '',
+            }),
         }),
         {
             name: 'contact-form-storage',

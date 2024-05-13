@@ -1,48 +1,52 @@
 import { useContactFormStore } from '../../store/contact-form'
 import { useState, useEffect } from 'react'
+import { location_data } from '../../data/constans_states_and_cities'
 import './Contact.css'
 
 export function Contact() {
-  const { name, email, phone, company, position, state, city, setName, setEmail, setPhone, setCompany, setPosition, setState, setCity } = useContactFormStore()
+  const {
+    name,
+    email,
+    phone,
+    company,
+    position,
+    state,
+    city,
+    setName,
+    setEmail,
+    setPhone,
+    setCompany,
+    setPosition,
+    setState,
+    setCity,
+    reset
+  } = useContactFormStore();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setName('')
-    setEmail('')
-    setPhone('')
-    setCompany('')
-    setPosition('')
-    setState('')
-    setCity('')
+    reset()
     e.target.reset()
     alert(`Gracias por enviar tus datos, ${name}!`)
+  }
+
+  const handleStateChange = (e) => {
+    const state = e.target.value
+    setState(state)
+    setCity('')
   }
 
   const [states, setStates] = useState([])
   const [cities, setCities] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/CL_GEO_AREA/null/es/BISE/2.0/e6593d42-e989-a9ee-117d-f4bf12620431?type=json');
-      const { CODE } = await response.json();
-      const states = CODE.filter((code) => code.value.length === 8).slice(0, 32);
-      setStates(states);
-    };
-  
-    fetchData();
+    const states =  Object.keys(location_data)
+    setStates(states)
   }, [])
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/CL_GEO_AREA/null/es/BISE/2.0/e6593d42-e989-a9ee-117d-f4bf12620431?type=json');
-      const { CODE } = await response.json();
-      const currentState = CODE.find((code) => code.Description === state);
-      const cities = currentState ? CODE.filter((code) => code.value.startsWith(currentState.value)).slice(1, -4) : [];
-      setCities(cities);
-    };
-  
-    setCity('');
-    fetchData();
+    if (state) {
+      const cities = location_data[state]
+      setCities(cities)
+    }
   }, [state])
 
   return (
@@ -69,11 +73,11 @@ export function Contact() {
       </div>
       <div>
         <label htmlFor="state">Estado</label>
-        <select value={state} onChange={(e) => setState(e.target.value)}>
+        <select value={state} onChange={handleStateChange}>
           <option value="" disabled >Selecciona un estado</option>
-          {states.map((state) => (
-            <option key={state.value} value={state.Description}>
-              {state.Description}
+          {states.map((state, index) => (
+            <option key={index} value={state}>
+              {state}
             </option>
           ))}
         </select>
@@ -82,9 +86,9 @@ export function Contact() {
         <label htmlFor="city">Municipio</label>
         <select value={city} onChange={(e) => setCity(e.target.value)}>
           <option value="" disabled >Selecciona un municipio</option>
-          {cities.map((city) => (
-            <option key={city.value} value={city.Description}>
-              {city.Description}
+          {cities.map((city, index) => (
+            <option key={index} value={city}>
+              {city}
             </option>
           ))}
         </select>
