@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { locationData } from '../../data/constans_states_and_cities'
 import useFormEffects from './useFormEffects';
+
+import { InputField, SelectField } from './Fields.jsx';
 import './Contact.css'
 
 export function Contact() {
@@ -54,48 +56,13 @@ export function Contact() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label>Nombre</label>
-        <input defaultValue={name} {...register('name')} />
-      </div>
-      <div>
-        <label>Email</label>
-        <input defaultValue={email} {...register('email')} />
-      </div>
-      <div>
-        <label>Teléfono</label>
-        <input defaultValue={phone} {...register('phone')} />
-      </div>
-      <div>
-        <label>Empresa</label>
-        <input defaultValue={company} {...register('company')} />
-      </div>
-      <div>
-        <label>Cargo</label>
-        <input defaultValue={position} {...register('position')} />
-      </div>
-      <div>
-        <label>Estado</label>
-        <select value={state} {...register('state')} >
-          <option value="" disabled >Selecciona un estado</option>
-          {states.map((state, index) => (
-            <option key={index} value={state}>
-              {state}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <label htmlFor="city">Municipio</label>
-        <select value={city} {...register('city')} >
-          <option value="" disabled >Selecciona un municipio</option>
-          {cities.map((city, index) => (
-            <option key={index} value={city}>
-              {city}
-            </option>
-          ))}
-        </select>
-      </div>
+      <InputField label="Nombre" defaultValue={name} register={register} name="name" />
+      <InputField label="Email" defaultValue={email} register={register} name="email" />
+      <InputField label="Teléfono" defaultValue={phone} register={register} name="phone" />
+      <InputField label="Empresa" defaultValue={company} register={register} name="company" />
+      <InputField label="Cargo" defaultValue={position} register={register} name="position" />
+      <SelectField label="Estado" options={states} defaultValue={state} register={register} name="state" />
+      <SelectField label="Municipio" options={cities} defaultValue={city} register={register} name="city" />
       <br />
       <button type="submit">Enviar</button>
     </form>
