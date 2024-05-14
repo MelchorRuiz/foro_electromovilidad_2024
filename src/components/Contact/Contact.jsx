@@ -5,20 +5,20 @@ import { InputField, SelectField } from './Fields.jsx';
 import './Contact.css'
 
 export function Contact() {
-  const { 
-    name, 
-    email, 
-    phone, 
-    company, 
-    position, 
-    state, 
-    city, 
+  const {
+    name,
+    email,
+    phone,
+    company,
+    position,
+    state,
+    city,
     setName,
     setEmail,
     setPhone,
     setCompany,
     setPosition,
-    setState, 
+    setState,
     setCity,
     resetForm } = useContactFormStore();
 
@@ -30,9 +30,10 @@ export function Contact() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data)
+    // Reset form data and clean Zustand store
     reset()
     resetForm()
+    console.log(data)
   }
 
   const states = Object.keys(locationData)
@@ -42,31 +43,31 @@ export function Contact() {
     <form onSubmit={handleSubmit(onSubmit)}>
 
       <InputField label="Nombre" defaultValue={name} register={register} errors={errors} name="name"
-        validation={{ required: 'El nombre es requerido' }} handleValue={setName}/>
+        validation={{ required: 'El nombre es requerido' }} handleValue={setName} />
 
       <InputField label="Email" defaultValue={email} register={register} errors={errors} name="email"
-        validation={{ required: 'El email es requerido', pattern: { value: /^\S+@\S+$/i, message: 'Email inválido' } }} 
-        handleValue={setEmail}/>
+        validation={{ required: 'El email es requerido', pattern: { value: /^\S+@\S+$/i, message: 'Email inválido' } }}
+        handleValue={setEmail} />
 
       <InputField label="Teléfono" defaultValue={phone} register={register} errors={errors} name="phone"
-        validation={{ required: 'El teléfono es requerido', pattern: { value: /^\d+$/, message: 'Teléfono inválido' } }} 
-        handleValue={setPhone}/>
+        validation={{ required: 'El teléfono es requerido', pattern: { value: /^\d+$/, message: 'Teléfono inválido' } }}
+        handleValue={setPhone} />
 
       <InputField label="Empresa" defaultValue={company} register={register} errors={errors} name="company"
-        validation={{ required: 'La empresa es requerida' }} 
-        handleValue={setCompany}/>
+        validation={{ required: 'La empresa es requerida' }}
+        handleValue={setCompany} />
 
       <InputField label="Cargo" defaultValue={position} register={register} errors={errors} name="position"
-        validation={{ required: 'El cargo es requerido' }} 
-        handleValue={setPosition}/>
+        validation={{ required: 'El cargo es requerido' }}
+        handleValue={setPosition} />
 
       <SelectField label="Estado" options={states} defaultValue={state} register={register} errors={errors} name="state"
-        validation={{ required: 'El estado es requerido' }} 
-        handleValue={setState}/>
+        validation={{ required: 'El estado es requerido' }}
+        handleValue={setState} />
 
       <SelectField label="Municipio" options={cities} defaultValue={city} register={register} errors={errors} name="city"
-        validation={{ required: 'El municipio es requerido' }} 
-        handleValue={setCity}/>
+        validation={{ required: 'El municipio es requerido' }}
+        handleValue={setCity} />
 
       <br />
       <button type="submit">Enviar</button>

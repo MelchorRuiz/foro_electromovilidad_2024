@@ -16,7 +16,7 @@ export const SelectField = ({ label, options, defaultValue, register, errors, na
       ...validation,
       onChange: (e) => handleValue(e.target.value)
     })}>
-      <option value="">Selecciona una opción</option>
+      <option value="" disabled >Selecciona una opción</option>
       {options.map((option, index) => (
         <option key={index} value={option} >
           {option}
