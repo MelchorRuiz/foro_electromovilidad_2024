@@ -2,10 +2,13 @@ form {
     display: flex;
     flex-wrap: wrap;
 }
+
 form div {
     width: 100%;
 }
-form input, form select {
+
+form input,
+form select {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8) !important;
     margin: 5px 0;
@@ -14,15 +17,18 @@ form input, form select {
     box-sizing: border-box;
     padding: 0.5rem 0.75rem;
 }
+
 form label {
     color: white
 }
+
 form span {
     color: #FF204E;
     font-size: 1em;
     font-weight: 700;
     margin-bottom: 4px;
 }
+
 button[type="submit"] {
     width: 100%;
     background-color: #4CAF50;
@@ -34,24 +40,101 @@ button[type="submit"] {
     cursor: pointer;
 }
 
+.success {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: #222831;
+    width: 400px;
+    height: 140px;
+    border-radius: 0.5em;
+    padding: 2em;
+    text-align: center;
+    color: #EEEEEE;
+    animation: modalOpen 0.5s ease-out;
+}
+
+.success.closing {
+    animation: modalClose 0.5s ease-out forwards;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.4em;
+    cursor: pointer;
+    font-size: 1.5em;
+    line-height: 0.5;
+    border-top-right-radius: 0.5em;
+}
+
+.close:hover {
+    background-color: #FF204E;
+}
+
+.progress {
+    height: 100%;
+    background-color: aqua;
+    border-radius: 1em;
+}
+
+.progress-bar {
+    height: 0.3em;
+    width: 100%;
+    background-color: transparent;
+    margin-top: 30px;
+}
+
+@keyframes modalOpen {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes modalClose {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+}
+
 @media (min-width: 768px) {
     form {
         gap: 2%;
     }
+
     form div {
         width: 49%;
-    }   
+    }
+
     form div:first-child {
         width: 100%;
     }
 }
+
 @media (min-width: 1024px) {
     form div:first-child {
         width: 49%;
     }
+
     form div:nth-child(4) {
         width: 23.5%;
     }
+
     form div:nth-child(5) {
         width: 23.5%;
     }

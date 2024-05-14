@@ -1,4 +1,6 @@
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
+import { useState, useEffect } from 'react'
+import confetti from 'canvas-confetti'
 import { useContactFormStore } from '../../store/contact-form'
 import { locationData } from '../../data/constans_states_and_cities'
 import { InputField, SelectField } from './Fields.jsx';
@@ -29,17 +31,49 @@ export function Contact() {
     reset
   } = useForm();
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [progress, setProgress] = useState(100);
+
   const onSubmit = (data) => {
     // Reset form data and clean Zustand store
     reset()
     resetForm()
     console.log(data)
+    setIsSubmitting(true)
+    confetti()
+
+    const interval = setInterval(() => {
+      setProgress(oldProgress => {
+        if (oldProgress === 0) {
+          clearInterval(interval);
+          document.querySelector('.success').classList.add('closing');
+          setTimeout(() => {
+            setIsSubmitting(false);
+            setProgress(100);
+          }, 200)
+        }
+        if (oldProgress < 20 ) {
+          return oldProgress - 0.5;
+        }
+        if (oldProgress < 15) {
+          return oldProgress - 0.3;
+        }
+        if (oldProgress < 10) {
+          return oldProgress - 0.2;
+        }
+        if (oldProgress < 5) {
+          return oldProgress - 0.1;
+        }
+        return oldProgress - 1;
+      });
+    }, 20);
   }
 
   const states = Object.keys(locationData)
   const cities = state ? locationData[state] : []
 
   return (
+    <>
     <form onSubmit={handleSubmit(onSubmit)}>
 
       <InputField label="Nombre" defaultValue={name} register={register} errors={errors} name="name"
@@ -63,7 +97,10 @@ export function Contact() {
 
       <SelectField label="Estado" options={states} defaultValue={state} register={register} errors={errors} name="state"
         validation={{ required: 'El estado es requerido' }}
-        handleValue={setState} />
+        handleValue={(state) => {
+          setState(state)
+          setCity('')
+        }} />
 
       <SelectField label="Municipio" options={cities} defaultValue={city} register={register} errors={errors} name="city"
         validation={{ required: 'El municipio es requerido' }}
@@ -72,5 +109,14 @@ export function Contact() {
       <br />
       <button type="submit">Enviar</button>
     </form>
+    {isSubmitting && <div className="success">
+			<button className="close" onClick={() => setIsSubmitting(false)}>×</button>
+			<h2>¡Gracias por tu mensaje!</h2>
+			<p>En breve nos pondremos en contacto contigo.</p>
+      <div className='progress-bar'>
+        <div className='progress' style={{ width: `${progress}%` }} />
+      </div>
+		</div>}
+    </>
   );
 }
