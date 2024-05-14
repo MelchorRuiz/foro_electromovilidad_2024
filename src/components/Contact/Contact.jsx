@@ -36,12 +36,24 @@ export function Contact() {
   const [progress, setProgress] = useState(100)
 
   const onSubmit = (data) => {
+    try {
+      const response = fetch('localhost:3000/create-register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
     // Reset form data and clean Zustand store
-    reset()
-    resetForm()
-    console.log(data)
-    setIsSubmitting(true)
-    confetti()
+    //reset()
+    //resetForm()
+
+    //setIsSubmitting(true)
+    //confetti()
 
     const interval = setInterval(() => {
       setProgress((oldProgress) => {
