@@ -14,22 +14,24 @@ export class Registro_Model {
         name,
         email,
         phone,
-        empresa,
-        cargo,
-        estado,
-        municipio,
+        company,
+        position,
+        state,
+        city,
     }) {
         
         const connection = await mysql.createConnection(config);
         try{
             const [rows] = await connection.query(
-                'INSERT INTO users (name, email, phone, empresa, cargo, estado, municipio) VALUES (?, ?, ?, ?, ?, ?, ?)',
-                [name, email, phone, empresa, cargo, estado, municipio]
+                'INSERT INTO users (name, email, phone, company, position, state, city) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                [name, email, phone, company, position, state, city]
             );
-            console.log(rows);
-            
         } catch (error) {
-            console.log(error);
+            if (error.code === 'ER_DUP_ENTRY') {
+                throw new Error('Mail or telephone already exist');
+            } else {
+                throw new Error(error);
+            }
         } finally {
             await connection.end();
         }

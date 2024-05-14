@@ -35,25 +35,13 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [progress, setProgress] = useState(100)
 
-  const onSubmit = (data) => {
-    try {
-      const response = fetch('localhost:3000/create-register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      console.log(response)
-    } catch (error) {
-      console.log(error)
-    }
+  const success = () => {
     // Reset form data and clean Zustand store
-    //reset()
-    //resetForm()
+    reset()
+    resetForm()
 
-    //setIsSubmitting(true)
-    //confetti()
+    setIsSubmitting(true)
+    confetti()
 
     const interval = setInterval(() => {
       setProgress((oldProgress) => {
@@ -80,6 +68,23 @@ export function Contact() {
         return oldProgress - 1
       })
     }, 20)
+  }
+
+  const onSubmit = (data) => {
+    console.log(JSON.stringify(data))
+    try {
+      const response = fetch('http://127.0.0.1:3000/create-register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   const states = Object.keys(locationData)
