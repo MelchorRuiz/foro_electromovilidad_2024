@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import {Registro_Model} from './db.js';
+import { Registro_Model } from './db.js';
+import { validateUser } from './validations.js';
 const app = express();
 
 app.use(express.json());
@@ -16,6 +17,12 @@ app.get('/healthcheck/', (req, res) => {
 
 app.post('/create-register/',  async (req, res) => {
     try {
+        const errors = validateUser(req.body);
+        if (errors.length > 0) {
+            res.status(400).send(errors);
+            return;
+        }
+        console.log(req.body);
         await Registro_Model.createRegistro(req.body);    
         res.status(201).send('User created');
     } catch (error) {
