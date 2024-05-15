@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { Registro_Model } from './db.js';
-import { validateUser } from './validations.js';
+import { validateUser } from './validations/user_validation.js';
 const app = express();
 
 app.use(express.json());
@@ -22,7 +22,7 @@ app.post('/create-register/',  async (req, res) => {
             res.status(400).send(errors);
             return;
         }
-        await Registro_Model.createRegistro(req.body);    
+        await Registro_Model.createRegistro(req.body);
         res.status(201).send('User created');
     } catch (error) {
         if (error.message === 'Mail or telephone already exist') {

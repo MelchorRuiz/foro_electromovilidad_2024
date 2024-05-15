@@ -1,4 +1,4 @@
-import { locationData } from "./constans_states_and_cities.js";
+import { locationData } from "../data/constans_states_and_cities.js";
 
 export function validateUser (user) {
     const errors = []
