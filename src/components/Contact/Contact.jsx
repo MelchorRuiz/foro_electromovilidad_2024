@@ -1,4 +1,4 @@
-import { set, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import { useContactFormStore } from '../../store/contact-form'
@@ -36,51 +36,18 @@ export function Contact() {
   const [isFailed, setIsFailed] = useState(false)
   const [progress, setProgress] = useState(100)
 
-  const success = () => {
-    // Reset form data and clean Zustand store
-    reset()
-    //resetForm()
-
-    setIsSubmitting(true)
-    confetti()
-
+  // setIsSubmitting and setIsFailed are the setters for the modals
+  // setIsSubmitting is for the success modal
+  // setIsFailed is for the failure modal
+  const activateModal = (setter) => {
+    setter(true)
     const interval = setInterval(() => {
       setProgress((oldProgress) => {
         if (oldProgress === 0) {
           clearInterval(interval)
           document.querySelector('.modal').classList.add('closing')
           setTimeout(() => {
-            setIsSubmitting(false)
-            setProgress(100)
-          }, 200)
-        }
-        if (oldProgress < 20) {
-          return oldProgress - 0.5
-        }
-        if (oldProgress < 15) {
-          return oldProgress - 0.3
-        }
-        if (oldProgress < 10) {
-          return oldProgress - 0.2
-        }
-        if (oldProgress < 5) {
-          return oldProgress - 0.1
-        }
-        return oldProgress - 1
-      })
-    }, 20)
-  }
-
-  const failure = () => {
-    setIsFailed(true)
-
-    const interval = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === 0) {
-          clearInterval(interval)
-          document.querySelector('.modal').classList.add('closing')
-          setTimeout(() => {
-            setIsFailed(false)
+            setter(false)
             setProgress(100)
           }, 200)
         }
@@ -110,8 +77,15 @@ export function Contact() {
         },
         body: JSON.stringify(data),
       })
-      if (response.status === 201) success()
-      if (response.status === 409) failure()
+      if (response.status === 201) {
+        resetForm()
+        reset()
+        activateModal(setIsSubmitting)
+        confetti()
+      }
+      if (response.status === 409) {
+        activateModal(setIsFailed)
+      }
     } catch (error) {
       console.log(error)
     }
