@@ -104,7 +104,10 @@ export function Contact() {
           register={register}
           errors={errors}
           name='name'
-          validation={{ required: 'El nombre es requerido' }}
+          validation={{ 
+            required: 'El nombre es requerido',
+            pattern: { value: /^[a-zA-ZÀ-ÿ\s']+$/, message: 'Nombre inválido' },
+          }}
           handleValue={setName}
         />
 
@@ -116,7 +119,7 @@ export function Contact() {
           name='email'
           validation={{
             required: 'El email es requerido',
-            pattern: { value: /^\S+@\S+$/i, message: 'Email inválido' },
+            pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: 'Email inválido' },
           }}
           handleValue={setEmail}
         />
