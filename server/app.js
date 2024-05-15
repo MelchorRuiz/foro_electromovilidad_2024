@@ -22,7 +22,6 @@ app.post('/create-register/',  async (req, res) => {
             res.status(400).send(errors);
             return;
         }
-        console.log(req.body);
         await Registro_Model.createRegistro(req.body);    
         res.status(201).send('User created');
     } catch (error) {

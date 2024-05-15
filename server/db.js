@@ -1,5 +1,6 @@
 import mysql from 'mysql2/promise';
 import 'dotenv/config';
+import { v4 } from 'uuid';
 
 const config = {
     host: process.env.DB_HOST,
@@ -23,8 +24,8 @@ export class Registro_Model {
         const connection = await mysql.createConnection(config);
         try{
             const [rows] = await connection.query(
-                'INSERT INTO users (name, email, phone, company, position, state, city) VALUES (?, ?, ?, ?, ?, ?, ?)',
-                [name, email, phone, company, position, state, city]
+                'INSERT INTO users (uuid, name, email, phone, company, position, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                [v4(), name, email, phone, company, position, state, city]
             );
         } catch (error) {
             if (error.code === 'ER_DUP_ENTRY') {
