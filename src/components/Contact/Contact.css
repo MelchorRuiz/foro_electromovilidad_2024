@@ -40,23 +40,31 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-.success {
+.modal {
     position: fixed;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    background: #222831;
-    width: 400px;
     height: 140px;
     border-radius: 0.5em;
     padding: 2em;
     text-align: center;
-    color: #EEEEEE;
     animation: modalOpen 0.5s ease-out;
 }
 
-.success.closing {
+.success {
+    background-color: #222831;
+    color: #EEEEEE;
+    width: 400px;
+}
+
+.failure {
+    background-color: #c3a9a9;
+    color: #151515;
+}
+
+.modal.closing {
     animation: modalClose 0.5s ease-out forwards;
 }
 
@@ -77,8 +85,15 @@ button[type="submit"] {
 
 .progress {
     height: 100%;
-    background-color: aqua;
     border-radius: 1em;
+}
+
+.success .progress {
+    background-color: aqua;
+}
+
+.failure .progress {
+    background-color: #151515;
 }
 
 .progress-bar {

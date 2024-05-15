@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import { useContactFormStore } from '../../store/contact-form'
@@ -33,12 +33,13 @@ export function Contact() {
   } = useForm()
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isFailed, setIsFailed] = useState(false)
   const [progress, setProgress] = useState(100)
 
   const success = () => {
     // Reset form data and clean Zustand store
     reset()
-    resetForm()
+    //resetForm()
 
     setIsSubmitting(true)
     confetti()
@@ -47,7 +48,7 @@ export function Contact() {
       setProgress((oldProgress) => {
         if (oldProgress === 0) {
           clearInterval(interval)
-          document.querySelector('.success').classList.add('closing')
+          document.querySelector('.modal').classList.add('closing')
           setTimeout(() => {
             setIsSubmitting(false)
             setProgress(100)
@@ -70,17 +71,47 @@ export function Contact() {
     }, 20)
   }
 
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data))
+  const failure = () => {
+    setIsFailed(true)
+
+    const interval = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 0) {
+          clearInterval(interval)
+          document.querySelector('.modal').classList.add('closing')
+          setTimeout(() => {
+            setIsFailed(false)
+            setProgress(100)
+          }, 200)
+        }
+        if (oldProgress < 20) {
+          return oldProgress - 0.5
+        }
+        if (oldProgress < 15) {
+          return oldProgress - 0.3
+        }
+        if (oldProgress < 10) {
+          return oldProgress - 0.2
+        }
+        if (oldProgress < 5) {
+          return oldProgress - 0.1
+        }
+        return oldProgress - 1
+      })
+    }, 20)
+  }
+
+  const onSubmit = async (data) => {
     try {
-      const response = fetch('http://127.0.0.1:3000/create-register', {
+      const response = await fetch('http://localhost:3000/create-register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       })
-      console.log(response)
+      if (response.status === 201) success()
+      if (response.status === 409) failure()
     } catch (error) {
       console.log(error)
     }
@@ -189,12 +220,24 @@ export function Contact() {
         <button type='submit'>Enviar</button>
       </form>
       {isSubmitting && (
-        <div className='success'>
+        <div className='modal success'>
           <button className='close' onClick={() => setIsSubmitting(false)}>
             ×
           </button>
           <h2>¡Gracias por tu mensaje!</h2>
           <p>En breve nos pondremos en contacto contigo.</p>
+          <div className='progress-bar'>
+            <div className='progress' style={{ width: `${progress}%` }} />
+          </div>
+        </div>
+      )}
+      {isFailed && (
+        <div className='modal failure'>
+          <button className='close' onClick={() => setIsFailed(false)}>
+            ×
+          </button>
+          <h2>¡Oops, ha ocurrido un error!</h2>
+          <p>El correo o teléfono ya existen en la base de datos.</p>
           <div className='progress-bar'>
             <div className='progress' style={{ width: `${progress}%` }} />
           </div>
