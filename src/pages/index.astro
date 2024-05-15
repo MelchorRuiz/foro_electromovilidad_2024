@@ -4,10 +4,9 @@ import Hero from '../components/Hero.astro'
 import SegmentosDeEnfoque from '../components/SegmentosDeEnfoque.astro'
 import Programa from '../components/Programa.astro'
 import Ponentes from '../components/Ponentes.astro'
-import Footer from '../components/Footer.astro'
 import Section from '../components/Section.astro'
 import { Gallery } from '../components/Gallery/Gallery.jsx'
-import { Contact } from '../components/Contact/Contact.jsx'
+import { Register } from '../components/Register/Register.jsx'
 ---
 
 <Layout title='IGECO | Foro Electromovilidad'>
@@ -19,8 +18,8 @@ import { Contact } from '../components/Contact/Contact.jsx'
     <Section id='galeria' subtitle='Galeria'>
       <Gallery client:visible />
     </Section>
-    <Section id="registro" subtitle="Contáctanos">
-      <Contact client:only="react" />
+    <Section id="registro" subtitle="Registrate">
+      <Register client:only="react" />
     </Section>
   </main>
 </Layout>

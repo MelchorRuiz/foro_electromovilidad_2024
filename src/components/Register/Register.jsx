@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
-import { useContactFormStore } from '../../store/contact-form'
-import { locationData } from '../../data/constans_states_and_cities'
+import { useRegisterFormStore } from '../../store/register-form.js'
+import { locationData } from '../../data/constans_states_and_cities.js'
 import { InputField, SelectField } from './Fields.jsx'
-import './Contact.css'
+import './Register.css'
 
-export function Contact() {
+export function Register() {
   const {
     name,
     email,
@@ -23,7 +23,7 @@ export function Contact() {
     setState,
     setCity,
     resetForm,
-  } = useContactFormStore()
+  } = useRegisterFormStore()
 
   const {
     register,

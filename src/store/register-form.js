@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export const useContactFormStore = create(
+export const useRegisterFormStore = create(
     persist(
         (set) => ({
             name: '',
