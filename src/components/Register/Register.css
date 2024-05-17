@@ -40,93 +40,6 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-.modal {
-    position: fixed;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 90%;
-    height: 140px;
-    border-radius: 0.5em;
-    padding: 1.2em 2em;
-    text-align: center;
-    animation: modalOpen 0.5s ease-out;
-}
-
-.success {
-    background-color: #222831;
-    color: #EEEEEE;
-}
-
-.failure {
-    background-color: #c3a9a9;
-    color: #151515;
-}
-
-.modal.closing {
-    animation: modalClose 0.5s ease-out forwards;
-}
-
-.close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.4em;
-    cursor: pointer;
-    font-size: 1.5em;
-    line-height: 0.5;
-    border-top-right-radius: 0.5em;
-}
-
-.close:hover {
-    background-color: #FF204E;
-}
-
-.progress {
-    height: 100%;
-    border-radius: 1em;
-}
-
-.success .progress {
-    background-color: aqua;
-}
-
-.failure .progress {
-    background-color: #151515;
-}
-
-.progress-bar {
-    height: 0.3em;
-    width: 100%;
-    background-color: transparent;
-    margin-top: 20px;
-}
-
-@keyframes modalOpen {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-}
-
-@keyframes modalClose {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-    }
-}
-
 @media (min-width: 768px) {
     form {
         gap: 2%;
@@ -138,10 +51,6 @@ button[type="submit"] {
 
     form div:first-child {
         width: 100%;
-    }
-
-    .modal {
-        width: 50%;
     }
 }
 
@@ -156,9 +65,5 @@ button[type="submit"] {
 
     form div:nth-child(5) {
         width: 23.5%;
-    }
-
-    .modal {
-        width: 30%;
     }
 }

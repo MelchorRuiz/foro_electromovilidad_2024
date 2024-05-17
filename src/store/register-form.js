@@ -22,7 +22,7 @@ export const useRegisterFormStore = create(
             setCity: (city) => set({ city }),
             setSubmitting: (isSubmitting) => set({ isSubmitting }),
 
-            resetForm: () => set({
+            reset: () => set({
                 name: '',
                 email: '',
                 phone: '',

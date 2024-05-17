@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import { useRegisterFormStore } from '../../store/register-form.js'
@@ -22,51 +22,17 @@ export function Register() {
     setPosition,
     setState,
     setCity,
-    resetForm,
+    setSubmitting,
+    reset,
   } = useRegisterFormStore()
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    reset,
+    formState: { errors }
   } = useForm()
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isFailed, setIsFailed] = useState(false)
-  const [progress, setProgress] = useState(100)
-
-  // setIsSubmitting and setIsFailed are the setters for the modals
-  // setIsSubmitting is for the success modal
-  // setIsFailed is for the failure modal
-  const activateModal = (setter) => {
-    setter(true)
-    const interval = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === 0) {
-          clearInterval(interval)
-          document.querySelector('.modal').classList.add('closing')
-          setTimeout(() => {
-            setter(false)
-            setProgress(100)
-          }, 200)
-        }
-        if (oldProgress < 20) {
-          return oldProgress - 0.5
-        }
-        if (oldProgress < 15) {
-          return oldProgress - 0.3
-        }
-        if (oldProgress < 10) {
-          return oldProgress - 0.2
-        }
-        if (oldProgress < 5) {
-          return oldProgress - 0.1
-        }
-        return oldProgress - 1
-      })
-    }, 20)
-  }
 
   const onSubmit = async (data) => {
     try {
@@ -78,13 +44,12 @@ export function Register() {
         body: JSON.stringify(data),
       })
       if (response.status === 201) {
-        resetForm()
         reset()
-        activateModal(setIsSubmitting)
-        confetti()
+        setSubmitting(true)
+        window.location.href = '/gracias-por-registrarte'
       }
       if (response.status === 409) {
-        activateModal(setIsFailed)
+        setIsFailed(true)
       }
     } catch (error) {
       console.log(error)
@@ -96,130 +61,115 @@ export function Register() {
   const cities = state ? locationData[state] : []
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputField
-          label='Nombre'
-          defaultValue={name}
-          register={register}
-          errors={errors}
-          name='name'
-          validation={{ 
-            required: 'El nombre es requerido',
-            pattern: { value: /^[a-zA-ZÀ-ÿ\s']+$/, message: 'Nombre inválido' },
-          }}
-          handleValue={setName}
-        />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <InputField
+        label='Nombre'
+        defaultValue={name}
+        register={register}
+        errors={errors}
+        name='name'
+        validation={{
+          required: 'El nombre es requerido',
+          pattern: { value: /^[a-zA-ZÀ-ÿ\s']+$/, message: 'Nombre inválido' },
+        }}
+        handleValue={setName}
+      />
 
-        <InputField
-          label='Email'
-          defaultValue={email}
-          register={register}
-          errors={errors}
-          name='email'
-          validation={{
-            required: 'El email es requerido',
-            pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: 'Email inválido' },
-          }}
-          handleValue={setEmail}
-        />
+      <InputField
+        label='Email'
+        defaultValue={email}
+        register={register}
+        errors={errors}
+        name='email'
+        validation={{
+          required: 'El email es requerido',
+          pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: 'Email inválido' },
+        }}
+        handleValue={setEmail}
+      />
 
-        <InputField
-          label='Teléfono'
-          defaultValue={phone}
-          register={register}
-          errors={errors}
-          name='phone'
-          validation={{
-            required: 'El teléfono es requerido',
-            maxLength: {
-              value: 10,
-              message: 'El teléfono debe tener 10 dígitos',
-            },
-            minLength: {
-              value: 10,
-              message: 'El teléfono debe tener 10 dígitos',
-            },
-            pattern: {
-              value: /^[0-9]+$/,
-              message: 'Teléfono inválido',
-            },
-          }}
-          handleValue={setPhone}
-        />
+      <InputField
+        label='Teléfono'
+        defaultValue={phone}
+        register={register}
+        errors={errors}
+        name='phone'
+        validation={{
+          required: 'El teléfono es requerido',
+          maxLength: {
+            value: 10,
+            message: 'El teléfono debe tener 10 dígitos',
+          },
+          minLength: {
+            value: 10,
+            message: 'El teléfono debe tener 10 dígitos',
+          },
+          pattern: {
+            value: /^[0-9]+$/,
+            message: 'Teléfono inválido',
+          },
+        }}
+        handleValue={setPhone}
+      />
 
-        <InputField
-          label='Empresa'
-          defaultValue={company}
-          register={register}
-          errors={errors}
-          name='company'
-          validation={{ required: 'La empresa es requerida' }}
-          handleValue={setCompany}
-        />
+      <InputField
+        label='Empresa'
+        defaultValue={company}
+        register={register}
+        errors={errors}
+        name='company'
+        validation={{ required: 'La empresa es requerida' }}
+        handleValue={setCompany}
+      />
 
-        <InputField
-          label='Cargo'
-          defaultValue={position}
-          register={register}
-          errors={errors}
-          name='position'
-          validation={{ required: 'El cargo es requerido' }}
-          handleValue={setPosition}
-        />
+      <InputField
+        label='Cargo'
+        defaultValue={position}
+        register={register}
+        errors={errors}
+        name='position'
+        validation={{ required: 'El cargo es requerido' }}
+        handleValue={setPosition}
+      />
 
-        <SelectField
-          label='Estado'
-          options={states}
-          defaultValue={state}
-          register={register}
-          errors={errors}
-          name='state'
-          validation={{ required: 'El estado es requerido' }}
-          handleValue={(state) => {
-            setState(state)
-            setCity('')
-          }}
-        />
+      <SelectField
+        label='Estado'
+        options={states}
+        defaultValue={state}
+        register={register}
+        errors={errors}
+        name='state'
+        validation={{ required: 'El estado es requerido' }}
+        handleValue={(state) => {
+          setState(state)
+          setCity('')
+        }}
+      />
 
-        <SelectField
-          label='Municipio'
-          options={cities}
-          defaultValue={city}
-          register={register}
-          errors={errors}
-          name='city'
-          validation={{ required: 'El municipio es requerido' }}
-          handleValue={setCity}
-        />
+      <SelectField
+        label='Municipio'
+        options={cities}
+        defaultValue={city}
+        register={register}
+        errors={errors}
+        name='city'
+        validation={{ required: 'El municipio es requerido' }}
+        handleValue={setCity}
+      />
 
-        <br />
-        <button type='submit'>Enviar</button>
-      </form>
-      {isSubmitting && (
-        <div className='modal success'>
-          <button className='close' onClick={() => setIsSubmitting(false)}>
-            ×
-          </button>
-          <h2>¡Gracias por tu mensaje!</h2>
-          <p>En breve nos pondremos en contacto contigo.</p>
-          <div className='progress-bar'>
-            <div className='progress' style={{ width: `${progress}%` }} />
-          </div>
-        </div>
-      )}
+      <br />
       {isFailed && (
-        <div className='modal failure'>
-          <button className='close' onClick={() => setIsFailed(false)}>
-            ×
-          </button>
-          <h2>¡Oops, ha ocurrido un error!</h2>
-          <p>El correo o teléfono ya existen en la base de datos.</p>
-          <div className='progress-bar'>
-            <div className='progress' style={{ width: `${progress}%` }} />
+        <div class="flex items-center p-4 mb-4 text-sm w-full text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+          <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>
+          <span class="sr-only">Info</span>
+          <div>
+            <span class="font-medium">¡Oops, ha ocurrido un error!</span> El correo o teléfono ya han sido registrados.
           </div>
         </div>
       )}
-    </>
+      <button type='submit'>Enviar</button>
+    </form>
   )
 }
