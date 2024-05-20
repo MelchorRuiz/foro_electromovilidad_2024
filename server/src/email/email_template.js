@@ -23,7 +23,7 @@ export function emailTemplate( name ) {
                     </tr>
                   </tbody>
                 </table>
-                <img alt="IGECO logo" src="" style="display:block;outline:none;border:none;text-decoration:none;width:70%;filter:invert(1);margin:auto;padding-top:20px;" />
+                <img alt="IGECO logo" src="http://localhost:4321/logo.png" style="display:block;outline:none;border:none;text-decoration:none;width:70%;filter:invert(1);margin:auto;padding-top:20px;" />
               </td>
             </tr>
           </tbody>
