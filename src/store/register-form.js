@@ -11,7 +11,6 @@ export const useRegisterFormStore = create(
             position: '',
             state: '',
             city: '',
-            isSubmitting: false,
 
             setName: (name) => set({ name }),
             setEmail: (email) => set({ email }),
@@ -20,7 +19,6 @@ export const useRegisterFormStore = create(
             setPosition: (position) => set({ position }),
             setState: (state) => set({ state }),
             setCity: (city) => set({ city }),
-            setSubmitting: (isSubmitting) => set({ isSubmitting }),
 
             reset: () => set({
                 name: '',

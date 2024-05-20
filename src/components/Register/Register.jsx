@@ -1,7 +1,7 @@
-import { set, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import confetti from 'canvas-confetti'
 import { useRegisterFormStore } from '../../store/register-form.js'
+import { useThankYouPageStore } from '../../store/thankyou-page'
 import { locationData } from '../../data/constans_states_and_cities.js'
 import { InputField, SelectField } from './Fields.jsx'
 import './Register.css'
@@ -22,9 +22,10 @@ export function Register() {
     setPosition,
     setState,
     setCity,
-    setSubmitting,
     reset,
   } = useRegisterFormStore()
+
+  const { setSubmitting, setPdfUrl } = useThankYouPageStore()
 
   const {
     register,
@@ -44,8 +45,10 @@ export function Register() {
         body: JSON.stringify(data),
       })
       if (response.status === 201) {
+        const data = await response.json()
         reset()
         setSubmitting(true)
+        setPdfUrl(data.uuid)
         window.location.href = '/gracias-por-registrarte'
       }
       if (response.status === 409) {

@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import confetti from 'canvas-confetti'
-import { useRegisterFormStore } from '../../store/register-form'
+import { useThankYouPageStore } from '../../store/thankyou-page'
 import './ThankYou.css'
 
 export function ThankYou() {
-    const { isSubmitting } = useRegisterFormStore()
+    const { isSubmitting, pdfUrl } = useThankYouPageStore()
 
     useEffect(() => {
         if (!isSubmitting) {
@@ -32,6 +32,9 @@ export function ThankYou() {
             <div>
                 <p>¡Fantastico! Tu registro a sido enviado correctamente</p>
                 <p>Recibirás un correo de confirmación en breve.</p>
+            </div>
+            <div>
+                <a href={`http://localhost:3000/acknowledgments/${pdfUrl}.pdf`} target='_blank' >Descargar PDF</a>
             </div>
         </div>
     )

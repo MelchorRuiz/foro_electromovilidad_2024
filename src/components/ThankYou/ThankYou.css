@@ -45,6 +45,18 @@ p:first-child {
     font-size: 1.2em;
 }
 
+a {
+    background-color: #003C43;
+    padding: 1em;
+    border-radius: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #77B0AA;
+    color: #222831;
+}
+
 @media (min-width: 768px) {
     h1 {
         font-size: 4em;

@@ -1,4 +1,7 @@
 import express from 'express';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
 import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
 import { Registro_Model } from './db.js';
@@ -13,6 +16,10 @@ app.use(cors({
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+app.use('/acknowledgments', express.static(path.join(__dirname, '../acknowledgments')));
 
 app.get('/healthcheck/', (req, res) => {
     res.send({status: 'ok'});
