@@ -3,7 +3,8 @@ import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
 import { Registro_Model } from './db.js';
 import { validateUser } from './validations/user_validation.js';
-import { sendEmail } from './sendEmail.js';
+import { sendEmail } from './email/sendEmail.js';
+import { createPdf } from './pdf.js';
 const app = express();
 
 app.use(express.json());
@@ -39,7 +40,7 @@ app.post('/create-register/',  async (req, res) => {
     }
     
     try {
-        await sendEmail(user);
+        await sendEmail(user, await createPdf(user));
     } catch (error) {
         console.error('Error sending email', error);
         res.status(500).send('Internal Server Error');
