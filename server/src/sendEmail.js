@@ -1,4 +1,3 @@
-
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
 import { emailTemplate } from './templates/email_template.js'
