@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
 import { emailTemplate } from './templates/email_template.js'
+import { createPdf } from './pdf.js'
 
 dotenv.config()
 
@@ -14,11 +15,17 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-export async function sendEmail(email, name) {
+export async function sendEmail(user) {
     await transporter.sendMail({
         from: `"Foro de Electromovilidad" <${process.env.SMTP_GMAIL}>`,
-        to: email,
+        to: user.email,
         subject: 'Registro Exitoso',
-        html: emailTemplate(name)
-    })  
+        html: emailTemplate(user.name),
+        attachments: [
+            {
+                filename: 'registro.pdf',
+                content: await createPdf(user)
+            }
+        ]
+    })
 }

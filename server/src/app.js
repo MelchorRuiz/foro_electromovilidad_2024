@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { v4 as uuidv4 } from 'uuid';
 import { Registro_Model } from './db.js';
 import { validateUser } from './validations/user_validation.js';
 import { sendEmail } from './sendEmail.js';
@@ -16,21 +17,18 @@ app.get('/healthcheck/', (req, res) => {
     res.send({status: 'ok'});
 })
 
-app.get('/test/', (req, res) => {
-    sendEmail(req.query.email, 'Melchor').then(() => {
-        res.send('Email sent');
-    })
-})
-
 app.post('/create-register/',  async (req, res) => {
-    const errors = validateUser(req.body);
+    const user = req.body;
+    user.uuid = uuidv4();
+
+    const errors = validateUser(user);
     if (errors.length > 0) {
         res.status(400).send(errors);
         return;
     }
     
     try {
-        await Registro_Model.createRegistro(req.body);
+        await Registro_Model.createRegistro(user);
     } catch (error) {
         if (error.message === 'Mail or telephone already exist') {
             res.status(409).send(error.message);
@@ -41,7 +39,7 @@ app.post('/create-register/',  async (req, res) => {
     }
     
     try {
-        await sendEmail(req.body.email, req.body.name);
+        await sendEmail(user);
     } catch (error) {
         console.error('Error sending email', error);
         res.status(500).send('Internal Server Error');
