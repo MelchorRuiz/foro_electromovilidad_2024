@@ -80,7 +80,7 @@ export async function createPdf({
         }
     }), 197.64, 420)
 
-    doc.image('./src/img/logo.png', 320.28, 766.89, { width: 250 })
+    doc.image('./img/logo.png', 320.28, 766.89, { width: 250 })
 
     doc.polygon([15, 15], [580.28, 15], [580.28, 826.89], [15, 826.89])
     .lineWidth(2)
