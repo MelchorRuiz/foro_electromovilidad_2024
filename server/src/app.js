@@ -38,16 +38,18 @@ app.post('/create-register/',  async (req, res) => {
         }
         return;
     }
+
+    await createPdf(user);
     
     try {
-        await sendEmail(user, await createPdf(user));
+        await sendEmail(user);
     } catch (error) {
         console.error('Error sending email', error);
         res.status(500).send('Internal Server Error');
         return;
     }
 
-    res.status(201).send('User created');
+    res.status(201).send({uuid: user.uuid});
 });
 
 app.listen(3000, () => {

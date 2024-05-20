@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-export async function sendEmail({email, name}, pdf) {
+export async function sendEmail({ name, email, uuid }) {
     await transporter.sendMail({
         from: `"Foro de Electromovilidad" <${process.env.SMTP_GMAIL}>`,
         to: email,
@@ -23,7 +23,7 @@ export async function sendEmail({email, name}, pdf) {
         attachments: [
             {
                 filename: 'registro.pdf',
-                content: pdf
+                path: './acknowledgments/' + uuid + '.pdf',
             }
         ]
     })
