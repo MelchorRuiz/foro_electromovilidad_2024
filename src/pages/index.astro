@@ -1,15 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from '../components/Hero.astro'
-import SegmentosDeEnfoque from '../components/SegmentosDeEnfoque.astro'
-import Programa from '../components/Programa.astro'
-import Ponentes from '../components/Ponentes.astro'
-import Section from '../components/Section.astro'
-import { Gallery } from '../components/Gallery/Gallery.jsx'
-import { Register } from '../components/Register/Register.jsx'
+import i18next, { t, changeLanguage } from "i18next";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SegmentosDeEnfoque from "../components/SegmentosDeEnfoque.astro";
+import Programa from "../components/Programa.astro";
+import Ponentes from "../components/Ponentes.astro";
+import Section from "../components/Section.astro";
+import { Gallery } from "../components/Gallery/Gallery.jsx";
+import { Register } from "../components/Register/Register.jsx";
+
+changeLanguage("en");
 ---
 
-<Layout title='IGECO | Foro Electromovilidad'>
+<Layout title={`IGECO | ${t('title')}`}>
   <Hero />
   <main>
     <SegmentosDeEnfoque />
