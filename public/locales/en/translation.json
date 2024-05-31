@@ -1,3 +1,48 @@
 {
-    "title": "Electromobility Forum"
+    "title": "Electromobility Forum",
+    "subtitle": "¡The most important industry forum in Guanajuato!!",
+    "focus-segments": {
+        "title": "Focus Segments",
+        "segments": {
+            "1": "Electric transportation",
+            "2": "New electric car assembly plants and conversion of internal combustion plants",
+            "3": "Charging, generation and storage infrastructure",
+            "4": "Batteries",
+            "5": "Government policies and international commitments",
+            "6": "Major semiconductor producers and the global environment -Major semiconductor producers and the global environment"
+        }
+    },
+    "program": {
+        "title": "Program"
+    },
+    "speakers": {
+        "title": "Speakers"
+    },
+    "gallery": {
+        "title": "Gallery"
+    },
+    "register": {
+        "title": "Register",
+        "second-title": "Register",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "company": "Company",
+            "position": "Position",
+            "state": "Status",
+            "municipality": "Municipality",
+            "select": "Select an option",
+            "submit": "Send"
+        }
+    },
+    "contact": {
+        "title": "CONTACT"
+    },
+    "thanks": {
+        "title": "Thank you for registering",
+        "subtitle": "Fantastic! Your registration has been sent successfully",
+        "message": "You will receive a confirmation email shortly.",
+        "button": "Download PDF"
+    }
 }

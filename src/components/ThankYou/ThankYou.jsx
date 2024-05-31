@@ -30,7 +30,7 @@ export function ThankYou() {
                 <img src="\deutsche_messe_bn.webp" alt="Logo" />
             </div>
             <div>
-                <p>¡Fantastico! Tu registro a sido enviado correctamente</p>
+                <p>¡Fantastico! Tu registro ha sido enviado correctamente</p>
                 <p>Recibirás un correo de confirmación en breve.</p>
             </div>
             <div>

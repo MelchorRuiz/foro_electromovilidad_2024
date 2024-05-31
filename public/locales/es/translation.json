@@ -1,3 +1,48 @@
 {
-    "title": "Foro de Electromovilidad"
+    "title": "Foro de Electromovilidad",
+    "subtitle": "¡El foro más importante de la industria en Guanajuato!",
+    "focus-segments": {
+        "title": "Segmentos de enfoque",
+        "segments": {
+            "1": "Transporte eléctrico",
+            "2": "Nuevas plantas de ensamble de autos eléctricos y la conversión de las plantas de combustión interna",
+            "3": "Infraestructura de carga, generación y almacenamiento",
+            "4": "Baterías",
+            "5": "Políticas gubernamentales y compromisos contraídos internacionalmente",
+            "6": "Principales productores de semiconductores, y entorno mundial"
+        }
+    },
+    "program": {
+        "title": "Programa"
+    },
+    "speakers": {
+        "title": "Ponentes"
+    },
+    "gallery": {
+        "title": "Galería"
+    },
+    "register": {
+        "title": "Registro",
+        "second-title": "Regístrate",
+        "form": {
+            "name": "Nombre",
+            "email": "Correo electrónico",
+            "phone": "Teléfono",
+            "company": "Empresa",
+            "position": "Cargo",
+            "state": "Estado",
+            "municipality": "Municipio",
+            "select": "Selecciona una opción",
+            "submit": "Enviar"
+        }
+    },
+    "contact": {
+        "title": "CONTACTO"
+    },
+    "thanks": {
+        "title": "Gracias por registrarte",
+        "subtitle": "¡Fantastico! Tu registro a sido enviado correctamente",
+        "message": "Recibirás un correo de confirmación en breve.",
+        "button": "Descargar PDF"
+    }
 }

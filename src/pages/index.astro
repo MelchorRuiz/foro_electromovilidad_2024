@@ -9,7 +9,7 @@ import Section from "../components/Section.astro";
 import { Gallery } from "../components/Gallery/Gallery.jsx";
 import { Register } from "../components/Register/Register.jsx";
 
-changeLanguage("en");
+changeLanguage("es");
 ---
 
 <Layout title={`IGECO | ${t('title')}`}>
@@ -18,10 +18,10 @@ changeLanguage("en");
     <SegmentosDeEnfoque />
     <Programa />
     <Ponentes />
-    <Section id='galeria' subtitle='Galeria'>
+    <Section id='galeria' subtitle={t('gallery.title')}>
       <Gallery client:visible />
     </Section>
-    <Section id="registro" subtitle="Registrate">
+    <Section id="registro" subtitle={t('register.second-title')}>
       <Register client:only="react" />
     </Section>
   </main>

@@ -1,15 +1,16 @@
 ---
 import Section from './Section.astro'
+import { t } from 'i18next'
 
 import { images } from '../data/constans_segmentos'
 ---
 
-<Section subtitle='Segmentos de enfoque'>
+<Section subtitle={t('focus-segments.title')}>
   <div id='images-container'>
     {
-      images.map((image) => (
+      images.map((image, index) => (
         <div class='img' style={`background-image: url('${image.src}')`}>
-          <p class='text-center text-sm mt-2'>{image.text}</p>
+          <p class='text-center text-sm mt-2'>{t(image.text)}</p>
         </div>
       ))
     }
