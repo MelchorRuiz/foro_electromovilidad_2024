@@ -35,8 +35,9 @@ export function Register({i18n, thankYouPagePath}) {
   const [isFailed, setIsFailed] = useState(false)
 
   const onSubmit = async (data) => {
+    const url = import.meta.env.DEV ? 'http://localhost:3000/create-register' : 'https://api.example.com/create-register'
     try {
-      const response = await fetch('http://localhost:3000/create-register', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
