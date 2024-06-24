@@ -23,7 +23,7 @@ const i18n = getI18N(Astro.currentLocale);
       <Gallery client:visible />
     </Section>
     <Section id="registro" subtitle={i18n.register["second-title"]}>
-      <Register client:only="react" />
+      <Register client:only="react" i18n={i18n.register.form} />
     </Section>
   </main>
 </Layout>

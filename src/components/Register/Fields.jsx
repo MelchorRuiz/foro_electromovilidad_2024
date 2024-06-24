@@ -28,6 +28,7 @@ export const InputField = ({
 export const SelectField = ({
   className = '',
   label,
+  placeholder,
   options,
   defaultValue,
   register,
@@ -50,7 +51,7 @@ export const SelectField = ({
       })}
     >
       <option value='' disabled>
-        Selecciona una opción
+        {placeholder}
       </option>
       {options.map((option, index) => (
         <option key={index} value={option}>

@@ -25,14 +25,42 @@
         "title": "Register",
         "second-title": "Register",
         "form": {
-            "name": "Name",
-            "email": "Email",
-            "phone": "Phone",
-            "company": "Company",
-            "position": "Position",
-            "state": "Status",
-            "municipality": "Municipality",
-            "select": "Select an option",
+            "name": {
+                "label": "Name",
+                "required": "The name is required",
+                "invalid": "Invalid name"
+            },
+            "email": {
+                "label": "Mail",
+                "required": "Email is required",
+                "invalid": "Invalid email"
+            },
+            "phone": {
+                "label": "Phone",
+                "required": "Telephone is required",
+                "maxLength": "The phone number must have 10 digits",
+                "minLength": "The phone number must have 10 digits",
+                "invalid": "Invalid phone"
+            },
+            "company": {
+                "label": "Company",
+                "required": "The company is required"
+            },
+            "position": {
+                "label": "Position",
+                "required": "The position is required"
+            },
+            "state": {
+                "label": "State",
+                "required": "The state is required"
+            },
+            "city": {
+                "label": "City",
+                "required": "The city is required"
+            },
+            "selectPlaceHolder": "Select an option",
+            "error1": "Oops, an error has occurred!",
+            "error2": "The email or phone number has already been registered.",
             "submit": "Send"
         }
     },

@@ -1,8 +1,11 @@
 ---
 import LayoutThankYou from "../layouts/LayoutThankYou.astro";
 import { ThankYou } from "../components/ThankYou.jsx";
+
+import { getI18N } from "../i18n";
+const i18n = getI18N(Astro.currentLocale);
 ---
 
-<LayoutThankYou title="IGECO | Gracias Por Registrarte">
-  <ThankYou client:only="react"/>
+<LayoutThankYou title={i18n.thanks.title}>
+  <ThankYou client:only="react" i18n={i18n.thanks}/>
 </LayoutThankYou >

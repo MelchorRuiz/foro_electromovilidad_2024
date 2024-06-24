@@ -25,14 +25,42 @@
         "title": "Registro",
         "second-title": "Regístrate",
         "form": {
-            "name": "Nombre",
-            "email": "Correo electrónico",
-            "phone": "Teléfono",
-            "company": "Empresa",
-            "position": "Cargo",
-            "state": "Estado",
-            "municipality": "Municipio",
-            "select": "Selecciona una opción",
+            "name": {
+                "label": "Nombre",
+                "required": "El nombre es requerido",
+                "invalid": "Nombre inválido"
+            },
+            "email": {
+                "label": "Correo",
+                "required": "El correo es requerido",
+                "invalid": "Correo inválido"
+            },
+            "phone": {
+                "label": "Teléfono",
+                "required": "El teléfono es requerido",
+                "maxLength": "El teléfono debe tener 10 dígitos",
+                "minLength": "El teléfono debe tener 10 dígitos",
+                "invalid": "Teléfono inválido"
+            },
+            "company": {
+                "label": "Empresa",
+                "required": "La empresa es requerida"
+            },
+            "position": {
+                "label": "Cargo",
+                "required": "El cargo es requerido"
+            },
+            "state": {
+                "label": "Estado",
+                "required": "El estado es requerido"
+            },
+            "city": {
+                "label": "Municipio",
+                "required": "El municipio es requerido"
+            },
+            "selectPlaceHolder": "Selecciona una opción",
+            "error1": "¡Oops, ha ocurrido un error!",
+            "error2": "El correo o teléfono ya han sido registrados.",
             "submit": "Enviar"
         }
     },

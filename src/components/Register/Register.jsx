@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRegisterFormStore } from '../../store/register-form.js'
 import { useThankYouPageStore } from '../../store/thankyou-page'
 import { locationData } from '../../data/constans_states_and_cities.js'
 import { InputField, SelectField } from './Fields.jsx'
 
-export function Register() {
+export function Register({i18n}) {
   const {
     name,
     email,
@@ -66,50 +66,50 @@ export function Register() {
     <form className='flex flex-wrap md:gap-[2%]' onSubmit={handleSubmit(onSubmit)}>
       <InputField
         className='md:w-full lg:w-[49%]'
-        label='Nombre'
+        label={i18n.name.label}
         defaultValue={name}
         register={register}
         errors={errors}
         name='name'
         validation={{
-          required: 'El nombre es requerido',
-          pattern: { value: /^[a-zA-ZÀ-ÿ\s']+$/, message: 'Nombre inválido' },
+          required: i18n.name.required,
+          pattern: { value: /^[a-zA-ZÀ-ÿ\s']+$/, message: i18n.name.invalid },
         }}
         handleValue={setName}
       />
 
       <InputField
-        label='Email'
+        label={i18n.email.label}
         defaultValue={email}
         register={register}
         errors={errors}
-        name='email'
+        name={'email'}
         validation={{
-          required: 'El email es requerido',
-          pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: 'Email inválido' },
+          required: i18n.email.required,
+          pattern: { value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, message: i18n.email.invalid },
         }}
         handleValue={setEmail}
       />
 
       <InputField
-        label='Teléfono'
+        label={i18n.phone.label}
         defaultValue={phone}
         register={register}
         errors={errors}
         name='phone'
         validation={{
-          required: 'El teléfono es requerido',
+          required: i18n.phone.required,
           maxLength: {
             value: 10,
-            message: 'El teléfono debe tener 10 dígitos',
+            message: i18n.phone.maxLength,
           },
           minLength: {
             value: 10,
-            message: 'El teléfono debe tener 10 dígitos',
+            message: i18n.phone.minLength,
           },
           pattern: {
             value: /^[0-9]+$/,
-            message: 'Teléfono inválido',
+            message: i18n.phone.invalid,
           },
         }}
         handleValue={setPhone}
@@ -117,34 +117,35 @@ export function Register() {
 
       <InputField
         className='lg:w-[23.5%]'
-        label='Empresa'
+        label={i18n.company.label}
         defaultValue={company}
         register={register}
         errors={errors}
         name='company'
-        validation={{ required: 'La empresa es requerida' }}
+        validation={{ required: i18n.company.required }}
         handleValue={setCompany}
       />
 
       <InputField
         className='lg:w-[23.5%]'
-        label='Cargo'
+        label={i18n.position.label}
         defaultValue={position}
         register={register}
         errors={errors}
         name='position'
-        validation={{ required: 'El cargo es requerido' }}
+        validation={{ required: i18n.position.required }}
         handleValue={setPosition}
       />
 
       <SelectField
-        label='Estado'
+        label={i18n.state.label}
+        placeholder={i18n.selectPlaceHolder}
         options={states}
         defaultValue={state}
         register={register}
         errors={errors}
         name='state'
-        validation={{ required: 'El estado es requerido' }}
+        validation={{ required: i18n.state.required }}
         handleValue={(state) => {
           setState(state)
           setCity('')
@@ -152,13 +153,14 @@ export function Register() {
       />
 
       <SelectField
-        label='Municipio'
+        label={i18n.city.label}
+        placeholder={i18n.selectPlaceHolder}
         options={cities}
         defaultValue={city}
         register={register}
         errors={errors}
         name='city'
-        validation={{ required: 'El municipio es requerido' }}
+        validation={{ required: i18n.city.required }}
         handleValue={setCity}
       />
 
@@ -170,11 +172,11 @@ export function Register() {
           </svg>
           <span className="sr-only">Info</span>
           <div>
-            <span className="font-medium">¡Oops, ha ocurrido un error!</span> El correo o teléfono ya han sido registrados.
+            <span className="font-medium">{i18n.error1}</span> {i18n.error2}
           </div>
         </div>
       )}
-      <button className='w-full bg-success text-white py-3 px-5 my-2 border-none rounded cursor-pointer' type='submit'>Enviar</button>
+      <button className='w-full bg-success text-white py-3 px-5 my-2 border-none rounded cursor-pointer' type='submit'>{i18n.submit}</button>
     </form>
   )
 }
