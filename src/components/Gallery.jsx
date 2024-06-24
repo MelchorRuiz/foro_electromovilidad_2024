@@ -1,15 +1,41 @@
-import LightGallery from 'lightgallery/react'
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
 import { useState, useEffect } from 'react'
-
-// import styles
-import 'lightgallery/css/lightgallery.css'
-import 'lightgallery/css/lg-zoom.css'
-import 'lightgallery/css/lg-thumbnail.css'
-
-// import plugins if you need
-import lgThumbnail from 'lightgallery/plugins/thumbnail'
-import lgZoom from 'lightgallery/plugins/zoom'
 import { images } from '../data/constans_gallery'
+
+function Images({ galleryID, images}) {
+  useEffect(() => {
+    let lightbox = new PhotoSwipeLightbox({
+      gallery: '#' + galleryID,
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+
+    return () => {
+      lightbox.destroy();
+      lightbox = null;
+    };
+  }, []);
+
+  return (
+    <div className="pswp-gallery flex flex-wrap justify-center gap-5" id={galleryID}>
+      {images.map((image, index) => (
+        <a
+          className='w-full md:w-[48%] lg:w-[31%] xl:w-[23%]'
+          href={image.src}
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          key={galleryID + '-' + index}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={image.src} alt={image.alt} loading='lazy' />
+        </a>
+      ))}
+    </div>
+  );
+}
 
 export function Gallery() {
   const [page, setPage] = useState(0) // Use the useState hook to initialize the page state variable
@@ -65,17 +91,7 @@ export function Gallery() {
 
   return (
     <div>
-      <LightGallery
-        elementClassNames='flex flex-wrap justify-center gap-5'
-        speed={500}
-        plugins={[lgThumbnail, lgZoom]}
-      >
-        {imageGroups[page].map((image, index) => (
-          <a className='w-full md:w-[48%] lg:w-[31%] xl:w-[23%]' href={image.src} key={index}>
-            <img alt={image.alt} src={image.src} loading='lazy' />
-          </a>
-        ))}
-      </LightGallery>
+      <Images galleryID="asas" images={imageGroups[page]} />
       <div className='flex justify-center pt-5'>
         <nav aria-label="Page navigation example">
           <ul className="flex items-center -space-x-px h-8 text-sm">
