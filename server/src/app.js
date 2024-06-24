@@ -21,7 +21,7 @@ const __dirname = dirname(__filename);
 
 app.use('/acknowledgments', express.static(path.join(__dirname, '../acknowledgments')));
 
-app.get('/healthcheck/', (req, res) => {
+app.get('/healthcheck/', (_, res) => {
     res.send({status: 'ok'});
 })
 

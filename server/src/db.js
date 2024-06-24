@@ -23,7 +23,7 @@ export class Registro_Model {
         
         const connection = await mysql.createConnection(config);
         try{
-            const [rows] = await connection.query(
+            await connection.query(
                 'INSERT INTO users (uuid, name, email, phone, company, position, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
                 [uuid, name, email, phone, company, position, state, city]
             );

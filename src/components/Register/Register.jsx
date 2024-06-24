@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRegisterFormStore } from '../../store/register-form.js'
 import { useThankYouPageStore } from '../../store/thankyou-page'
 import { locationData } from '../../data/constans_states_and_cities.js'

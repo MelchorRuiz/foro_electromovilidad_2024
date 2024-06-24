@@ -1,5 +1,5 @@
 import LightGallery from 'lightgallery/react'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 // import styles
 import 'lightgallery/css/lightgallery.css'
