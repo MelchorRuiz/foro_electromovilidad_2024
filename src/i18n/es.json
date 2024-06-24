@@ -3,14 +3,14 @@
     "subtitle": "¡El foro más importante de la industria en Guanajuato!",
     "focus-segments": {
         "title": "Segmentos de enfoque",
-        "segments": {
-            "1": "Transporte eléctrico",
-            "2": "Nuevas plantas de ensamble de autos eléctricos y la conversión de las plantas de combustión interna",
-            "3": "Infraestructura de carga, generación y almacenamiento",
-            "4": "Baterías",
-            "5": "Políticas gubernamentales y compromisos contraídos internacionalmente",
-            "6": "Principales productores de semiconductores, y entorno mundial"
-        }
+        "segments": [
+            "Transporte eléctrico",
+            "Nuevas plantas de ensamble de autos eléctricos y la conversión de las plantas de combustión interna",
+            "Infraestructura de carga, generación y almacenamiento",
+            "Baterías",
+            "Políticas gubernamentales y compromisos contraídos internacionalmente",
+            "Principales productores de semiconductores, y entorno mundial"
+        ]
     },
     "program": {
         "title": "Programa"

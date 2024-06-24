@@ -1,5 +1,6 @@
 ---
-import { t } from "i18next";
+import { getI18N } from "../i18n";
+const i18n = getI18N(Astro.currentLocale);
 ---
 
 <nav class="bg-secondary border-b-[1px] min-h-10">
@@ -41,28 +42,28 @@ import { t } from "i18next";
           <a
             href="#ponentes"
             class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
-            aria-current="page">{t('speakers.title')}</a
+            aria-current="page">{i18n.speakers.title}</a
           >
         </li>
         <li>
           <a
             href="#programa"
             class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
-            >{t('program.title')}</a
+            >{i18n.program.title}</a
           >
         </li>
         <li>
           <a
             href="#galeria"
             class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
-            >{t('gallery.title')}</a
+            >{i18n.gallery.title}</a
           >
         </li>
         <li>
           <a
             href="#registro"
             class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
-            >{t('register.title')}</a
+            >{i18n.register.title}</a
           >
         </li>
       </ul>

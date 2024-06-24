@@ -3,14 +3,14 @@
     "subtitle": "¡The most important industry forum in Guanajuato!!",
     "focus-segments": {
         "title": "Focus Segments",
-        "segments": {
-            "1": "Electric transportation",
-            "2": "New electric car assembly plants and conversion of internal combustion plants",
-            "3": "Charging, generation and storage infrastructure",
-            "4": "Batteries",
-            "5": "Government policies and international commitments",
-            "6": "Major semiconductor producers and the global environment -Major semiconductor producers and the global environment"
-        }
+        "segments": [
+            "Electric transportation",
+            "New electric car assembly plants and conversion of internal combustion plants",
+            "Charging, generation and storage infrastructure",
+            "Batteries",
+            "Government policies and international commitments",
+            "Major semiconductor producers and the global environment -Major semiconductor producers and the global environment"
+        ]
     },
     "program": {
         "title": "Program"

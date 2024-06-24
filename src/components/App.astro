@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "./Hero.astro";
+import FocusSegments from "./FocusSegments.astro";
+import Schedule from "./Program.astro";
+import Speakers from "./Speakers.astro";
+import Section from "./Section.astro";
+import { Gallery } from "./Gallery.jsx";
+import { Register } from "./Register/Register.jsx";
+
+import { getI18N } from "../i18n";
+const i18n = getI18N(Astro.currentLocale);
+
+---
+
+<Layout title={`IGECO | ${i18n.title}`}>
+  <Hero />
+  <main>
+    <FocusSegments />
+    <!-- <Schedule /> -->
+    <!-- <Speakers /> -->
+    <Section id='galeria' subtitle={i18n.gallery.title}>
+      <Gallery client:visible />
+    </Section>
+    <Section id="registro" subtitle={i18n.register["second-title"]}>
+      <Register client:only="react" />
+    </Section>
+  </main>
+</Layout>
+
+<style></style>

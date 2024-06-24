@@ -1,11 +1,8 @@
 ---
-import { changeLanguage } from "i18next";
 import LayoutThankYou from "../../layouts/LayoutThankYou.astro";
-import { ThankYou } from "../../components/ThankYou.jsx"
-
-changeLanguage("en");
+import { ThankYou } from "../../components/ThankYou.jsx";
 ---
 
 <LayoutThankYou title="IGECO | Gracias Por Registrarte">
-  <ThankYou client:only/>
+  <ThankYou client:only="react"/>
 </LayoutThankYou >
