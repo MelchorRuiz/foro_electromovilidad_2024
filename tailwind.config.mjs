@@ -4,7 +4,18 @@ export default {
 		'./node_modules/flowbite/**/*.js'
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				'jersey': ['"Jersey 15"', 'sans-serif'],
+				'roboto': ['Roboto', 'sans-serif'],
+			},
+			colors: {
+				'primary': '#135d66',
+				'secondary': '#003C43',
+				'success': '#4CAF50',
+				'error': '#FF204E',
+			}
+		},
 	},
 	plugins: [require('flowbite/plugin')],
 }

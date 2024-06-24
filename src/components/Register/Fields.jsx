@@ -1,4 +1,5 @@
 export const InputField = ({
+  className = '',
   label,
   defaultValue,
   register,
@@ -7,10 +8,12 @@ export const InputField = ({
   validation,
   handleValue,
 }) => (
-  <div>
-    <label htmlFor={name}>{label}</label>
+  <div className={`w-full md:w-[49%] ${className}`}>
+    <label className="text-white" htmlFor={name}>{label}</label>
     <input
       id={name}
+      className="w-full my-1 border border-gray-200 rounded-md py-2 px-3 box-border"
+      style={{'backgroundColor': 'rgba(255, 255, 255, 0.8)'}} 
       autoComplete='given-name'
       defaultValue={defaultValue}
       {...register(name, {
@@ -18,11 +21,12 @@ export const InputField = ({
         onChange: (e) => handleValue(e.target.value),
       })}
     />
-    {errors[name] && <span>{errors[name].message}</span>}
+    {errors[name] && <span className="text-error text-base font-bold mb-1">{errors[name].message}</span>}
   </div>
 )
 
 export const SelectField = ({
+  className = '',
   label,
   options,
   defaultValue,
@@ -32,10 +36,12 @@ export const SelectField = ({
   validation,
   handleValue,
 }) => (
-  <div>
-    <label htmlFor={name}>{label}</label>
+  <div className={`w-full md:w-[49%] ${className}`}>
+    <label className="text-white" htmlFor={name}>{label}</label>
     <select
       id={name}
+      className="w-full my-1 border border-gray-200 rounded-md py-2 px-3 box-border"
+      style={{'backgroundColor': 'rgba(255, 255, 255, 0.8)'}} 
       autoComplete='given-option'
       value={defaultValue}
       {...register(name, {
@@ -52,6 +58,6 @@ export const SelectField = ({
         </option>
       ))}
     </select>
-    {errors[name] && <span>{errors[name].message}</span>}
+    {errors[name] && <span className="text-error text-base font-bold mb-1">{errors[name].message}</span>}
   </div>
 )

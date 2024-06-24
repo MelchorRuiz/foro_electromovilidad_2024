@@ -9,8 +9,7 @@ import 'lightgallery/css/lg-thumbnail.css'
 // import plugins if you need
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lgZoom from 'lightgallery/plugins/zoom'
-import { images } from '../../data/constans_gallery'
-import './Gallery.css'
+import { images } from '../data/constans_gallery'
 
 export function Gallery() {
   const [page, setPage] = useState(0) // Use the useState hook to initialize the page state variable
@@ -72,7 +71,7 @@ export function Gallery() {
         plugins={[lgThumbnail, lgZoom]}
       >
         {imageGroups[page].map((image, index) => (
-          <a href={image.src} key={index}>
+          <a className='w-full md:w-[48%] lg:w-[31%] xl:w-[23%]' href={image.src} key={index}>
             <img alt={image.alt} src={image.src} loading='lazy' />
           </a>
         ))}

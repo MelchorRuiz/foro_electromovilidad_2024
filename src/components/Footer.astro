@@ -2,156 +2,23 @@
 import { t } from "i18next";
 ---
 
-<footer>
-    <!-- <div class="contact">
-        <h2>{t('contact.title')}</h2>
-        <img src="\FernandoAranda.webp" alt="Foto de Fernando Aranda" />
-        <div>
-            <h4>Fernando Aranda</h4>
-            <h5>Manager Foro Electromovilidad y Semiconductores</h5>
-            <p>fernando.aranda@igeco.mx</p>
+<footer class="text-white">
+    <!-- <div class="flex flex-col justify-center items-center gap-8 pb-4">
+        <h2 class="text-3xl font-jersey font-normal md:text-4xl lg:text-6xl" style="text-shadow: 1px 1px 2px black;">{t('contact.title')}</h2>
+        <img class="w-52 h-52 rounded-full shadow-black shadow-2xl md:w-60 md:h-60 lg:w-72 lg:h-72" src="\FernandoAranda.webp" alt="Foto de Fernando Aranda" />
+        <div class="text-center">
+            <h4 class="text-2xl md:text-3xl lg:text-4xl">Fernando Aranda</h4>
+            <h5 class="text-base md:text-xl lg:text-2xl">Manager Foro Electromovilidad y Semiconductores</h5>
+            <p class="text-sm lg:text-base">fernando.aranda@igeco.mx</p>
         </div>
     </div> -->
-    <div class="logos">
-        <div class="igeco">
+    <div class="flex justify-between items-center w-full h-20 bg-secondary px-4 md:h-24 md:px-8 lg:h-32 lg:px-12">
+        <div class="flex max-w-24 md:max-w-36 lg:max-w-44">
             <img src="\igeco_bn.webp" alt="igeco" />
             <img src="\deutsche_messe_bn.webp" alt="igeco" />
         </div>
-        <div class="gto">
+        <div class="flex max-w-20 md:max-w-32 lg:max-w-36">
             <img src="\gto_veda.webp" alt="gto" />
         </div>
     </div>
 </footer>
-
-<style>
-    footer {
-        /* min-height: 100vh; */
-        color: white;
-    }
-
-    .contact {
-        min-height: calc(100vh - 80px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2em;
-    }
-
-    .contact h2 {
-        font-size: 2em;
-        font-family: "Jersey 15", sans-serif;
-        font-weight: 400;
-        text-shadow: 1px 1px 2px black;
-        line-height: 1;
-    }
-
-    .contact div {
-        text-align: center;
-    }
-
-    .contact img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        box-shadow: 0 0 10px black;
-    }
-
-    .contact h4 {
-        font-size: 1.6rem;
-    }
-
-    .contact h5 {
-        font-size: 1rem;
-    }
-
-    .contact p {
-        font-size: 0.8rem;
-    }
-
-    .logos {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 80px;
-        background-color: #003c43;
-        padding: 0 1em;
-    }
-
-    .igeco {
-        display: flex;
-        max-width: 100px;
-    }
-
-    .gto {
-        display: flex;
-        max-width: 80px;
-    }
-
-    @media (min-width: 768px) {
-        .contact {
-            min-height: calc(100vh - 100px);
-        }
-        .contact h2 {
-            font-size: 2.25em;
-        }
-        .contact img {
-            width: 250px;
-            height: 250px;
-        }
-        .contact h4 {
-            font-size: 1.8rem;
-        }
-        .contact h5 {
-            font-size: 1.1rem;
-        }
-        .contact p {
-            font-size: 0.9rem;
-        }
-        .logos {
-            height: 100px;
-            padding: 0 2em;
-        }
-        .igeco {
-            max-width: 140px;
-        }
-        .gto {
-            max-width: 120px;
-        }
-    }
-    @media (min-width: 1280px) {
-        .contact {
-            min-height: calc(100vh - 120px);
-        }
-        .contact h2 {
-            font-size: 2.5em;
-        }
-        .contact img {
-            width: 300px;
-            height: 300px;
-        }
-        .contact h2 {
-            font-size: 4em;
-        }
-        .contact h4 {
-            font-size: 2rem;
-        }
-        .contact h5 {
-            font-size: 1.3rem;
-        }
-        .contact p {
-            font-size: 1rem;
-        }
-        .logos {
-            height: 120px;
-            padding: 0 3em;
-        }
-        .igeco {
-            max-width: 180px;
-        }
-        .gto {
-            max-width: 140px;
-        }
-    }
-</style>

@@ -9,42 +9,7 @@ const { id, subtitle } = Astro.props
 /*´${id_name ? id=${id_name} : {}}´*/
 ---
 
-<section {...id ? { id } : {}}>
-  <h2>{subtitle}</h2>
+<section {...id ? { id } : {}} class="w-full min-h-fit py-4 px-8 md:py-6 md:px-16 lg:py-8 lg:px-24">
+  <h2 class="mb-4 text-white text-3xl md:text-4xl lg:text-5xl font-normal font-jersey leading-none">{subtitle}</h2>
   <slot />
 </section>
-
-<style>
-  section {
-    width: 100%;
-    min-height: fit-content;
-    padding: 1em 2em;
-  }
-  h2 {
-    margin-bottom: 1rem;
-    color: white;
-    font-size: 2rem;
-    font-family: 'Jersey 15', sans-serif;
-    font-weight: 400;
-    text-shadow: 1px 1px 2px black;
-    line-height: 1;
-  }
-
-  @media (min-width: 768px) {
-    section {
-      padding: 1.5em 4em;
-    }
-    h2 {
-      font-size: 2.5rem;
-    }
-  }
-  @media (min-width: 1024px) {
-    section {
-      padding: 2em 6em;
-    }
-    h2 {
-      font-size: 3rem;
-    }
-  }
-
-</style>

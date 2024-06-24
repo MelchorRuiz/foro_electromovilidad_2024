@@ -4,7 +4,6 @@ import { useRegisterFormStore } from '../../store/register-form.js'
 import { useThankYouPageStore } from '../../store/thankyou-page'
 import { locationData } from '../../data/constans_states_and_cities.js'
 import { InputField, SelectField } from './Fields.jsx'
-import './Register.css'
 
 export function Register() {
   const {
@@ -64,8 +63,9 @@ export function Register() {
   const cities = state ? locationData[state] : []
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className='flex flex-wrap md:gap-[2%]' onSubmit={handleSubmit(onSubmit)}>
       <InputField
+        className='md:w-full lg:w-[49%]'
         label='Nombre'
         defaultValue={name}
         register={register}
@@ -116,6 +116,7 @@ export function Register() {
       />
 
       <InputField
+        className='lg:w-[23.5%]'
         label='Empresa'
         defaultValue={company}
         register={register}
@@ -126,6 +127,7 @@ export function Register() {
       />
 
       <InputField
+        className='lg:w-[23.5%]'
         label='Cargo'
         defaultValue={position}
         register={register}
@@ -172,7 +174,7 @@ export function Register() {
           </div>
         </div>
       )}
-      <button type='submit'>Enviar</button>
+      <button className='w-full bg-success text-white py-3 px-5 my-2 border-none rounded cursor-pointer' type='submit'>Enviar</button>
     </form>
   )
 }
