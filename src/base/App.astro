@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import FocusSegments from "../components/FocusSegments.astro";
@@ -11,6 +12,7 @@ import { Register } from "../components/Register/Register.jsx";
 import { getI18N } from "../i18n/index.js";
 const i18n = getI18N(Astro.currentLocale);
 
+const thankYouPagePath = getRelativeLocaleUrl(Astro.currentLocale || "es", "/gracias-por-registrarte");
 ---
 
 <Layout title={`IGECO | ${i18n.title}`}>
@@ -23,7 +25,7 @@ const i18n = getI18N(Astro.currentLocale);
       <Gallery client:visible />
     </Section>
     <Section id="registro" subtitle={i18n.register["second-title"]}>
-      <Register client:only="react" i18n={i18n.register.form} />
+      <Register client:only="react" i18n={i18n.register.form} thankYouPagePath={thankYouPagePath} />
     </Section>
   </main>
 </Layout>

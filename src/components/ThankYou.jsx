@@ -2,12 +2,12 @@ import { useEffect } from 'react'
 import confetti from 'canvas-confetti'
 import { useThankYouPageStore } from '../store/thankyou-page'
 
-export function ThankYou({ i18n }) {
+export function ThankYou({ i18n, homePath }) {
     const { isSubmitting, pdfUrl } = useThankYouPageStore()
 
     useEffect(() => {
         if (!isSubmitting) {
-            //window.location.href = '/'
+            window.location.href = homePath
         }
     }, [isSubmitting])
 

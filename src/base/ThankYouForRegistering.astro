@@ -1,11 +1,14 @@
 ---
 import LayoutThankYou from "../layouts/LayoutThankYou.astro";
 import { ThankYou } from "../components/ThankYou.jsx";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
+
+const homePath = getRelativeLocaleUrl(Astro.currentLocale || 'es', '/');
 ---
 
 <LayoutThankYou title={i18n.thanks.title}>
-  <ThankYou client:only="react" i18n={i18n.thanks}/>
+  <ThankYou client:only="react" i18n={i18n.thanks} homePath={homePath}/>
 </LayoutThankYou >

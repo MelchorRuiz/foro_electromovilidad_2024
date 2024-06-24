@@ -5,7 +5,7 @@ import { useThankYouPageStore } from '../../store/thankyou-page'
 import { locationData } from '../../data/constans_states_and_cities.js'
 import { InputField, SelectField } from './Fields.jsx'
 
-export function Register({i18n}) {
+export function Register({i18n, thankYouPagePath}) {
   const {
     name,
     email,
@@ -48,7 +48,7 @@ export function Register({i18n}) {
         reset()
         setSubmitting(true)
         setPdfUrl(data.uuid)
-        window.location.href = '/gracias-por-registrarte'
+        window.location.href = thankYouPagePath
       }
       if (response.status === 409) {
         setIsFailed(true)
