@@ -44,6 +44,20 @@ export function Gallery() {
     desktopMatch.onchange = updateImagesPerPage
   }, [])
 
+  const getNumberPages = () => {
+    const arr = [...Array(imageGroups.length).keys()]
+    if (imageGroups.length <= 5) {
+      return arr
+    }
+    if (page < 2) {
+      return arr.slice(0, 5)
+    } else if (imageGroups.length - page < 3) {
+      return arr.slice(imageGroups.length - 5)
+    } else {
+      return arr.slice(page - 2, page + 3)
+    }
+  }
+
   // make groups of images based on the imagesForEachPage
   const imageGroups = []
   for (let i = 0; i < images.length; i += imagesForEachPage) {
@@ -74,9 +88,9 @@ export function Gallery() {
                 </svg>
               </button>
             </li>
-            {imageGroups.map((_, index) => (
+            {getNumberPages().map((n, index) => (
               <li key={index}>
-                <button className={`flex items-center justify-center px-3 h-8 leading-tight border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${page === index ? 'bg-gray-100 text-gray-700' : 'text-gray-500 bg-white'}`} onClick={() => setPage(index)}>{index + 1}</button>
+                <button className={`flex items-center justify-center px-3 h-8 leading-tight border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${page === n ? 'bg-gray-100 text-gray-700' : 'text-gray-500 bg-white'}`} onClick={() => setPage(n)}>{n + 1}</button>
               </li>
             ))}
             <li>
