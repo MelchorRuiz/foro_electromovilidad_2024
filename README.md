@@ -1,44 +1,21 @@
-# Astro Starter Kit: Basics
+# Foro Electromovilidad 2024
 
-```sh
-npm create astro@latest -- --template basics
-```
+<div align="center">
+<img src="https://socialify.git.ci/MelchorRuiz/foro_electromovilidad_2024/image?description=1&font=Jost&language=1&name=1&owner=1&pattern=Overlapping%20Hexagons&theme=Auto" alt="project-image" width="700">
+</div>
+<br />
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+This project features a Landing Page designed for the "Foro Electromovilidad 2024", a conference dedicated to exploring the latest trends, innovations, and developments in electromobility. The page is built using Astro for the frontend and Express for the backend, ensuring a smooth and efficient experience for both users and event administrators.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Screenshots:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+<img src="./screenshots/img_1.png" style="height: 50%; width:50%;">
+<img src="./screenshots/img_2.png" style="height: 50%; width:50%;">
+<img src="./screenshots/img_3.png" style="height: 50%; width:50%;">
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+These commands are executed from the root of the project and are used for the frontend:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -46,9 +23,20 @@ All commands are run from the root of the project, from a terminal:
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+These commands are executed from the /server folder and are used for the backend:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:3000`      |
+| `npm run start`           | Starts production server at `localhost:3000`     |
+  
+## 💻 Built with
+
+Technologies used in the project:
+
+*   React
+*   Express
+*   Astro
+*   Tailwind CSS
