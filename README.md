@@ -1,6 +1,9 @@
 # Foro Electromovilidad 2024
 
-<p align="center"><img src="https://socialify.git.ci/MelchorRuiz/foro_electromovilidad_2024/image?description=1&amp;font=Jost&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Overlapping%20Hexagons&amp;theme=Auto" alt="project-image"></p>
+<div align="center">
+<img src="https://socialify.git.ci/MelchorRuiz/foro_electromovilidad_2024/image?description=1&font=Jost&language=1&name=1&owner=1&pattern=Overlapping%20Hexagons&theme=Auto" alt="project-image" width="700">
+</div>
+<br />
 
 This project features a Landing Page designed for the "Foro Electromovilidad 2024", a conference dedicated to exploring the latest trends, innovations, and developments in electromobility. The page is built using Astro for the frontend and Express for the backend, ensuring a smooth and efficient experience for both users and event administrators.
 
