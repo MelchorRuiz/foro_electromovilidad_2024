@@ -36,35 +36,58 @@ const i18n = getI18N(Astro.currentLocale);
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
-        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent"
+        class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent"
       >
-        <li>
+        <li class="my-auto">
           <a
             href="#ponentes"
-            class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
+            class="inline-flex py-2 w-fit px-3 text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 leading-5 relative after:w-0 hover:after:w-full after:h-[1px] after:bg-transparent hover:after:bg-white after:absolute after:-bottom-2 after:rounded-lg after:transition-all after:duration-300 after:ease-in-out"
             aria-current="page">{i18n.speakers.title}</a
           >
         </li>
-        <li>
+        <li class="my-auto">
           <a
             href="#programa"
-            class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
+            class="inline-flex py-2 w-fit px-3 text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 leading-5 relative after:w-0 hover:after:w-full after:h-[1px] after:bg-transparent hover:after:bg-white after:absolute after:-bottom-2 after:rounded-lg after:transition-all after:duration-300 after:ease-in-out"
             >{i18n.program.title}</a
           >
         </li>
-        <li>
+        <li class="my-auto">
           <a
             href="#galeria"
-            class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
+            class="inline-flex py-2 w-fit px-3 text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 leading-5 relative after:w-0 hover:after:w-full after:h-[1px] after:bg-transparent hover:after:bg-white after:absolute after:-bottom-2 after:rounded-lg after:transition-all after:duration-300 after:ease-in-out"
             >{i18n.gallery.title}</a
           >
         </li>
-        <li>
+        <li class="my-auto">
           <a
             href="#registro"
-            class="inline-block py-2 w-fit px-3 text-white text-[1.2rem] rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 md:hover:scale-125 origin-center transition-all ease-in-out leading-5"
-            >{i18n.register.title}</a
+            class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-medium transition duration-300 ease-out border-2 rounded-full shadow-md group"
+            style="border-color: rgba(255, 255, 255, 0.8);"
           >
+            <span
+              class="absolute inset-0 flex items-center justify-center w-full h-full text-gray-700 duration-300 -translate-x-full group-hover:translate-x-0 ease"
+              style="background-color: rgba(255, 255, 255, 0.8);"
+            >
+              <svg
+                class="w-4 h-4 rotate-90"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
+              >
+            </span>
+            <span
+              class="text-base absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease"
+              >{i18n.register.title}</span
+            >
+            <span class="relative invisible">{i18n.register.title}</span>
+          </a>
         </li>
       </ul>
     </div>

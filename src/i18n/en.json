@@ -23,7 +23,6 @@
     },
     "register": {
         "title": "Register",
-        "second-title": "Register",
         "form": {
             "name": {
                 "label": "Name",

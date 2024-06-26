@@ -22,8 +22,7 @@
         "title": "Galería"
     },
     "register": {
-        "title": "Registro",
-        "second-title": "Regístrate",
+        "title": "Regístrate",
         "form": {
             "name": {
                 "label": "Nombre",
