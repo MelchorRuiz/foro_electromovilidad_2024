@@ -1,18 +1,33 @@
 ---
-import Section from './Section.astro'
+import Section from "./Section.astro";
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
 
-import { images } from '../data/constans_segmentos'
+const images = [
+  { src: "/segmentos/transporte.webp" },
+  { src: "/segmentos/ensamble.webp" },
+  { src: "/segmentos/infraestructura2.webp" },
+  { src: "/segmentos/baterias.webp" },
+  { src: "/segmentos/politicas.webp" },
+  { src: "/segmentos/semiconductores.webp" },
+];
 ---
 
-<Section subtitle={i18n['focus-segments'].title}>
-  <div id='images-container' class="flex flex-wrap justify-center items-center gap-[15px]">
+<Section subtitle={i18n["focus-segments"].title}>
+  <div
+    id="images-container"
+    class="flex flex-wrap justify-center items-center gap-[15px]"
+  >
     {
       images.map((image, index) => (
-        <div class='w-full h-52 bg-center bg-cover transition-transform hover:scale-[1.02] md:w-[48%] lg:w-[31%]' style={`background-image: url('${image.src}')`}>
+        <div
+          class="w-full h-52 bg-center bg-cover transition-transform hover:scale-[1.02] md:w-[48%] lg:w-[31%]"
+          style={`background-image: url('${image.src}')`}
+        >
           <div class="w-full h-full flex justify-start items-end bg-gradient-to-t from-gray-900/50 to-gray-900/30">
-            <p class='text-left text-base mt-2 text-white w-full p-[15px] font-medium'>{i18n['focus-segments'].segments[index]}</p>
+            <p class="text-left text-base mt-2 text-white w-full p-[15px] font-medium">
+              {i18n["focus-segments"].segments[index]}
+            </p>
           </div>
         </div>
       ))

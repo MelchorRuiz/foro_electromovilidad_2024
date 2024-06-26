@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
 import { useRegisterFormStore } from '../../store/register-form.js'
 import { useThankYouPageStore } from '../../store/thankyou-page'
-import { locationData } from '../../data/constans_states_and_cities.js'
+import locationData from '../../data/states_and_cities.json'
 import countries from '../../data/countries.json'
 import { InputField, SelectField } from './Fields.jsx'
 
@@ -40,6 +40,7 @@ export function Register({ i18n, thankYouPagePath }) {
 
   const states = Object.keys(locationData)
   useEffect(() => {
+    if (country !== 'Mexico') return
     setCities(locationData[state] || [])
   }, [state]);
 

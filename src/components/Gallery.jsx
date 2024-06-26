@@ -1,7 +1,7 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 import { useState, useEffect } from 'react'
-import { images } from '../data/constans_gallery'
+import images from '../data/gallery_images.json'
 
 function Images({ galleryID, images}) {
   useEffect(() => {
