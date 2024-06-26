@@ -1,17 +1,19 @@
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRegisterFormStore } from '../../store/register-form.js'
 import { useThankYouPageStore } from '../../store/thankyou-page'
 import { locationData } from '../../data/constans_states_and_cities.js'
+import countries from '../../data/countries.json'
 import { InputField, SelectField } from './Fields.jsx'
 
-export function Register({i18n, thankYouPagePath}) {
+export function Register({ i18n, thankYouPagePath }) {
   const {
     name,
     email,
     phone,
     company,
     position,
+    country,
     state,
     city,
     setName,
@@ -19,6 +21,7 @@ export function Register({i18n, thankYouPagePath}) {
     setPhone,
     setCompany,
     setPosition,
+    setCountry,
     setState,
     setCity,
     reset,
@@ -33,6 +36,13 @@ export function Register({i18n, thankYouPagePath}) {
   } = useForm()
 
   const [isFailed, setIsFailed] = useState(false)
+  const [cities, setCities] = useState([])
+
+  const states = Object.keys(locationData)
+  useEffect(() => {
+    setCities(locationData[state] || [])
+  }, [state]);
+
 
   const onSubmit = async (data) => {
     const url = import.meta.env.DEV ? 'http://localhost:3000/create-register' : 'https://api.example.com/create-register'
@@ -60,13 +70,10 @@ export function Register({i18n, thankYouPagePath}) {
 
   }
 
-  const states = Object.keys(locationData)
-  const cities = state ? locationData[state] : []
-
   return (
     <form className='flex flex-wrap md:gap-[2%]' onSubmit={handleSubmit(onSubmit)}>
       <InputField
-        className='md:w-full lg:w-[49%]'
+        className='lg:w-[49%]'
         label={i18n.name.label}
         defaultValue={name}
         register={register}
@@ -139,31 +146,74 @@ export function Register({i18n, thankYouPagePath}) {
       />
 
       <SelectField
-        label={i18n.state.label}
+        className='lg:w-[23.5%]'
+        label={'Country'}
         placeholder={i18n.selectPlaceHolder}
-        options={states}
-        defaultValue={state}
+        options={countries.map((country) => country.name)}
+        defaultValue={country}
         register={register}
         errors={errors}
-        name='state'
-        validation={{ required: i18n.state.required }}
-        handleValue={(state) => {
-          setState(state)
-          setCity('')
-        }}
+        name='country'
+        validation={{ required: i18n.city.required }}
+        handleValue={setCountry}
       />
 
-      <SelectField
-        label={i18n.city.label}
-        placeholder={i18n.selectPlaceHolder}
-        options={cities}
-        defaultValue={city}
-        register={register}
-        errors={errors}
-        name='city'
-        validation={{ required: i18n.city.required }}
-        handleValue={setCity}
-      />
+      {
+        country === 'Mexico' ? (
+          <>
+            <SelectField
+              className='lg:w-[23.5%]'
+              label={i18n.state.label}
+              placeholder={i18n.selectPlaceHolder}
+              options={states}
+              defaultValue={state}
+              register={register}
+              errors={errors}
+              name='state'
+              validation={{ required: i18n.state.required }}
+              handleValue={(state) => {
+                setState(state)
+                setCity('')
+              }}
+            />
+
+            <SelectField
+              label={i18n.city.label}
+              placeholder={i18n.selectPlaceHolder}
+              options={cities}
+              defaultValue={city}
+              register={register}
+              errors={errors}
+              name='city'
+              validation={{ required: i18n.city.required }}
+              handleValue={setCity}
+            />
+          </>
+        ) : (
+          <>
+            <InputField
+              className='lg:w-[23.5%]'
+              label={i18n.state.label}
+              defaultValue={state}
+              register={register}
+              errors={errors}
+              name='state'
+              validation={{ required: i18n.state.required }}
+              handleValue={setState}
+            />
+
+            <InputField
+              label={i18n.city.label}
+              defaultValue={city}
+              register={register}
+              errors={errors}
+              name='city'
+              validation={{ required: i18n.city.required }}
+              handleValue={setCity}
+            />
+          </>
+        )
+      }
 
       <br />
       {isFailed && (

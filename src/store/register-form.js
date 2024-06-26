@@ -9,6 +9,7 @@ export const useRegisterFormStore = create(
             phone: '',
             company: '',
             position: '',
+            country: '',
             state: '',
             city: '',
 
@@ -17,6 +18,7 @@ export const useRegisterFormStore = create(
             setPhone: (phone) => set({ phone }),
             setCompany: (company) => set({ company }),
             setPosition: (position) => set({ position }),
+            setCountry: (country) => set({ country }),
             setState: (state) => set({ state }),
             setCity: (city) => set({ city }),
 
@@ -26,6 +28,7 @@ export const useRegisterFormStore = create(
                 phone: '',
                 company: '',
                 position: '',
+                country: '',
                 state: '',
                 city: '',
             }),
