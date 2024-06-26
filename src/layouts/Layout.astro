@@ -1,34 +1,37 @@
 ---
-import Menu from '../components/Menu.astro'
-import Footer from '../components/Footer.astro'
+import Menu from "../components/Menu.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
-  title: string
+  title: string;
 }
 
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={Astro.currentLocale}>
   <head>
-    <meta charset='UTF-8' />
-    <meta name='description' content='Astro description' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/png' href='/favicon.png' />
-    <meta name='generator' content={Astro.generator} />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
     <Menu />
     <slot />
     <Footer />
-	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
+    ></script>
   </body>
 </html>
 
 <style is:global>
-  @import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
   * {
     box-sizing: border-box;
@@ -41,4 +44,31 @@ const { title } = Astro.props
   body {
     background-color: theme(backgroundColor.primary);
   }
+
+  body::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: theme(colors.gray.800);
+    border-radius: 10px;
+  }
 </style>
+<script >
+  const anchors = document.querySelectorAll('a[href^="#"]')
+  anchors.forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const anchor = e.currentTarget as HTMLAnchorElement;
+      const id = anchor.getAttribute("href")?.split("#")[1];
+      const target = document.getElementById(id || "");
+      if (!target) return;
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  });
+</script>
