@@ -148,14 +148,14 @@ export function Register({ i18n, thankYouPagePath }) {
 
       <SelectField
         className='lg:w-[23.5%]'
-        label={'Country'}
+        label={i18n.country.label}
         placeholder={i18n.selectPlaceHolder}
         options={countries.map((country) => country.name)}
         defaultValue={country}
         register={register}
         errors={errors}
         name='country'
-        validation={{ required: i18n.city.required }}
+        validation={{ required: i18n.country.required }}
         handleValue={setCountry}
       />
 

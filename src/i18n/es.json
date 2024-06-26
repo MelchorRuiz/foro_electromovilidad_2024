@@ -49,6 +49,10 @@
                 "label": "Cargo",
                 "required": "El cargo es requerido"
             },
+            "country": {
+                "label": "País",
+                "required": "El país es requerido"
+            },
             "state": {
                 "label": "Estado",
                 "required": "El estado es requerido"

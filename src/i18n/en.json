@@ -49,6 +49,10 @@
                 "label": "Position",
                 "required": "The position is required"
             },
+            "country": {
+                "label": "Country",
+                "required": "The country is required"
+            },
             "state": {
                 "label": "State",
                 "required": "The state is required"
