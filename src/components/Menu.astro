@@ -1,4 +1,5 @@
 ---
+import SelectLanguage from "./SelectLanguage.astro";
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
 ---
@@ -90,39 +91,33 @@ const i18n = getI18N(Astro.currentLocale);
           </a>
         </li>
         <li class="my-auto">
-          <a
-            href={Astro.currentLocale === "es" ? "/en" : "/"}
-            class="inline-flex gap-2 items-center text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0  relative md:after:w-0 md:hover:after:w-full md:after:h-[1px] md:after:bg-transparent md:hover:after:bg-white md:after:absolute md:after:-bottom-2 md:after:rounded-lg md:after:transition-all md:after:duration-300 md:after:ease-in-out"
-          >
-            <img class="w-5" src={Astro.currentLocale === "es" ? "/en.svg" : "/es.svg"} alt="flag" />
-            {Astro.currentLocale === "es" ? "EN" : "ES"}
-          </a>
+          <SelectLanguage />
         </li>
       </ul>
     </div>
   </div>
-</nav>
-<style>
-  nav {
-    animation: fadeIn 0.5s ease;
-    animation-timeline: scroll();
-    animation-range: 0 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-  }
-
-  @keyframes fadeIn {
-    from {
-      background-color: transparent;
-      backdrop-filter: blur(0px);
-      box-shadow: none;
-      border-bottom-color: transparent;
-    }
-    to {
-      /* background-color: rgb(0, 60, 67, 0.3); */
+  <style>
+    nav {
+      animation: fadeIn 0.5s ease;
+      animation-timeline: scroll();
+      animation-range: 0 100vh;
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
-      border-bottom-color: white;
     }
-  }
-</style>
+
+    @keyframes fadeIn {
+      from {
+        background-color: transparent;
+        backdrop-filter: blur(0px);
+        box-shadow: none;
+        border-bottom-color: transparent;
+      }
+      to {
+        /* background-color: rgb(0, 60, 67, 0.3); */
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(5px);
+        border-bottom-color: white;
+      }
+    }
+  </style>
+</nav>

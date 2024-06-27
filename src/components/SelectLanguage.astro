@@ -1,0 +1,57 @@
+<div class="flex">
+    <button
+      data-dropdown-toggle="dropdown-states"
+      class="flex-shrink-0 uppercase z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 focus:outline-none focus-visible:outline-none"
+      type="button"
+    >
+      <img src={`/${Astro.currentLocale}.svg`} alt="" class="w-5 pr-1">
+      {Astro.currentLocale} <svg
+        class="w-2.5 h-2.5 ms-2.5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 6"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 1 4 4 4-4"></path>
+      </svg>
+    </button>
+    <div
+      id="dropdown-states"
+      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700"
+        aria-labelledby="states-button"
+      >
+        <li>
+          <button
+            type="button"
+            class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            onclick="window.location.href = '/'"
+          >
+            <div class="inline-flex items-center">
+              <img src="/es.svg" alt="" class="w-5 pr-1">
+              Español
+            </div>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            onclick="window.location.href = '/en'"
+          >
+            <div class="inline-flex items-center">
+              <img src="/en.svg" alt="" class="w-5 pr-1">
+              English
+            </div>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>

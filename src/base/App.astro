@@ -25,7 +25,7 @@ const thankYouPagePath = getRelativeLocaleUrl(Astro.currentLocale || "es", "/gra
       <Gallery client:visible />
     </Section>
     <Section id="register" subtitle={i18n.register.title}>
-      <Register client:only="react" i18n={i18n.register.form} thankYouPagePath={thankYouPagePath} />
+      <Register client:visible i18n={i18n.register.form} thankYouPagePath={thankYouPagePath} />
     </Section>
   </main>
 </Layout>
