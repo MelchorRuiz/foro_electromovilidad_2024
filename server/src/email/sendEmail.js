@@ -1,8 +1,5 @@
 import nodemailer from 'nodemailer'
-import dotenv from 'dotenv'
 import { emailTemplate } from './email_template.js'
-
-dotenv.config()
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_GMAIL,

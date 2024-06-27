@@ -9,6 +9,7 @@ export async function createPdf({
     phone,
     company,
     position,
+    country,
     state,
     city
 }) {
@@ -57,6 +58,7 @@ export async function createPdf({
     createText(doc, 'Teléfono', phone)
     createText(doc, 'Empresa', company)
     createText(doc, 'Puesto', position)
+    createText(doc, 'País', country)
     createText(doc, 'Estado', state)
     createText(doc, 'Municipio', city)
 

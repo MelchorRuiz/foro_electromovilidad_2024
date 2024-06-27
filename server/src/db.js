@@ -17,6 +17,7 @@ export class Registro_Model {
         phone,
         company,
         position,
+        country,
         state,
         city,
     }) {
@@ -24,8 +25,8 @@ export class Registro_Model {
         const connection = await mysql.createConnection(config);
         try{
             await connection.query(
-                'INSERT INTO users (uuid, name, email, phone, company, position, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                [uuid, name, email, phone, company, position, state, city]
+                'INSERT INTO users (uuid, name, email, phone, company, position, country, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [uuid, name, email, phone, company, position, country, state, city]
             );
         } catch (error) {
             if (error.code === 'ER_DUP_ENTRY') {

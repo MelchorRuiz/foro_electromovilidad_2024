@@ -8,11 +8,14 @@ import { Registro_Model } from './db.js';
 import { validateUser } from './validations/user_validation.js';
 import { sendEmail } from './email/sendEmail.js';
 import { createPdf } from './pdf.js';
+import dotenv from 'dotenv'
+dotenv.config()
+
 const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:4321',
+    origin: process.env.DEV ? 'http://localhost:4321' : 'https://www.example.com',
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
