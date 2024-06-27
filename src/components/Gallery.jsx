@@ -22,7 +22,7 @@ function Images({ galleryID, images}) {
     <div className="pswp-gallery flex flex-wrap justify-center gap-5" id={galleryID}>
       {images.map((image, index) => (
         <a
-          className='w-full md:w-[48%] lg:w-[31%] xl:w-[23%]'
+          className='w-full md:w-[48%] lg:w-[31%] xl:w-[23%] lg:hover:scale-[1.05] transition-transform duration-300 ease-in-out overflow-hidden rounded-sm'
           href={image.src}
           data-pswp-width={image.width}
           data-pswp-height={image.height}

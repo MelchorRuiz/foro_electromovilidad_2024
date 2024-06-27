@@ -3,7 +3,7 @@ import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
 ---
 
-<nav class="bg-secondary border-b-[1px] min-h-10">
+<nav class="w-screen border-b-[1px] min-h-10 fixed z-20">
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
@@ -36,32 +36,32 @@ const i18n = getI18N(Astro.currentLocale);
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
-        class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent"
+        class="font-medium text-lg flex flex-col gap-1 p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-900 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent"
       >
         <li class="my-auto">
           <a
-            href="#ponentes"
+            href="#speakers"
             class="inline-flex py-2 w-fit px-3 text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 leading-5 relative md:after:w-0 md:hover:after:w-full md:after:h-[1px] md:after:bg-transparent md:hover:after:bg-white md:after:absolute md:after:-bottom-2 md:after:rounded-lg md:after:transition-all md:after:duration-300 md:after:ease-in-out"
             aria-current="page">{i18n.speakers.title}</a
           >
         </li>
         <li class="my-auto">
           <a
-            href="#programa"
+            href="#program"
             class="inline-flex py-2 w-fit px-3 text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 leading-5 relative md:after:w-0 md:hover:after:w-full md:after:h-[1px] md:after:bg-transparent md:hover:after:bg-white md:after:absolute md:after:-bottom-2 md:after:rounded-lg md:after:transition-all md:after:duration-300 md:after:ease-in-out"
             >{i18n.program.title}</a
           >
         </li>
         <li class="my-auto">
           <a
-            href="#galeria"
+            href="#gallery"
             class="inline-flex py-2 w-fit px-3 text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0 leading-5 relative md:after:w-0 md:hover:after:w-full md:after:h-[1px] md:after:bg-transparent md:hover:after:bg-white md:after:absolute md:after:-bottom-2 md:after:rounded-lg md:after:transition-all md:after:duration-300 md:after:ease-in-out"
             >{i18n.gallery.title}</a
           >
         </li>
         <li class="my-auto">
           <a
-            href="#registro"
+            href="#register"
             class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-medium transition duration-300 ease-out border-2 rounded-full shadow-md group"
             style="border-color: rgba(255, 255, 255, 0.8);"
           >
@@ -89,7 +89,40 @@ const i18n = getI18N(Astro.currentLocale);
             <span class="relative invisible">{i18n.register.title}</span>
           </a>
         </li>
+        <li class="my-auto">
+          <a
+            href={Astro.currentLocale === "es" ? "/en" : "/"}
+            class="inline-flex gap-2 items-center text-white rounded hover:bg-gray-100/10 md:hover:bg-transparent md:border-0 md:p-0  relative md:after:w-0 md:hover:after:w-full md:after:h-[1px] md:after:bg-transparent md:hover:after:bg-white md:after:absolute md:after:-bottom-2 md:after:rounded-lg md:after:transition-all md:after:duration-300 md:after:ease-in-out"
+          >
+            <img class="w-5" src={Astro.currentLocale === "es" ? "/en.svg" : "/es.svg"} alt="flag" />
+            {Astro.currentLocale === "es" ? "EN" : "ES"}
+          </a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+<style>
+  nav {
+    animation: fadeIn 0.5s ease;
+    animation-timeline: scroll();
+    animation-range: 0 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+  }
+
+  @keyframes fadeIn {
+    from {
+      background-color: transparent;
+      backdrop-filter: blur(0px);
+      box-shadow: none;
+      border-bottom-color: transparent;
+    }
+    to {
+      /* background-color: rgb(0, 60, 67, 0.3); */
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
+      border-bottom-color: white;
+    }
+  }
+</style>

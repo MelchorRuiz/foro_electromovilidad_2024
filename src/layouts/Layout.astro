@@ -57,17 +57,24 @@ const { title } = Astro.props;
 </style>
 <script >
   const anchors = document.querySelectorAll('a[href^="#"]')
+  const navbar = document.querySelector('nav');
+  const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+
+  const btn = document.querySelector('nav button') as HTMLButtonElement;
+
   anchors.forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
+      if (btn.getAttribute("aria-expanded") === "true") btn.click();
 
       const anchor = e.currentTarget as HTMLAnchorElement;
       const id = anchor.getAttribute("href")?.split("#")[1];
       const target = document.getElementById(id || "");
-      if (!target) return;
-      target.scrollIntoView({
+      const targetPosition = target ? target.getBoundingClientRect().top + window.scrollY : 0;
+
+      window.scroll({
+        top: targetPosition - navbarHeight,
         behavior: "smooth",
-        block: "start",
       });
     });
   });
