@@ -76,5 +76,11 @@
         "subtitle": "Fantastic! Your registration has been sent successfully",
         "message": "You will receive a confirmation email shortly.",
         "button": "Download PDF"
+    },
+    "counter": {
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
     }
 }
