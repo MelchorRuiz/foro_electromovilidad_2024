@@ -1,5 +1,4 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import FocusSegments from "../components/FocusSegments.astro";
@@ -12,7 +11,7 @@ import { Register } from "../components/Register/Register.jsx";
 import { getI18N } from "../i18n/index.js";
 const i18n = getI18N(Astro.currentLocale);
 
-const thankYouPagePath = getRelativeLocaleUrl(Astro.currentLocale || "es", "/gracias-por-registrarte");
+const thankYouPagePath = Astro.currentLocale === "en" ? "/en/thanks-for-registering" : `/gracias-por-registrarte`;
 ---
 
 <Layout title={`IGECO | ${i18n.title}`}>

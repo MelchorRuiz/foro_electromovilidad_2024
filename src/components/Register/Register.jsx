@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
 import { useRegisterFormStore } from '../../store/register-form.js'
 import { useThankYouPageStore } from '../../store/thankyou-page'
@@ -36,6 +36,7 @@ export function Register({ i18n, thankYouPagePath }) {
   } = useForm()
 
   const [isFailed, setIsFailed] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [cities, setCities] = useState([])
 
   const states = Object.keys(locationData)
@@ -44,8 +45,17 @@ export function Register({ i18n, thankYouPagePath }) {
     setCities(locationData[state] || [])
   }, [state]);
 
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isLoading]);
+
 
   const onSubmit = async (data) => {
+    setIsLoading(true)
     const url = import.meta.env.DEV ? 'http://localhost:3000/create-register' : 'https://api.example.com/create-register'
     try {
       const response = await fetch(url, {
@@ -60,18 +70,23 @@ export function Register({ i18n, thankYouPagePath }) {
         reset()
         setSubmitting(true)
         setPdfUrl(data.uuid)
+        setIsLoading(false)
         window.location.href = thankYouPagePath
       }
       if (response.status === 409) {
         setIsFailed(true)
+        setIsLoading(false)
       }
     } catch (error) {
       console.log(error)
+      setIsFailed(true)
+      setIsLoading(false)
     }
 
   }
 
   return (
+    <>
     <form className='flex flex-wrap md:gap-[2%]' onSubmit={handleSubmit(onSubmit)}>
       <InputField
         className='lg:w-[49%]'
@@ -230,5 +245,15 @@ export function Register({ i18n, thankYouPagePath }) {
       )}
       <button className='w-full bg-success text-white py-3 px-5 my-2 border-none rounded cursor-pointer' type='submit'>{i18n.submit}</button>
     </form>
+    {
+      isLoading && (
+        <div className='fixed top-0 left-0 w-full h-full bg-gray-300 bg-opacity-80 flex items-center justify-center z-30 overflow-hidden'>
+          <div className='w-28'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#000000" stroke="#000000" stroke-width="15" r="15" cx="40" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#000000" stroke="#000000" stroke-width="15" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#000000" stroke="#000000" stroke-width="15" r="15" cx="160" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
+          </div>
+        </div>
+      )
+    }
+    </>
   )
 }

@@ -7,9 +7,6 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   i18n: {
     defaultLocale: "es",
-    locales: ["es", "en"],
-    fallback: {
-      "en": "es"
-    }
+    locales: ["es", "en"]
   }
 });
