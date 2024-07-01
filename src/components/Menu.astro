@@ -61,36 +61,6 @@ const i18n = getI18N(Astro.currentLocale);
           >
         </li>
         <li class="my-auto">
-          <a
-            href="#register"
-            class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-medium transition duration-300 ease-out border-2 rounded-full shadow-md group"
-            style="border-color: rgba(255, 255, 255, 0.8);"
-          >
-            <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full text-gray-700 duration-300 -translate-x-full group-hover:translate-x-0 ease"
-              style="background-color: rgba(255, 255, 255, 0.8);"
-            >
-              <svg
-                class="w-4 h-4 rotate-90"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                ><path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
-              >
-            </span>
-            <span
-              class="text-base absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease"
-              >{i18n.register.title}</span
-            >
-            <span class="relative invisible">{i18n.register.title}</span>
-          </a>
-        </li>
-        <li class="my-auto">
           <SelectLanguage />
         </li>
       </ul>

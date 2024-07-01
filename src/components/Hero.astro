@@ -3,11 +3,48 @@ import { CounterDown } from "./CounterDown";
 
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
+const title = i18n.title.split(" ");
 ---
 
-<section class="hero relative w-full min-h-screen bg-[url('/bg_hero.webp')] bg-no-repeat bg-center bg-cover py-36 px-4 flex flex-col justify-start items-center text-white before:absolute before:top-0 before:left-0 before:w-full before:h-full z-0 before:bg-gray-900/60">
-    <h1 class="relative z-10 text-5xl font-jersey font-normal text-center md:text-6xl lg:text-8xl" style="text-shadow: 3px 1px 2px black;">{i18n.title}</h1>
-    <div class="relative z-10 w-1/12 h-[2px] bg-white my-4 rounded-2xl md:w-1/6 lg:w-3/12"></div>
-    <h3 class="relative z-10 text-center">{i18n.subtitle}</h3>
-    <CounterDown i18n={i18n.counter} client:only="react" />
+<section class="relative min-h-screen before:absolute before:top-0 before:left-0 before:w-full before:h-full z-0 before:bg-gray-900/60">
+    <video autoplay muted loop class="absolute -z-10 top-0 right-0 bottom-0 left-0 w-full h-full object-cover">
+        <source src="/hero.webm" type="video/webm">
+    </video>
+    <div class="flex flex-col-reverse lg:flex-col h-screen justify-between mx-auto px-10 md:px-20 pt-32 lg:pt-20 pb-10">
+        <div class="flex justify-center lg:justify-end">
+            <a
+              href="#register"
+              class="relative inline-flex items-center justify-center px-12 py-4 overflow-hidden font-medium transition duration-300 ease-out border-2 rounded-xl shadow-md group border-gray-950"   
+            >
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full group-hover:translate-x-0 ease bg-gray-950/60"
+              >
+                <svg
+                  class="w-4 h-4 rotate-90"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
+                >
+              </span>
+              <span
+                class="text-xl uppercase absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease bg-gray-950/60"
+                >{i18n.register.title}</span
+              >
+              <span class="relative invisible">{i18n.register.title}</span>
+            </a>
+        </div>
+        <div class="flex flex-col justify-end items-center md:items-start text-white">
+            <h1 class="relative z-10 font-jersey font-normal text-center md:text-left text-[3rem] md:text-[3.75rem] lg:text-[9rem] leading-[0.7] tracking-wider" style="text-shadow: 3px 1px 2px black;">
+                {title[0]} <br /> {title[1]}
+            </h1>
+            <h3 class="relative z-10 pt-6 text-center text-2xl font-bold">{i18n.subtitle}</h3>
+            <CounterDown i18n={i18n.counter} client:only="react" />
+        </div>
+    </div>
 </section>
