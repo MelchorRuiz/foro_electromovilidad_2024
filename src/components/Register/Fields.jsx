@@ -9,7 +9,7 @@ export const InputField = ({
   handleValue,
 }) => (
   <div className={`w-full md:w-[49%] ${className}`}>
-    <label className="text-white" htmlFor={name}>{label}</label>
+    <label className="text-black" htmlFor={name}>{label}</label>
     <input
       id={name}
       className="w-full my-1 border border-gray-200 rounded-md py-2 px-3 box-border"
@@ -38,7 +38,7 @@ export const SelectField = ({
   handleValue,
 }) => (
   <div className={`w-full md:w-[49%] ${className}`}>
-    <label className="text-white" htmlFor={name}>{label}</label>
+    <label className="text-black" htmlFor={name}>{label}</label>
     <select
       id={name}
       className="w-full my-1 border border-gray-200 rounded-md py-2 px-3 box-border"
