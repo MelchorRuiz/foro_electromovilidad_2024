@@ -1,8 +1,16 @@
 {
-    "title": "Electromovilidad",
-    "subtitle": "¡Descubre el camino hacia una movilidad más inteligente y sostenible en nuestro <span>Foro de Electromovilidad</span>!",
+    "title": "Foro de Electromovilidad",
     "date": "5 de septiembre de 2024",
-    "focus-segments": {
+    "hero": {
+        "title": "Electromovilidad",
+        "subtitle": "¡Descubre el camino hacia una movilidad más inteligente y sostenible en nuestro <span>Foro de Electromovilidad</span>!"
+    },
+    "message": [
+        "Explora las",
+        "últimas tendencias",
+        "e innovaciones en vehículos eléctricos, cononece y aprende de los expertos en la industria y descubre las claves de la infraestructura de carga del futuro."
+    ],
+    "focusSegments": {
         "title": "Segmentos de enfoque",
         "segments": [
             "Transporte eléctrico",

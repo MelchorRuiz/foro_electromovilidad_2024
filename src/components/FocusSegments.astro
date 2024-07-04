@@ -1,5 +1,4 @@
 ---
-import Section from "./Section.astro";
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
 
@@ -12,22 +11,36 @@ const images = [
   { src: "/segmentos/semiconductores.webp" },
 ];
 ---
-
-<Section subtitle={i18n["focus-segments"].title}>
-  <div class="flex flex-wrap justify-center items-center gap-[15px]">
-    {
-      images.map((image, index) => (
-        <div
-          class="w-full h-52 bg-center bg-cover transition-transform hover:scale-[1.02] md:w-[48%] lg:w-[31%]"
-          style={`background-image: url('${image.src}')`}
-        >
-          <div class="w-full h-full flex justify-start items-end bg-gradient-to-t from-gray-900/50 to-gray-900/30">
-            <p class="text-left text-base mt-2 text-white w-full p-[15px] font-medium">
-              {i18n["focus-segments"].segments[index]}
-            </p>
-          </div>
-        </div>
-      ))
-    }
+<section class="pt-4 md:pt-20 lg:pt-36 px-8 md:px-16 lg:px-24 relative bg-transparent w-full -mt-20">
+  <div class="absolute top-0 left-0 -z-10">
+    <img src="/assets/img1.webp" alt="decorative figure" class="pointer-events-none">
+    <div class="bg-gradient-to-b from-gray-500 to-transparent h-80 w-full z-0 content-['a'] -mt-20"]/>
   </div>
-</Section>
+  <div class="bg-white rounded-t-[2.5rem]">
+    <div class="text-center py-12 max-w-[550px] mx-auto px-8">
+      <h3 class="font-bold text-2xl md:text-3xl lg:text-4xl">{i18n.message[0]} <span class="font-bold text-secondary">{i18n.message[1]}</span></h3>
+      <p class="md:text-lg lg:text-xl">{i18n.message[2]}</p>
+      <div class="w-52 md:w-[400px] h-[2px] bg-black mx-auto rounded-sm mt-10" />
+    </div>
+    <div class="px-6 md:px-12 lg:px-24">
+      <h2 class="mb-4 pt-10 text-black text-3xl md:text-4xl lg:text-5xl font-normal font-jersey leading-none uppercase">{i18n.focusSegments.title}</h2>
+      <div class="justify-center items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-8">
+        {
+          images.map((image, index) => (
+            <div
+              class="h-52 bg-center bg-cover transition-transform hover:scale-[1.02] rounded-tr-[4rem] rounded-bl-[4rem]"
+              style={`background-image: url('${image.src}')`}
+            >
+              <div class="w-full h-full flex flex-col justify-end items-center bg-gradient-to-t from-gray-900/50 to-gray-900/30 rounded-tr-[4rem] rounded-bl-[4rem]">
+                <p class="text-center text-base mt-2 text-white w-full p-[15px] font-medium">
+                  {i18n.focusSegments.segments[index]}
+                </p>
+                <div class="bg-secondary w-20 h-2 mb-2 rounded-md" />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

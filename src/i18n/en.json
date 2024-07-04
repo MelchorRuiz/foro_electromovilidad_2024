@@ -1,8 +1,16 @@
 {
-    "title": "Electromobility",
-    "subtitle": "Discover the path to smarter and more sustainable mobility in our <span>Electromobility Forum</span>!",
+    "title": "Electromobility Forum",
     "date": "September 5, 2024",
-    "focus-segments": {
+    "hero": {
+        "title": "Electromobility",
+        "subtitle": "Discover the path to smarter and more sustainable mobility in our <span>Electromobility Forum</span>!"
+    },
+    "message": [
+        "Explore the",
+        "latest trends",
+        "and innovations in electric vehicles, learn from industry experts and discover the keys to the future charging infrastructure."
+    ],
+    "focusSegments": {
         "title": "Focus Segments",
         "segments": [
             "Electric transportation",
