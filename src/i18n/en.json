@@ -3,7 +3,12 @@
     "date": "September 5, 2024",
     "hero": {
         "title": "Electromobility",
-        "subtitle": "Discover the path to smarter and more sustainable mobility in our <span>Electromobility Forum</span>!"
+        "subtitle": [
+            "Discover the path to",
+            "smarter and more sustainable mobility",
+            "in our",
+            "Electromobility Forum"
+        ]
     },
     "message": [
         "Explore the",

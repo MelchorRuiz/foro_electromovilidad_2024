@@ -7,6 +7,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'jersey': ['"Jersey 15"', 'sans-serif'],
+				'open-sans': ['"Open Sans"', 'sans-serif'],
 				'roboto': ['Roboto', 'sans-serif'],
 			},
 			colors: {

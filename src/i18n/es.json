@@ -3,7 +3,12 @@
     "date": "5 de septiembre de 2024",
     "hero": {
         "title": "Electromovilidad",
-        "subtitle": "¡Descubre el camino hacia una movilidad más inteligente y sostenible en nuestro <span>Foro de Electromovilidad</span>!"
+        "subtitle": [
+            "¡Descubre el camino hacia una",
+            "movilidad más inteligente y sostenible",
+            "en nuestro",
+            "Foro de Electromovilidad"
+        ]
     },
     "message": [
         "Explora las",
