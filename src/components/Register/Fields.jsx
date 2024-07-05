@@ -14,7 +14,7 @@ export const InputField = ({
       className="w-full my-1 border border-gray-200 rounded-md py-2 px-3 box-border"
       style={{'backgroundColor': 'rgba(255, 255, 255, 0.8)'}} 
       autoComplete='given-name'
-      defaultValue={defaultValue}
+      value={defaultValue}
       {...register(name, {
         ...validation,
         onChange: (e) => handleValue(e.target.value),

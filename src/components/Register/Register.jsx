@@ -54,11 +54,6 @@ export function Register({ i18n, thankYouPagePath }) {
     }
   }, [isLoading]);
 
-  useEffect(() => {
-    console.log('Register component mounted')
-  })
-
-
   const onSubmit = async (data) => {
     setIsLoading(true)
     const url = import.meta.env.DEV ? 'http://localhost:3000/create-register' : 'https://api.example.com/create-register'
