@@ -16,7 +16,10 @@
         "and innovations in electric vehicles, learn from industry experts and discover the keys to the future charging infrastructure."
     ],
     "focusSegments": {
-        "title": "Focus Segments",
+        "title": [
+            "Focus",
+            "Segments"
+        ],
         "segments": [
             "Electric transportation",
             "New electric car assembly plants and conversion of internal combustion plants",

@@ -11,20 +11,56 @@ const images = [
   { src: "/segmentos/semiconductores.webp" },
 ];
 ---
-<section class="pt-4 md:pt-20 lg:pt-36 px-8 md:px-16 lg:px-24 relative bg-transparent w-full -mt-[4.1rem]">
+
+<section
+  class="pt-4 md:pt-20 lg:pt-36 px-8 md:px-16 lg:px-24 relative bg-transparent w-full -mt-[4.1rem]"
+>
   <div class="absolute top-0 left-0 -z-10">
-    <img src="/assets/img1.webp" alt="decorative figure" class="pointer-events-none">
-    <div class="bg-gradient-to-b from-gray-500 to-transparent h-80 w-full z-0 content-['a'] -mt-20"]/>
+    <img
+      src="/assets/img1.webp"
+      alt="decorative figure"
+      class="pointer-events-none"
+    />
+    <div
+      class="bg-gradient-to-b from-gray-500 to-transparent h-80 w-full z-0 content-['a'] -mt-20"
+      ]
+    >
+    </div>
   </div>
   <div class="bg-white rounded-t-[2.5rem]">
     <div class="text-center py-12 max-w-[600px] mx-auto px-8">
-      <h3 class="font-bold text-2xl md:text-3xl lg:text-4xl">{i18n.message[0]} <span class="font-bold text-secondary">{i18n.message[1]}</span></h3>
+      <h3 class="font-bold text-2xl md:text-3xl lg:text-4xl">
+        {i18n.message[0]}
+        <span class="font-bold text-secondary">{i18n.message[1]}</span>
+      </h3>
       <p class="md:text-lg lg:text-xl">{i18n.message[2]}</p>
-      <div class="w-52 md:w-[400px] h-[2px] bg-black mx-auto rounded-sm mt-10" />
+      <div class="w-52 md:w-[400px] h-[2px] bg-black mx-auto rounded-sm mt-10">
+      </div>
     </div>
     <div class="px-6 md:px-12 lg:px-24">
-      <h2 class="mb-4 pt-10 text-black text-3xl md:text-4xl lg:text-5xl font-normal font-jersey leading-none uppercase">{i18n.focusSegments.title}</h2>
-      <div class="justify-center items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-8">
+      <h2
+        class="mb-4 text-black text-2xl md:text-3xl lg:text-4xl font-normal font-open-sans leading-none uppercase"
+      >
+        <span class="font-bold">{i18n.focusSegments.title[0]}</span>
+        {i18n.focusSegments.title[1]}
+        <svg
+          class="inline-block text-secondary origin-left scale-[0.6] -translate-y-[0.2rem]"
+          fill="currentColor"
+          version="1.2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 146 46"
+          width="146"
+          height="46">
+          <path d="m0 0h47v46h-47z"></path>
+          <path d="m55.9 0h37v46h-37z"></path>
+          <path d="m101 0h16v46h-16z"></path>
+          <path d="m126 0h8v46h-8z"></path>
+          <path d="m138 0h8v46h-8z"></path>
+        </svg>
+      </h2>
+      <div
+        class="justify-center items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-8"
+      >
         {
           images.map((image, index) => (
             <div

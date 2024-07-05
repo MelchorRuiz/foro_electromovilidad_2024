@@ -16,7 +16,10 @@
         "e innovaciones en vehículos eléctricos, cononece y aprende de los expertos en la industria y descubre las claves de la infraestructura de carga del futuro."
     ],
     "focusSegments": {
-        "title": "Segmentos de enfoque",
+        "title": [
+            "Segmentos",
+            "de enfoque"
+        ],
         "segments": [
             "Transporte eléctrico",
             "Nuevas plantas de ensamble de autos eléctricos y la conversión de las plantas de combustión interna",
