@@ -98,5 +98,9 @@
         "hours": "Horas",
         "minutes": "Minutos",
         "seconds": "Segundos"
+    },
+    "footer": {
+        "position": "Relaciones Públicas",
+        "privacy": "Aviso de privacidad"
     }
 }

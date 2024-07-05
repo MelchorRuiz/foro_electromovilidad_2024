@@ -11,9 +11,8 @@ export default {
 				'roboto': ['Roboto', 'sans-serif'],
 			},
 			colors: {
-				'primary': '#01038b',
+				'primary': '#0a1650',
 				'secondary': '#007ae9',
-				"tertiary": "#0d0432",
 				'success': '#4CAF50',
 				'error': '#FF204E',
 			}

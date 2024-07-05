@@ -98,5 +98,9 @@
         "hours": "Hours",
         "minutes": "Minutes",
         "seconds": "Seconds"
+    },
+    "footer": {
+        "position": "Public Relations",
+        "privacy": "Privacy Policy"
     }
 }
