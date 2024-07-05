@@ -23,7 +23,7 @@ const thankYouPagePath =
     <!-- <Schedule /> -->
     <!-- <Speakers /> -->
 
-    <section id="gallery" class="w-full min-h-fit mt-10">
+    <section id="gallery" class="w-full min-h-fit pt-5 mt-5">
       <h2
         class="mb-6 text-black text-3xl md:text-4xl lg:text-5xl font-medium font-open-sans leading-none uppercase text-center"
       >
@@ -35,12 +35,26 @@ const thankYouPagePath =
     </section>
 
     <section id="register" class="w-full min-h-fit py-4 px-8 md:py-6 md:px-16 lg:py-8 lg:px-24 relative">
-      <h2 class="mb-4 text-black text-3xl md:text-4xl lg:text-5xl font-normal font-jersey leading-none">{i18n.register.title}</h2>
-      <Register
-        client:visible
-        i18n={i18n.register.form}
-        thankYouPagePath={thankYouPagePath}
-      />
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div>
+          <h2 class="mb-4 text-black text-3xl md:text-4xl lg:text-5xl font-normal font-jersey leading-none">{i18n.register.title}</h2>
+          <Register
+            client:visible
+            i18n={i18n.register.form}
+            thankYouPagePath={thankYouPagePath}
+          />
+        </div>
+        <div class="md:px-10">
+          <iframe
+            class="min-h-64 max-h-full h-full w-full md:w-[98%]"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.8849656909556!2d-101.66265702528322!3d21.117151884737797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbe554172e1e9%3A0x2bfde332d70d17fe!2sAuditorio%20Mateo%20Herrera%2C%20Zona%20Recreativa%20y%20Cultural%2C%2037500%20Le%C3%B3n%20de%20los%20Aldama%2C%20Gto.!5e0!3m2!1ses-419!2smx!4v1719432914150!5m2!1ses-419!2smx"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
     </section>
       
   </main>

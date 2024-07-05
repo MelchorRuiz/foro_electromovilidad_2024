@@ -23,6 +23,7 @@ export function Register({ i18n, thankYouPagePath }) {
     setPosition,
     setCountry,
     setState,
+    setMexicanState,
     setCity,
     reset,
   } = useRegisterFormStore()
@@ -52,6 +53,10 @@ export function Register({ i18n, thankYouPagePath }) {
       document.body.style.overflow = 'auto';
     }
   }, [isLoading]);
+
+  useEffect(() => {
+    console.log('Register component mounted')
+  })
 
 
   const onSubmit = async (data) => {
@@ -89,7 +94,6 @@ export function Register({ i18n, thankYouPagePath }) {
     <>
     <form className='flex flex-wrap md:gap-[2%]' onSubmit={handleSubmit(onSubmit)}>
       <InputField
-        className='lg:w-[49%]'
         label={i18n.name.label}
         defaultValue={name}
         register={register}
@@ -140,7 +144,6 @@ export function Register({ i18n, thankYouPagePath }) {
       />
 
       <InputField
-        className='lg:w-[23.5%]'
         label={i18n.company.label}
         defaultValue={company}
         register={register}
@@ -151,7 +154,6 @@ export function Register({ i18n, thankYouPagePath }) {
       />
 
       <InputField
-        className='lg:w-[23.5%]'
         label={i18n.position.label}
         defaultValue={position}
         register={register}
@@ -162,7 +164,6 @@ export function Register({ i18n, thankYouPagePath }) {
       />
 
       <SelectField
-        className='lg:w-[23.5%]'
         label={i18n.country.label}
         placeholder={i18n.selectPlaceHolder}
         options={countries.map((country) => country.name)}
@@ -178,7 +179,6 @@ export function Register({ i18n, thankYouPagePath }) {
         country === 'Mexico' ? (
           <>
             <SelectField
-              className='lg:w-[23.5%]'
               label={i18n.state.label}
               placeholder={i18n.selectPlaceHolder}
               options={states}
@@ -187,10 +187,7 @@ export function Register({ i18n, thankYouPagePath }) {
               errors={errors}
               name='state'
               validation={{ required: i18n.state.required }}
-              handleValue={(state) => {
-                setState(state)
-                setCity('')
-              }}
+              handleValue={setMexicanState}
             />
 
             <SelectField
@@ -208,7 +205,6 @@ export function Register({ i18n, thankYouPagePath }) {
         ) : (
           <>
             <InputField
-              className='lg:w-[23.5%]'
               label={i18n.state.label}
               defaultValue={state}
               register={register}

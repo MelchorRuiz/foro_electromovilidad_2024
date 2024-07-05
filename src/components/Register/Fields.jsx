@@ -1,5 +1,4 @@
 export const InputField = ({
-  className = '',
   label,
   defaultValue,
   register,
@@ -8,7 +7,7 @@ export const InputField = ({
   validation,
   handleValue,
 }) => (
-  <div className={`w-full md:w-[49%] ${className}`}>
+  <div className="w-full md:w-[49%]">
     <label className="text-black" htmlFor={name}>{label}</label>
     <input
       id={name}
@@ -26,7 +25,6 @@ export const InputField = ({
 )
 
 export const SelectField = ({
-  className = '',
   label,
   placeholder,
   options,
@@ -37,7 +35,7 @@ export const SelectField = ({
   validation,
   handleValue,
 }) => (
-  <div className={`w-full md:w-[49%] ${className}`}>
+  <div className="w-full md:w-[49%]">
     <label className="text-black" htmlFor={name}>{label}</label>
     <select
       id={name}
