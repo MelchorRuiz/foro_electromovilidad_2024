@@ -30,7 +30,8 @@
         ]
     },
     "program": {
-        "title": "Programa"
+        "title": "Programa",
+        "empty": "No hay actividades programadas por el momento"
     },
     "speakers": {
         "title": "Ponentes"

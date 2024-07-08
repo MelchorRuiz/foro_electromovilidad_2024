@@ -30,7 +30,8 @@
         ]
     },
     "program": {
-        "title": "Program"
+        "title": "Program",
+        "empty": "There are no scheduled activities at the moment"
     },
     "speakers": {
         "title": "Speakers"

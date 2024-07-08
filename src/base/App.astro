@@ -20,7 +20,7 @@ const thankYouPagePath =
   <Hero />
   <main>
     <FocusSegments />
-    <!-- <Schedule /> -->
+    <Schedule />
     <!-- <Speakers /> -->
 
     <section id="gallery" class="w-full min-h-fit pt-5 mt-5">
@@ -37,7 +37,7 @@ const thankYouPagePath =
     <section id="register" class="w-full min-h-fit py-4 px-8 md:py-6 md:px-16 lg:py-8 lg:px-24 relative">
       <div class="grid grid-cols-1 md:grid-cols-2">
         <div>
-          <h2 class="mb-4 text-black text-3xl md:text-4xl lg:text-5xl font-normal font-jersey leading-none">{i18n.register.title}</h2>
+          <h2 class="mb-4 text-black text-2xl md:text-3xl lg:text-4xl font-semibold font-open-sans leading-none uppercase">{i18n.register.title}</h2>
           <Register
             client:visible
             i18n={i18n.register.form}
