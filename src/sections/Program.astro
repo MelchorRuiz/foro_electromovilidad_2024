@@ -1,5 +1,5 @@
 ---
-import program from "../data/program.json";
+import program from "../data/program.ts";
 
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
@@ -48,7 +48,7 @@ const i18n = getI18N(Astro.currentLocale);
                                     >
                                         <div class="flex-1 text-left flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
                                             <span class="font-bold text-black text-xl">
-                                                {item?.hours}
+                                                {item.hours}
                                             </span>
                                             <span class="text-left flex-1 text-black ">
                                                 {item.name}
@@ -80,18 +80,20 @@ const i18n = getI18N(Astro.currentLocale);
                                     aria-labelledby={`accordion-collapse-heading-${index}`}
                                 >
                                     <div class="md:p-2 md:ml-28 flex flex-wrap gap-x-3 gap-y-1">
-                                        {item.speakers.map((speaker) => (
-                                            <div class="flex flex-col gap-1 items-center">
-                                                <img
-                                                    class="rounded-full object-cover object-center w-16 h-16"
-                                                    src={speaker.photo}
-                                                    alt={speaker.name}
-                                                />
-                                                <h4 class="text-xs">
-                                                    {speaker.name}
-                                                </h4>
-                                            </div>
-                                        ))}
+                                        {
+                                            item.speakers.map((speaker) => (
+                                                <div class="flex flex-col gap-1 items-center">
+                                                    <img
+                                                        class="rounded-full object-cover object-center w-16 h-16"
+                                                        src={speaker.photo}
+                                                        alt={speaker.name}
+                                                    />
+                                                    <h4 class="text-xs">
+                                                        {speaker.name}
+                                                    </h4>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
                                 </div>
                             </>

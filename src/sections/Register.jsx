@@ -1,12 +1,12 @@
 import { set, useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
-import { useRegisterFormStore } from '../../store/register-form.js'
-import { useThankYouPageStore } from '../../store/thankyou-page'
-import locationData from '../../data/states_and_cities.json'
-import countries from '../../data/countries.json'
-import { InputField, SelectField } from './Fields.jsx'
+import { useRegisterFormStore } from '../store/register-form.js'
+import { useThankYouPageStore } from '../store/thankyou-page.js'
+import locationData from '../data/states_and_cities.json'
+import countries from '../data/countries.json'
+import { InputField, SelectField } from '../components/Fields.jsx'
 
-export function Register({ i18n, thankYouPagePath }) {
+export default function Register({ i18n, thankYouPagePath }) {
   const {
     name,
     email,

@@ -37,7 +37,7 @@ function Images({ galleryID, images}) {
   );
 }
 
-export function Gallery() {
+export default function Gallery() {
   const [page, setPage] = useState(0) // Use the useState hook to initialize the page state variable
   const [imagesForEachPage, setImagesForEachPage] = useState(12) // Initialize imagesForEachPage state variable
 
