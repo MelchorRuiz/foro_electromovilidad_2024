@@ -10,7 +10,7 @@ import 'dotenv/config';
 const app = express();
 
 app.use(cors({
-    origin: process.env.DEV ? 'http://localhost:4321' : "https://www.foro-electromovilidad.igeco.mx",
+    origin: process.env.DEV ? 'http://localhost:4321' : ["https://www.foro-electromovilidad.igeco.mx", "https://foro-electromovilidad.igeco.mx"],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
