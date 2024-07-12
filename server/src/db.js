@@ -8,35 +8,24 @@ const config = {
     database: process.env.DB_NAME,
 }
 
-export class Registro_Model {
+const QUERY = 'INSERT INTO users (uuid, name, email, phone, company, position, country, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
 
-    static async createRegistro({
-        uuid,
-        name,
-        email,
-        phone,
-        company,
-        position,
-        country,
-        state,
-        city,
-    }) {
+export default async function createRegistro({uuid, name, email, phone, company, position, country, state, city}) {
         
-        const connection = await mysql.createConnection(config);
-        try{
-            await connection.query(
-                'INSERT INTO users (uuid, name, email, phone, company, position, country, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                [uuid, name, email, phone, company, position, country, state, city]
-            );
-        } catch (error) {
-            if (error.code === 'ER_DUP_ENTRY') {
-                throw new Error('Mail or telephone already exist');
-            } else {
-                throw new Error(error);
-            }
-        } finally {
-            await connection.end();
+    const connection = await mysql.createConnection(config);
+
+    try{
+        await connection.query(
+            QUERY, [uuid, name, email, phone, company, position, country, state, city]
+        );
+    } catch (error) {
+        if (error.code === 'ER_DUP_ENTRY') {
+            throw new Error('Mail or telephone already exist');
+        } else {
+            throw new Error(error);
         }
-    
+    } finally {
+        await connection.end();
     }
+
 }
