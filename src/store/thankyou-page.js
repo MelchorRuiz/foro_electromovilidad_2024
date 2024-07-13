@@ -5,9 +5,9 @@ export const useThankYouPageStore = create(
     persist(
         (set) => ({
             isSubmitting: false,
-            pdfUrl : '',
+            imageQR : '',
             setSubmitting: (isSubmitting) => set({ isSubmitting }),
-            setPdfUrl: (pdfUrl) => set({ pdfUrl }),
+            setImageQR: (imageQR) => set({ imageQR }),
         }),
         {
             name: "thankyou-page-storage",

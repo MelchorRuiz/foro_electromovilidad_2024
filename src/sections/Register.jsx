@@ -28,7 +28,7 @@ export default function Register({ i18n, thankYouPagePath }) {
     reset,
   } = useRegisterFormStore()
 
-  const { setSubmitting, setPdfUrl } = useThankYouPageStore()
+  const { setSubmitting, setImageQR } = useThankYouPageStore()
 
   const {
     register,
@@ -37,6 +37,7 @@ export default function Register({ i18n, thankYouPagePath }) {
   } = useForm()
 
   const [isFailed, setIsFailed] = useState(false)
+  const [failMessage, setFailMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [cities, setCities] = useState([])
 
@@ -69,12 +70,13 @@ export default function Register({ i18n, thankYouPagePath }) {
         const data = await response.json()
         reset()
         setSubmitting(true)
-        setPdfUrl(data.uuid)
+        setImageQR(data.qr)
         setIsLoading(false)
         window.location.href = thankYouPagePath
       }
       if (response.status === 409) {
         setIsFailed(true)
+        setFailMessage(i18n.error2)
         setIsLoading(false)
       }
     } catch (error) {
@@ -230,7 +232,7 @@ export default function Register({ i18n, thankYouPagePath }) {
           </svg>
           <span className="sr-only">Info</span>
           <div>
-            <span className="font-medium">{i18n.error1}</span> {i18n.error2}
+            <span className="font-medium">{i18n.error1}</span> {failMessage}
           </div>
         </div>
       )}

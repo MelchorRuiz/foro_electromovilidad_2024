@@ -1,5 +1,7 @@
-import locationData from "./data/states_and_cities.json" assert { type: "json" };
-import countries from "./data/countries.json" assert { type: "json" };
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const locationData = require("./data/states_and_cities.json");
+const countries = require("./data/countries.json");
 
 export default function validateUser (user) {
     const errors = []
