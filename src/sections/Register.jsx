@@ -57,7 +57,7 @@ export default function Register({ i18n, thankYouPagePath, locale }) {
 
   const onSubmit = async (data) => {
     setIsLoading(true)
-    const url = import.meta.env.DEV ? 'http://localhost:3000/create-register' : 'https://api.example.com/create-register'
+    const url = import.meta.env.DEV ? 'http://localhost:3000/create-register' : 'https://foro-electromovilidad.igeco.mx/server/create-register'
     try {
       const response = await fetch(url, {
         method: 'POST',
