@@ -6,7 +6,7 @@ import locationData from '../data/states_and_cities.json'
 import countries from '../data/countries.json'
 import { InputField, SelectField } from '../components/Fields.jsx'
 
-export default function Register({ i18n, thankYouPagePath }) {
+export default function Register({ i18n, thankYouPagePath, locale }) {
   const {
     name,
     email,
@@ -64,7 +64,7 @@ export default function Register({ i18n, thankYouPagePath }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, locale: locale}),
       })
       if (response.status === 201) {
         const data = await response.json()

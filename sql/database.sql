@@ -21,3 +21,5 @@ CREATE TABLE users (
 );
 
 SELECT * FROM users;
+
+DELETE FROM users WHERE id = 6;

@@ -6,7 +6,7 @@ export default function template( name, email ) {
     <tbody>
         <tr>
           <td colspan="2" align="center">
-            <img src="${url}/email_en.png" alt="logo" width="550">         
+            <img src="${url}/assets/email_en.png" alt="logo" width="550">         
           </td>
         </tr>        
         <tr>
@@ -27,11 +27,11 @@ export default function template( name, email ) {
                 </a>
               </div>
               <p style="margin-top:40px;margin-bottom: 40px;">
-                We look forward to seeing you at <strong>ELECTROMOBILITY FORUM 2024 on September 00, Mateo Herrera Auditorium, Leon, Guanajuato.
+                We look forward to seeing you at <strong>ELECTROMOBILITY FORUM 2024 on (date to be confirmed), Mateo Herrera Auditorium, Leon, Guanajuato.
               </p>
               <div style="background: #007ae9;color:white;border-radius: 20px;padding:20px;">               
                <p><strong>SCHEDULE:</strong></p>
-               <p>Wednesday 00 from 00:00 am - 12:00 pm hrs</p>
+               <p>(time to be confirmed)</p>
               </div>
             </div> 
             <div>
@@ -53,26 +53,26 @@ export default function template( name, email ) {
             </div>              
             <p style="font-weight:bold;font-size:20px;text-align: center;">ADD TO CALENDAR</p>
             <div style="text-align:center;padding:20px;margin: 20px;">
-              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;margin:20px;text-decoration:none;" href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20240905%2F20240906&details=%C2%A1Descubre%20el%20camino%20hacia%20una%20movilidad%20m%C3%A1s%20inteligente%20y%20sostenible%20en%20nuestro%20Foro%20de%20Electromovilidad%21&location=Auditorio%20Mateo%20Herrera&text=Foro%20Electromovilidad"
+              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;margin:20px;text-decoration:none;"
               target="_blank">                        
                 Google
               </a>
             </div>
             <div style="text-align:center;padding:20px;margin: 20px;">              
-              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;text-decoration:none;" href="https://outlook.live.com/calendar/0/action/compose?allday=true&body=%C2%A1Descubre%20el%20camino%20hacia%20una%20movilidad%20m%C3%A1s%20inteligente%20y%20sostenible%20en%20nuestro%20Foro%20de%20Electromovilidad%21&enddt=2024-09-06T17%3A45%3A00&location=Auditorio%20Mateo%20Herrera&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2024-09-05T17%3A45%3A00&subject=Foro%20Electromovilidad"
+              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;text-decoration:none;"
               target="_blank">                       
                 Outlook
               </a>
             </div>                   
             <div style="text-align:center;padding:20px;margin: 20px;">
-              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;margin:20px;text-decoration:none;" href="https://calendar.yahoo.com/?desc=%25C2%25A1Descubre%2520el%2520camino%2520hacia%2520una%2520movilidad%2520m%25C3%25A1s%2520inteligente%2520y%2520sostenible%2520en%2520nuestro%2520Foro%2520de%2520Electromovilidad%21&dur=allday&et=20240906&in_loc=Auditorio+Mateo+Herrera&st=20240905&title=Foro%2520Electromovilidad&v=60"
+              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;margin:20px;text-decoration:none;"
               target="_blank">
                 
               <i>Y!</i> Yahoo!
               </a>
             </div>
             <div style="text-align:center;padding:20px;margin: 20px;">                            
-              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;text-decoration:none;" href="https://foro-electromovilidad.igeco.mx/calendar.ics" donwload target="_blank">  
+              <a style="background: #0a1650;color:white;padding:20px;border-radius:20px;text-decoration:none;" donwload target="_blank">  
                 iCalendar
               </a>
             </div>
