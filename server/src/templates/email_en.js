@@ -6,7 +6,7 @@ export default function template( name, email ) {
     <tbody>
         <tr>
           <td colspan="2" align="center">
-            <img src="${url}/assets/email_en.png" alt="logo" width="550">         
+            <img src="${url}/assets/email_en.webp" alt="logo" width="550">         
           </td>
         </tr>        
         <tr>
