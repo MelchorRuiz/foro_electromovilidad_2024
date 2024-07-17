@@ -12,7 +12,10 @@ export default defineConfig({
       page !== 'https://foro-electromovilidad.igeco.mx/en/thanks-for-registering',
     i18n: {
       defaultLocale: "es",
-      locales: ["es", "en"]
+      locales: {
+        es: 'es-ES',
+        en: 'en-US'
+      }
     }
   })],
   i18n: {
