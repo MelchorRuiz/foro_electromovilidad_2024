@@ -9,7 +9,7 @@ const config = {
     port: process.env.DB_PORT || 3306
 }
 
-const QUERY = 'INSERT INTO users (uuid, name, email, phone, company, position, country, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
+const QUERY = 'INSERT INTO foro_electromovilidad_2024 (uuid, name, email, phone, company, position, country, state, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
 
 export default async function createRegistro({uuid, name, email, phone, company, position, country, state, city}) {
         
