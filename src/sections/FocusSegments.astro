@@ -13,7 +13,8 @@ const images = [
 ---
 
 <section
-  class="pt-4 md:pt-20 lg:pt-36 px-8 md:px-16 lg:px-24 relative bg-transparent w-full -mt-[4.1rem] xl:-mt-[5.5rem]"
+  id="focus-segments"
+  class="pt-10 md:pt-20 lg:pt-36 px-8 md:px-16 lg:px-24 relative bg-transparent w-full -mt[3.5rem]"
 >
   <div class="absolute top-0 left-0 -z-10">
     <img
@@ -78,3 +79,14 @@ const images = [
     </div>
   </div>
 </section>
+<script>
+  // script for calculating the negative margin top
+  function calculateMarginTop() {
+    const section = document.getElementById("focus-segments") as HTMLElement;
+    const image = section.querySelector("img") as HTMLImageElement;
+    const imgeHeight = image.height;
+    section.style.marginTop = `-${imgeHeight/9}px`;
+  }
+  calculateMarginTop();
+  window.addEventListener("resize", calculateMarginTop);
+</script>
