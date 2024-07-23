@@ -8,8 +8,8 @@ export default defineConfig({
   site: 'https://foro-electromovilidad.igeco.mx',
   integrations: [tailwind(), react(), sitemap({
     filter: (page) => 
-      page !== 'https://foro-electromovilidad.igeco.mx/gracias-por-registrarte' &&
-      page !== 'https://foro-electromovilidad.igeco.mx/en/thanks-for-registering',
+      page !== 'https://foro-electromovilidad.igeco.mx/gracias-por-registrarte/' &&
+      page !== 'https://foro-electromovilidad.igeco.mx/en/thanks-for-registering/',
     i18n: {
       defaultLocale: "es",
       locales: {

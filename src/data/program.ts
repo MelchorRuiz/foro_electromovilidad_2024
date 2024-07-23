@@ -1,5 +1,6 @@
 interface speaker {
     name: string;
+    position: string;
     photo: string;
 }
 
@@ -16,6 +17,7 @@ interface program {
         "speakers": [
             {
                 "name": "Ricardo Haneine",
+                "position": "Director de la Facultad de Ingeniería",
                 "photo": "https://via.placeholder.com/150"
             }
         ]

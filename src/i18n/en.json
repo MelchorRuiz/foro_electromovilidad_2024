@@ -21,12 +21,11 @@
             "Segments"
         ],
         "segments": [
-            "Electric transportation",
-            "New electric car assembly plants and conversion of internal combustion plants",
-            "Charging, generation and storage infrastructure",
-            "Batteries",
-            "Government policies and international commitments",
-            "Major semiconductor producers and the global environment -Major semiconductor producers and the global environment"
+            "Overview of electromobility in the world",
+            "Production and supply chain",
+            "Policies and regulations",
+            "Emerging applications of semiconductors",
+            "Environmental impact and sustainability"
         ]
     },
     "program": {
@@ -37,7 +36,7 @@
         "title": "Speakers"
     },
     "gallery": {
-        "title": "Gallery"
+        "title": "Hightlights 2023"
     },
     "register": {
         "title": "Register",

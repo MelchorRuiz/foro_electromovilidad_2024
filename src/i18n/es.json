@@ -21,12 +21,11 @@
             "de enfoque"
         ],
         "segments": [
-            "Transporte eléctrico",
-            "Nuevas plantas de ensamble de autos eléctricos y la conversión de las plantas de combustión interna",
-            "Infraestructura de carga, generación y almacenamiento",
-            "Baterías",
-            "Políticas gubernamentales y compromisos contraídos internacionalmente",
-            "Principales productores de semiconductores, y entorno mundial"
+            "Panorama de la electromovilidad en el mundo",
+            "Producción y cadena de suministro",
+            "Políticas y regulaciones",
+            "Aplicaciones emergentes de los semiconductores",
+            "Impacto ambiental y sostenibilidad"
         ]
     },
     "program": {
@@ -37,10 +36,10 @@
         "title": "Ponentes"
     },
     "gallery": {
-        "title": "Galería"
+        "title": "Hightlights 2023"
     },
     "register": {
-        "title": "Regístrate",
+        "title": "Registro",
         "form": {
             "name": {
                 "label": "Nombre",
