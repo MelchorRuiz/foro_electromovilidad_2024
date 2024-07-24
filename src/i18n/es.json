@@ -33,7 +33,8 @@
         "empty": "No hay actividades programadas por el momento"
     },
     "speakers": {
-        "title": "Ponentes"
+        "title": "Ponentes",
+        "empty": "No hay ponentes por el momento"
     },
     "gallery": {
         "title": "Hightlights 2023"

@@ -33,7 +33,8 @@
         "empty": "There are no scheduled activities at the moment"
     },
     "speakers": {
-        "title": "Speakers"
+        "title": "Speakers",
+        "empty": "There are no speakers at the moment"
     },
     "gallery": {
         "title": "Hightlights 2023"
