@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:Foro Electromovilidad
 BEGIN:VEVENT
-DTSTART:20240905
-DTEND:20240906
-DTSTAMP:20240711T234124Z
+DTSTART:20240923
+DTEND:20240924
+DTSTAMP:20240724T195425Z
 SUMMARY:Foro Electromovilidad
-DESCRIPTION:¡Descubre el camino hacia una movilidad más inteligente y sostenible en nuestro Foro de Electromovilidad!
+DESCRIPTION:Comparte este espacio junto a especialistas destacados, conoce las nuevas actualizaciones de la movilidad inteligente, explora las innovaciones y tendencias para el futuro.
 LOCATION:Auditorio Mateo Herrera
-UID:87022
+UID:27417
 END:VEVENT
 END:VCALENDAR
