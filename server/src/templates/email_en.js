@@ -27,7 +27,7 @@ export default function template( name, email ) {
                 </a>
               </div>
               <p style="margin-top:40px;margin-bottom: 40px;">
-                We look forward to seeing you at <strong>ELECTROMOBILITY FORUM 2024 on 07/23/2024, Mateo Herrera Auditorium, Leon, Guanajuato.
+                We look forward to seeing you at <strong>ELECTROMOBILITY FORUM 2024 on 09/23/2024, Mateo Herrera Auditorium, Leon, Guanajuato.
               </p>
               <div style="background: #007ae9;color:white;border-radius: 20px;padding:20px;">               
                <p><strong>SCHEDULE:</strong></p>
