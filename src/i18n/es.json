@@ -11,15 +11,16 @@
         ]
     },
     "message": [
-        "Explora las",
-        "últimas tendencias",
-        "e innovaciones en vehículos eléctricos, cononece y aprende de los expertos en la industria y descubre las claves de la infraestructura de carga del futuro."
+        "¡Conoce y conecta con especialistas de la ",
+        "electromovilidad",
+        "Comparte este espacio junto a especialistas destacados, conoce las nuevas actualizaciones de la movilidad inteligente, explora las innovaciones y tendencias para el futuro."
     ],
     "focusSegments": {
         "title": [
             "Segmentos",
             "de enfoque"
         ],
+        "free_event": "Evento gratuito",
         "segments": [
             "Panorama de la electromovilidad en el mundo",
             "Producción y cadena de suministro",
@@ -39,6 +40,7 @@
     "gallery": {
         "title": "Hightlights 2023"
     },
+    "edition_2023": "Edición 2023",
     "register": {
         "title": "Registro",
         "form": {

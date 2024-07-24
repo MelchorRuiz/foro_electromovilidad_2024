@@ -11,15 +11,16 @@
         ]
     },
     "message": [
-        "Explore the",
-        "latest trends",
-        "and innovations in electric vehicles, learn from industry experts and discover the keys to the future charging infrastructure."
+        "Meet and connect with specialists in",
+        "electromobility",
+        "Share this space with outstanding specialists, learn about the latest updates in smart mobility, explore innovations and trends for the future."
     ],
     "focusSegments": {
         "title": [
             "Focus",
             "Segments"
         ],
+        "free_event": "Free event",
         "segments": [
             "Overview of electromobility in the world",
             "Production and supply chain",
@@ -39,6 +40,7 @@
     "gallery": {
         "title": "Hightlights 2023"
     },
+    "edition_2023": "Edition 2023",
     "register": {
         "title": "Register",
         "form": {
