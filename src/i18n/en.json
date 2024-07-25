@@ -32,11 +32,11 @@
     },
     "program": {
         "title": "Program",
-        "empty": "There are no scheduled activities at the moment"
+        "empty": "Coming soon"
     },
     "speakers": {
         "title": "Speakers",
-        "empty": "There are no speakers at the moment"
+        "empty": "Coming soon"
     },
     "gallery": {
         "title": "Hightlights 2023"

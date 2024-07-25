@@ -33,11 +33,11 @@
     },
     "program": {
         "title": "Programa",
-        "empty": "No hay actividades programadas por el momento"
+        "empty": "Próximamente"
     },
     "speakers": {
         "title": "Ponentes",
-        "empty": "No hay ponentes por el momento"
+        "empty": "Próximamente"
     },
     "gallery": {
         "title": "Hightlights 2023"
