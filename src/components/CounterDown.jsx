@@ -1,7 +1,7 @@
 import { useCountdown } from '../hooks/useCounterDown'
 
 export function CounterDown({ i18n }) {
-  const { days, hours, minutes, seconds } = useCountdown('23 sept 2024 00:00:00')
+  const { days, hours, minutes, seconds } = useCountdown('23 sept 2024 10:00:00')
   return (
     <div className='text-black bg-transparent grid grid-cols-2 md:grid-cols-4 gap-4 text-sm md:text-lg font-semibold p-5 border rounded-lg mt-4 w-full'>
       <div className='flex flex-col items-center'>
