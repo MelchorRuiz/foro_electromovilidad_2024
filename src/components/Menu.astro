@@ -110,11 +110,6 @@ const menu = [
           isMenuOpen = true;
         }
       });
-      ul.addEventListener("click", (e) => {
-        const target = e.target as HTMLElement;
-        if (target.tagName !== "UL") return;
-        hide();
-      });
       anchors.forEach((anchor) => {
         anchor.addEventListener("click", hide);
       });
