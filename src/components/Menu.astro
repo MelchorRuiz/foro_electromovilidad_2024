@@ -99,25 +99,29 @@ const menu = [
     isMenuOpen = false;
   };
 
+  const handelClickMenu = () => {
+    if (isMenuOpen) {
+      hide();
+    } else {
+      ul.style.display = "flex";
+      isMenuOpen = true;
+    }
+  };
+
   const addListeners = () => {
+    menu.removeEventListener("click", handelClickMenu);
+    anchors.forEach((anchor) => {
+      anchor.removeEventListener("click", hide);
+    });
+
     if (window.innerWidth < 1024) {
       hide();
-      menu.addEventListener("click", () => {
-        if (isMenuOpen) {
-          hide();
-        } else {
-          ul.style.display = "flex";
-          isMenuOpen = true;
-        }
-      });
+      menu.addEventListener("click", handelClickMenu);
       anchors.forEach((anchor) => {
         anchor.addEventListener("click", hide);
       });
     } else {
       ul.style.display = "flex";
-      anchors.forEach((anchor) => {
-        anchor.removeEventListener("click", hide);
-      });
     }
   };
   addListeners();
