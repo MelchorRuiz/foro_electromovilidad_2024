@@ -9,7 +9,7 @@ const menu = [
   { href: "#speakers", text: i18n.speakers.title, target: "_self" },
   { href: "#gallery", text: i18n.gallery.title, target: "_self" },
   {
-    href: "https://hfmexico.mx/foro-electromovilidad/",
+    href: "https://hfmexico.mx/foro-electromovilidad/", 
     text: i18n.edition_2023,
     target: "_blank",
   },
@@ -18,7 +18,7 @@ const menu = [
 
 <nav
   id="header"
-  class="fixed top-0 w-screen flex justify-between px-5 lg:px-10 py-4 items-center text-white lg:text-black z-30 bg-white border-b-[1px]"
+  class="fixed top-0 w-screen flex justify-between px-5 lg:px-10 py-3 items-center text-black z-30 bg-white border-b-[1px]"
 >
   <a class="flex gap-1 items-center" href="#">
     <img src="/assets/logos.webp" alt="favicon" class="w-auto h-8 lg:h-10" />
@@ -39,15 +39,15 @@ const menu = [
     </svg>
   </div>
   <ul
-    class="fixed lg:relative top-0 left-0 bottom-0 right-0 bg-black/95 lg:bg-transparent flex flex-col lg:flex-row justify-center items-center gap-5 lg:text-lg z-20 h-screen lg:h-fit"
+    class="fixed lg:relative top-14 lg:top-0 left-0 bg-white lg:bg-transparent flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-5 lg:text-lg z-20 w-full lg:w-fit py-5 lg:py-0 px-10 rounded-b-xl lg:rounded-b-none border-[1px] lg:border-none border-t-black"
   >
     {
       menu.map((link) => (
-        <li>
+        <li class="pl-1 lg:pl-0">
           <a
             href={link.href}
             target={link.target}
-            class="relative lg:after:w-0 lg:hover:after:w-full lg:after:h-[1px] lg:hover:after:bg-black lg:after:absolute lg:after:-bottom-2 lg:after:left-0 lg:after:rounded-lg lg:after:transition-all lg:after:duration-300 lg:after:ease-in-out"
+            class="relative lg:after:w-0 lg:hover:after:w-full lg:after:h-[1px] lg:hover:after:bg-black lg:after:absolute lg:after:-bottom-2 lg:after:left-0 lg:after:rounded-lg lg:after:transition-all lg:after:duration-300 lg:after:ease-in-out text-nowrap"
           >
             {link.text}
           </a>
@@ -57,10 +57,10 @@ const menu = [
     <li>
       <a
         href="#register"
-        class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-medium transition duration-300 ease-out rounded-full shadow-md group"
+        class="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium transition duration-300 ease-out rounded-xl lg:rounded-full shadow-md group"
       >
         <span
-          class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full group-hover:translate-x-0 ease bg-gray-900"
+          class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full group-hover:translate-x-0 ease bg-primary"
         >
           <svg
             class="w-4 h-4 rotate-90"
@@ -76,7 +76,7 @@ const menu = [
           >
         </span>
         <span
-          class="text-base absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease bg-gray-900"
+          class="text-xl font-medium absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease bg-primary"
           >{i18n.register.title}</span
         >
         <span class="relative invisible">{i18n.register.title}</span>
@@ -92,16 +92,23 @@ const menu = [
   const menu = document.querySelector("#menu") as HTMLElement;
   const anchors = document.querySelectorAll('a[href^="#"]') as NodeListOf<HTMLAnchorElement>;
   const ul = document.querySelector("nav ul") as HTMLUListElement;
+  let isMenuOpen = false;
 
   const hide = () => {
     ul.style.display = "none";
+    isMenuOpen = false;
   };
 
   const addListeners = () => {
     if (window.innerWidth < 1024) {
       hide();
       menu.addEventListener("click", () => {
-        ul.style.display = "flex";
+        if (isMenuOpen) {
+          hide();
+        } else {
+          ul.style.display = "flex";
+          isMenuOpen = true;
+        }
       });
       ul.addEventListener("click", (e) => {
         const target = e.target as HTMLElement;
