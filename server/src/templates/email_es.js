@@ -31,7 +31,7 @@ export default function template( name, email) {
               </p>
               <div style="background: #007ae9;color:white;border-radius: 20px;padding:20px;">               
                <p><strong>HORARIO:</strong></p>
-               <p>23 de septiembre, 2024</p>
+               <p>10:00 a.m.</p>
               </div>
             </div>    
             <div>
