@@ -1,5 +1,5 @@
 ---
-import program from "../data/program.ts";
+import speakers from "../data/speakers.ts";
 
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
@@ -30,7 +30,7 @@ const i18n = getI18N(Astro.currentLocale);
         {i18n.speakers.title}
     </h3>
     {
-        program.length === 0 ? (
+        speakers.length === 0 ? (
             <p class="text-black text-lg">{i18n.speakers.empty}</p>
         ) : (
             <></>
