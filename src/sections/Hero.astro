@@ -1,45 +1,22 @@
 ---
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
-const title = i18n.hero.title.split("Electro");
 ---
 
-<section
-    class="relative min-h-[105vh] before:absolute before:top-0 before:left-0 before:w-full before:h-full -z-10 before:bg-gray-900/80"
->
-    <video
-        autoplay
-        muted
-        loop
-        class="absolute -z-30 top-0 right-0 bottom-0 left-0 w-full h-full object-cover"
-    >
-        <source src="/hero.webm" type="video/webm" />
-    </video>
-    <div class="flex flex-col h-screen lg:justify-end pt-32 lg:pt-20 pb-12">
-        <div
-            class="flex flex-col justify-end items-center lg:items-start text-white"
-        >
-            <h1
-                class="relative uppercase z-10 font-open-sans font-extrabold text-center lg:text-left text-[3rem] md:text-[5rem] lg:text-[7rem] leading-[1] lg:leading-[0.8] select-none"
-                style="text-shadow: 3px 1px 2px black;"
-            >
-                Foro<br /><span class="text-[2rem] md:text-[4rem] lg:text-[6rem] font-extrabold leading-[1]">Electromovilidad</span>
+<section class="relative min-h-[105vh] before:absolute before:top-0 before:left-0 before:w-full before:h-full -z-10 before:bg-gray-900/50 lg:before:bg-gray-900/10">
+    <img class="absolute -z-30 top-0 right-0 bottom-0 left-0 w-full h-full object-cover" src="/hero.webp" alt="background">
+    <div class="flex flex-col h-screen pt-32 pb-12">
+        <div class="flex flex-col justify-end items-center lg:items-start text-white">
+            <h1 class="relative uppercase z-10 font-open-sans font-bold text-center lg:text-left text-[4rem] lg:text-[8rem] leading-[1] lg:leading-[0.8] lg:pl-5">
+                Electro<br /><span class="font-bold text-[#40aa00c2] brightness-125">movilidad</span>
             </h1>
-            <h2
-                class="relative z-10 pt-4 pb-4 px-4 text-center lg:text-left md:text-2xl w-full max-w-[800px]"
-            >
-                {i18n.hero.subtitle[0]}
-                <span class="font-bold">{i18n.hero.subtitle[1]}</span>
-                {i18n.hero.subtitle[2]}
-                <span class="text-secondary font-bold">
-                    {i18n.hero.subtitle[3]}
-                </span>!
+            <h2 class="z-10 block mt-4 p-4 text-center md:text-left md:text-2xl lg:bg-gradient-to-r lg:from-[#40aa002a] lg:to-transparent lg:pl-5 uppercase">
+                {i18n.hero.subtitle[0]}<br /><span class="font-bold">{i18n.hero.subtitle[1]}</span>
             </h2>
-            <p class="z-10 pt-1 pb-8 px-4 text-center md:text-left md:text-2xl">{i18n.hero.date} · {i18n.hero.free_event}</p>
+            <p class="z-10 py-2 px-4 text-center md:text-left md:text-2xl border-2 rounded-full lg:ml-5 mt-4 uppercase">{i18n.hero.date}</p>
+            <p class="z-10 py-2 px-4 text-center md:text-left lg:ml-5 mt-1 uppercase">| Auditorio Mateo Herrera</p>
+            <p class="z-10 px-4 text-center md:text-left lg:ml-5 uppercase">| {i18n.hero.free_event}</p>
         </div>
     </div>
-    <div
-        class="bg-gradient-to-t from-primary to-transparent absolute bottom-0 h-52 w-full -z-20"
-    >
-    </div>
+    <div class="bg-gradient-to-t from-primary to-transparent absolute bottom-0 h-52 w-full -z-20" />
 </section>
