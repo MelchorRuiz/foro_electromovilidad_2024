@@ -3,20 +3,52 @@ import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
 ---
 
-<section class="relative min-h-[105vh] before:absolute before:top-0 before:left-0 before:w-full before:h-full -z-10 before:bg-gray-900/50 lg:before:bg-gray-900/10">
-    <img class="absolute -z-30 top-0 right-0 bottom-0 left-0 w-full h-full object-cover" src="/hero.webp" alt="background">
-    <div class="flex flex-col h-screen pt-32 pb-12">
-        <div class="flex flex-col justify-end items-center lg:items-start text-white">
-            <h1 class="relative uppercase z-10 font-open-sans font-bold text-center lg:text-left text-[4rem] lg:text-[8rem] leading-[1] lg:leading-[0.8] lg:pl-5">
-                Electro<br /><span class="font-bold text-[#40aa00c2] brightness-125">movilidad</span>
+<section
+    class="relative min-h-[105vh] bg-gray-900/40 overflow-hidden"
+>
+    <img
+        class="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        src="/hero.webp"
+        alt="background"
+    />
+    <div class="h-screen pt-32">
+        <div
+            class="flex flex-col items-center lg:items-start text-white"
+        >
+            <p
+                class="lg:pl-5 text-[2.8rem] lg:text-[3.7rem] uppercase leading-none lg:leading-10"
+            >
+                Foro
+            </p>
+            <h1
+                class="uppercase font-open-sans font-bold text-center lg:text-left text-[3rem] lg:text-[8rem] leading-[1] lg:leading-[0.8] lg:pl-5 flex lg:flex-col"
+            >
+                Electro
+                <span class="font-bold text-[#40aa00c2] brightness-125">movilidad</span>
             </h1>
-            <h2 class="z-10 block mt-4 p-4 text-center md:text-left md:text-2xl lg:bg-gradient-to-r lg:from-[#40aa002a] lg:to-transparent lg:pl-5 uppercase">
-                {i18n.hero.subtitle[0]}<br /><span class="font-bold">{i18n.hero.subtitle[1]}</span>
+            <h2
+                class="lg:mt-4 p-4 flex flex-col items-center lg:items-start md:text-left md:text-2xl lg:bg-gradient-to-r lg:from-[#40aa002a] lg:to-transparent lg:pl-5 uppercase"
+            >
+                {i18n.hero.subtitle[0]}
+                <span class="font-bold">{i18n.hero.subtitle[1]}</span>
             </h2>
-            <p class="z-10 py-2 px-4 text-center md:text-left md:text-2xl border-2 rounded-full lg:ml-5 mt-4 uppercase">{i18n.hero.date}</p>
-            <p class="z-10 py-2 px-4 text-center md:text-left lg:ml-5 mt-1 uppercase">| Auditorio Mateo Herrera</p>
-            <p class="z-10 px-4 text-center md:text-left lg:ml-5 uppercase">| {i18n.hero.free_event}</p>
+            <p
+                class="py-2 px-4 text-center md:text-left md:text-2xl border-2 rounded-full lg:ml-5 mt-4 uppercase"
+            >
+                {i18n.hero.date}
+            </p>
+            <p
+                class="py-2 px-4 text-center md:text-left lg:ml-5 mt-1 uppercase"
+            >
+                Auditorio Mateo Herrera | León, Guanajuato.
+            </p>
+            <div class="flex justify-center lg:justify-end w-full px-10 pt-5 lg:pt-0">
+                <a class="uppercase bg-lime-600 py-3 px-10 text-white z-20 font-semibold text-2xl lg:text-4xl" href="#register">{i18n.hero.free_event}</a>
+            </div>
         </div>
     </div>
-    <div class="bg-gradient-to-t from-primary to-transparent absolute bottom-0 h-52 w-full -z-20" />
+    <div
+        class="bg-gradient-to-t from-primary to-transparent absolute bottom-0 h-52 w-full"
+    >
+    </div>
 </section>
