@@ -12,13 +12,13 @@ export default function template( name, email) {
         <tr>
           <td colspan="2" >
             <h2 style="text-align: center;margin:0;font-weight:bold;text-transform: uppercase;margin-top: 20px;">
-              BIENVENIDO, ${name}. TU REGISTRO SE HA REALIZADO CON ÉXITO.
+              BIENVENID@, ${name}. TU REGISTRO SE HA REALIZADO CON ÉXITO.
             </h2>
             <h2 style='text-align: center;'>
-              GRACIAS POR FORMAR PARTE DE <span style="color:#007ae9;font-weight:bold;">FORO DE ELECTROMOVILIDAD 2024</span>
+              GRACIAS POR FORMAR PARTE DEL <span style="color:#007ae9;font-weight:bold;">FORO DE ELECTROMOVILIDAD 2024</span>
             </h2>
-            <div style="text-align: justify;font-size:22px;">
-              <strong>Explora las</strong> <span style="color:#007ae9;font-weight:bold;">últimas tendencias</span> e innovaciones en vehículos eléctricos, cononece y aprende de los expertos en la industria y descubre las claves de la infraestructura de carga del futuro.                    
+            <div style="text-align: center;font-size:22px;">
+              ¡Conoce y <span style="color:#007ae9;font-weight:bold;">conecta con especialistas</span> de la electromovilidad!                    
             </div>
             <div style="text-align:center;padding:20px;margin-top:25px;">
               <div style="background: #007ae9;padding:20px;border-radius:20px;">
@@ -27,11 +27,11 @@ export default function template( name, email) {
                 </a>
               </div>
               <p style="margin-top:40px;margin-bottom: 40px;">
-                Te esperamos en <strong>FORO DE ELECTROMOVILIDAD 2024 el 23/09/2024, Auditorio Mateo Herrera, León, Guanajuato.</strong>
+                Te esperamos en el <strong>FORO DE ELECTROMOVILIDAD 2024 el 23/09/2024, Auditorio Mateo Herrera, León, Guanajuato.</strong>
               </p>
               <div style="background: #007ae9;color:white;border-radius: 20px;padding:20px;">               
                <p><strong>HORARIO:</strong></p>
-               <p>10:00 a.m.</p>
+               <p>10:00 - 15:40</p>
               </div>
             </div>    
             <div>
@@ -81,10 +81,10 @@ export default function template( name, email) {
             </p>
             <ul>
               <li>
-                Para agilizar tu acceso al evento, por favor muestra este comprobante impreso o desde tu dispositivo móvil  en el módulo de visitantes preregistrados.
+                Para agilizar tu acceso al evento, por favor muestra este comprobante desde tu dispositivo móvil en el módulo de registro. 
               </li>
               <li>
-                Ten en cuenta que tu gafete es personal e intransferible y debe estar visible durante toda tu visita.
+                Ten en cuenta que tu registro es personal e intransferible.
               </li>                 
             </ul>                                                          
           </td>      
@@ -99,8 +99,8 @@ export default function template( name, email) {
           </td>
           <td style="padding:20px;" align="center">
             <div style="background: #007ae9;width:fit-content;border-radius: 20px;padding:20px;margin:auto;">
-              <a style="text-decoration:none;color:white;" href="${url}" target="_blank">
-                INVITA A UN COLEGA
+              <a style="text-decoration:none;color:white;" href="https://maps.app.goo.gl/dPbCkn6xaRwNLnzu7" target="_blank">
+                UBICACIÓN
               </a>
             </div>        
           </td>

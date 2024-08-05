@@ -1,6 +1,6 @@
 const url = 'https://www.foro-electromovilidad.igeco.mx';
 
-export default function template( name, email ) {
+export default function template( name, email) {
     return `
     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="max-width: 680px;">
     <tbody>
@@ -17,8 +17,8 @@ export default function template( name, email ) {
             <h2 style='text-align: center;'>
               THANK YOU FOR JOINING <span style="color:#007ae9;font-weight:bold;">ELECTROMOBILITY FORUM 2024</span>
             </h2>
-            <div style="text-align: justify;font-size:22px;">
-              <strong>Explore the</strong> <span style="color:#007ae9;font-weight:bold;">latest trends</span> and innovations in electric vehicles, meet and learn from industry experts and discover the keys to the charging infrastructure of the future.             
+            <div style="text-align: center;font-size:22px;">
+              Meet and <span style="color:#007ae9;font-weight:bold;">connect with specialists</span> in electromobility!           
             </div>
             <div style="text-align:center;padding:20px;margin-top:25px;">
               <div style="background: #007ae9;padding:20px;border-radius:20px;">
@@ -31,7 +31,7 @@ export default function template( name, email ) {
               </p>
               <div style="background: #007ae9;color:white;border-radius: 20px;padding:20px;">               
                <p><strong>SCHEDULE:</strong></p>
-               <p>10:00 AM</p>
+               <p>10:00 - 15:40</p>
               </div>
             </div> 
             <div>
@@ -81,10 +81,10 @@ export default function template( name, email ) {
             </p>
             <ul>
               <li>
-                To expedite your access to the event, please show this printed voucher or from your mobile device at the pre-registered visitors module.
+                To expedite your access to the event, please show this voucher from your mobile device in the registration module. 
               </li>
               <li>
-                Please note that your badge is personal and non-transferable and must be visible throughout your visit.
+                Please note that your registration is personal and non-transferable.
               </li>                 
             </ul>                                                          
           </td>      
@@ -99,8 +99,8 @@ export default function template( name, email ) {
           </td>
           <td style="padding:20px;" align="center">
             <div style="background: #007ae9;width:fit-content;border-radius: 20px;padding:20px;margin:auto;">
-              <a style="text-decoration:none;color:white;" href="${url}" target="_blank">
-                INVITE A COLLEAGUE
+              <a style="text-decoration:none;color:white;" href="https://maps.app.goo.gl/dPbCkn6xaRwNLnzu7" target="_blank">
+                Location
               </a>
             </div>        
           </td>
