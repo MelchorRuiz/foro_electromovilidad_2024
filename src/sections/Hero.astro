@@ -4,7 +4,7 @@ const i18n = getI18N(Astro.currentLocale);
 ---
 
 <section
-    class="relative min-h-[105vh] bg-gray-900/40 overflow-hidden"
+    class="relative min-h-[105vh] bg-black/60 lg:bg-black/40 overflow-hidden"
 >
     <img
         class="absolute top-0 left-0 w-full h-full object-cover -z-10"
@@ -16,34 +16,34 @@ const i18n = getI18N(Astro.currentLocale);
             class="flex flex-col items-center lg:items-start text-white"
         >
             <p
-                class="lg:pl-5 text-[2.8rem] lg:text-[3.7rem] uppercase leading-none lg:leading-10"
+                class="lg:pl-5 text-[2.3rem] lg:text-[3.7rem] uppercase leading-none lg:leading-10"
             >
                 Foro
             </p>
             <h1
-                class="uppercase font-open-sans font-bold text-center lg:text-left text-[3rem] lg:text-[8rem] leading-[1] lg:leading-[0.8] lg:pl-5 flex lg:flex-col"
+                class="uppercase font-open-sans font-bold text-center lg:text-left text-[2.5rem] lg:text-[8rem] leading-[1] lg:leading-[0.8] lg:pl-5 flex flex-col"
             >
                 Electro
                 <span class="font-bold text-[#40aa00c2] brightness-125">movilidad</span>
             </h1>
             <h2
-                class="lg:mt-4 p-4 flex flex-col items-center lg:items-start md:text-left md:text-2xl lg:bg-gradient-to-r lg:from-[#40aa002a] lg:to-transparent lg:pl-5 uppercase"
+                class="lg:mt-4 p-4 flex flex-col items-center lg:items-start md:text-left lg:text-2xl lg:bg-gradient-to-r lg:from-[#40aa002a] lg:to-transparent lg:pl-5 uppercase text-center"
             >
                 <span>{i18n.hero.subtitle[0]}<span class="font-bold">{i18n.hero.subtitle[1]}</span></span>
                 <span>{i18n.hero.subtitle[2]}</span>
             </h2>
             <p
-                class="py-2 px-4 text-center md:text-left md:text-2xl border-2 rounded-full lg:ml-5 mt-4 uppercase"
+                class="py-2 px-4 text-center md:text-left lg:text-2xl border-2 rounded-full lg:ml-5 mt-4 uppercase"
             >
                 {i18n.hero.date}
             </p>
             <p
-                class="py-2 px-4 text-center md:text-left lg:ml-5 mt-1 uppercase"
+                class="py-2 px-4 text-center md:text-left lg:ml-5 mt-1 uppercase text-xs lg:text-base"
             >
                 Auditorio Mateo Herrera | León, Guanajuato.
             </p>
             <div class="flex justify-center lg:justify-end w-full px-10 pt-5 lg:pt-0">
-                <a class="uppercase bg-lime-600 py-3 px-10 text-white z-20 font-semibold text-2xl lg:text-4xl" href="#register">{i18n.hero.free_event}</a>
+                <a class="uppercase bg-lime-600 py-3 px-10 text-white z-20 font-semibold text-xl lg:text-4xl text-center" href="#register">{i18n.hero.free_event}</a>
             </div>
         </div>
     </div>
