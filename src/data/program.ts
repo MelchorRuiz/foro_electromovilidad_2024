@@ -40,7 +40,41 @@ interface Program {
 */
 
 const program : Program[] = [
-    
+    {
+        "name": "Inauguración del Foro y palabras de bienvenida",
+        "hours": "10:00 - 10:30 Hrs",
+        "speakers": []
+    },
+    {
+        "name": "Tendencias globales en Electromovilidad",
+        "hours": "10:30 - 11:30 Hrs",
+        "speakers": []
+    },
+    {
+        "name": "Logística y producción en la Electromovilidad",
+        "hours": "11:30 - 12:30 Hrs",
+        "speakers": []
+    },
+    {
+        "name": "Descanso",
+        "hours": "12:30 - 12:40 Hrs",
+        "speakers": []
+    },
+    {
+        "name": "Marco regulatorio de la Electromovilidad",
+        "hours": "12:40 - 13:40 Hrs",
+        "speakers": []
+    },
+    {
+        "name": "Tecnología e innovación en la Electromovilidad",
+        "hours": "13:40 - 14:40 Hrs",
+        "speakers": []
+    },
+    {
+        "name": "Electromovilidad: Hacia un futuro sostenible",
+        "hours": "14:40 - 15:40 Hrs",
+        "speakers": []
+    },
 ]
 
 export default program;
