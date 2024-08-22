@@ -44,7 +44,7 @@ const program : Program[] = [
         "hours": "11:30 - 12:30 Hrs",
     },
     {
-        "name": "Descanso",
+        "name": "Break",
         "hours": "12:30 - 12:40 Hrs",
     },
     {
