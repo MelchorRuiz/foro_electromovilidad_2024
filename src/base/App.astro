@@ -8,6 +8,7 @@ import Gallery from "../sections/Gallery.jsx";
 import Register from "../sections/Register.jsx";
 
 import { getI18N } from "../i18n/index.js";
+import Partners from "../sections/Partners.astro";
 const i18n = getI18N(Astro.currentLocale);
 
 const thankYouPagePath =
@@ -22,6 +23,7 @@ const thankYouPagePath =
     <FocusSegments />
     <Schedule />
     <Speakers />
+    <Partners />
 
     <section id="gallery" class="w-full min-h-fit pt-5 mt-5">
       <h3

@@ -38,6 +38,10 @@
         "title": "Ponentes",
         "empty": "Próximamente"
     },
+    "partners": {
+        "title": "Aliados",
+        "empty": "Próximamente"
+    },
     "gallery": {
         "title": "Highlights 2023"
     },
