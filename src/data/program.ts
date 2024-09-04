@@ -36,7 +36,7 @@ const program : Program[] = [
         "hours": "10:00 - 10:30 Hrs",
     },
     {
-        "name": "Tendencias globales en Electromovilidad",
+        "name": "Marco regulatorio de la Electromovilidad",
         "hours": "10:30 - 11:30 Hrs",
     },
     {
@@ -48,7 +48,7 @@ const program : Program[] = [
         "hours": "12:30 - 12:40 Hrs",
     },
     {
-        "name": "Marco regulatorio de la Electromovilidad",
+        "name": "Tendencias globales en la Electromovilidad",
         "hours": "12:40 - 13:40 Hrs",
     },
     {
