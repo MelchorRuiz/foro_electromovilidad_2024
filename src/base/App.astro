@@ -8,6 +8,7 @@ import Gallery from "../sections/Gallery.jsx";
 import Register from "../sections/Register.jsx";
 
 import { getI18N } from "../i18n/index.js";
+import Partners from "../sections/Partners.astro";
 const i18n = getI18N(Astro.currentLocale);
 
 const thankYouPagePath =
@@ -21,14 +22,15 @@ const thankYouPagePath =
   <main>
     <FocusSegments />
     <Schedule />
-    <!-- <Speakers /> -->
+    <Speakers />
+    <Partners />
 
     <section id="gallery" class="w-full min-h-fit pt-5 mt-5">
-      <h2
+      <h3
         class="mb-6 text-black text-3xl md:text-4xl lg:text-5xl font-medium font-open-sans leading-none uppercase text-center"
       >
         {i18n.gallery.title}
-      </h2>
+      </h3>
       <div class="py-4 px-8 md:py-6 md:px-16 lg:py-8 lg:px-24 border-t-2 border-black">
         <Gallery client:visible />
       </div>
@@ -37,7 +39,7 @@ const thankYouPagePath =
     <section id="register" class="w-full min-h-fit py-4 px-8 md:py-6 md:px-16 lg:py-8 lg:px-24 relative">
       <div class="grid grid-cols-1 md:grid-cols-2">
         <div>
-          <h2 class="mb-4 text-black text-2xl md:text-3xl lg:text-4xl font-semibold font-open-sans leading-none uppercase">{i18n.register.title}</h2>
+          <h3 class="mb-4 text-black text-2xl md:text-3xl lg:text-4xl font-semibold font-open-sans leading-none uppercase">{i18n.register.title}</h3>
           <Register
             client:visible
             i18n={i18n.register.form}

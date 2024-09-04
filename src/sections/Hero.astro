@@ -1,25 +1,54 @@
 ---
 import { getI18N } from "../i18n";
 const i18n = getI18N(Astro.currentLocale);
-const title = i18n.hero.title.split("Electro")
 ---
 
-<section class="relative min-h-screen before:absolute before:top-0 before:left-0 before:w-full before:h-full -z-10 before:bg-gray-900/60">
-    <video autoplay muted loop class="absolute -z-30 top-0 right-0 bottom-0 left-0 w-full h-full object-cover">
-        <source src="/hero.webm" type="video/webm">
-    </video>
-    <div class="flex flex-col h-screen lg:justify-end pt-32 lg:pt-20 pb-12">
-        <div class="flex flex-col justify-end items-center lg:items-start text-white">
-            <h1 class="relative uppercase z-10 font-open-sans font-extrabold text-center lg:text-left text-[3rem] md:text-[6rem] lg:text-[10rem] leading-[1] lg:leading-[0.8] lg:-translate-x-4 select-none" style="text-shadow: 3px 1px 2px black;">
-                Electro <br /> {title}
+<section
+    class="relative min-h-[105vh] bg-black/60 lg:bg-black/40 overflow-hidden"
+>
+    <img
+        class="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        src="/assets/hero.webp"
+        alt="background"
+    />
+    <div class="h-screen pt-32">
+        <div
+            class="flex flex-col items-center lg:items-start text-white"
+        >
+            <p
+                class="lg:pl-5 text-[2.3rem] lg:text-[3.7rem] uppercase leading-none lg:leading-10"
+            >
+                Foro
+            </p>
+            <h1
+                class="uppercase font-open-sans font-bold text-center lg:text-left text-[2.5rem] lg:text-[8rem] leading-[1] lg:leading-[0.8] lg:pl-5 flex flex-col"
+            >
+                Electro
+                <span class="font-bold text-[#40aa00c2] brightness-125">movilidad</span>
             </h1>
-            <h3 class="relative z-10 pt-12 px-4 text-center text-2xl w-full max-w-[750px] mx-auto">
-                {i18n.hero.subtitle[0]} 
-                <span class="font-bold">{i18n.hero.subtitle[1]}</span> 
-                {i18n.hero.subtitle[2]} 
-                <span class="text-secondary font-bold">{i18n.hero.subtitle[3]}</span>!
-            </h3>
+            <h2
+                class="lg:mt-4 p-4 flex flex-col items-center lg:items-start md:text-left lg:text-2xl lg:bg-gradient-to-r lg:from-[#40aa002a] lg:to-transparent lg:pl-5 uppercase text-center"
+            >
+                <span>{i18n.hero.subtitle[0]}<span class="font-bold">{i18n.hero.subtitle[1]}</span></span>
+                <span>{i18n.hero.subtitle[2]}</span>
+            </h2>
+            <p
+                class="py-2 px-4 text-center md:text-left lg:text-2xl border-2 rounded-full lg:ml-5 mt-4 uppercase"
+            >
+                {i18n.hero.date}
+            </p>
+            <p
+                class="py-2 px-4 text-center md:text-left lg:ml-5 mt-1 uppercase text-xs lg:text-base"
+            >
+                Auditorio Mateo Herrera | León, Guanajuato.
+            </p>
+            <div class="flex justify-center lg:justify-end w-full px-10 pt-5 lg:pt-0">
+                <a class="uppercase bg-lime-600 py-3 px-10 text-white z-20 font-semibold text-xl lg:text-4xl text-center" href="#register">{i18n.hero.free_event}</a>
+            </div>
         </div>
     </div>
-    <div class="bg-gradient-to-t from-primary to-transparent absolute bottom-0 h-52 w-full -z-20" />
+    <div
+        class="bg-gradient-to-t from-primary to-transparent absolute bottom-0 h-52 w-full"
+    >
+    </div>
 </section>

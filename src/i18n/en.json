@@ -4,16 +4,17 @@
     "hero": {
         "title": "Electromobility",
         "subtitle": [
-            "Discover the path to",
-            "smarter and more sustainable mobility",
-            "in our",
-            "Electromobility Forum"
-        ]
+            "Meet and ",
+            "connect with specialists",
+            "in electromobility!"
+        ],
+        "date": "September 23",
+        "free_event": "Free registration"
     },
     "message": [
-        "Explore the",
-        "latest trends",
-        "and innovations in electric vehicles, learn from industry experts and discover the keys to the future charging infrastructure."
+        "Discover the path to smarter and more sustainable mobility in our ",
+        "Electromobility Forum",
+        "Share this space with outstanding specialists, learn about the latest updates in smart mobility, explore innovations and trends for the future."
     ],
     "focusSegments": {
         "title": [
@@ -21,24 +22,29 @@
             "Segments"
         ],
         "segments": [
-            "Electric transportation",
-            "New electric car assembly plants and conversion of internal combustion plants",
-            "Charging, generation and storage infrastructure",
-            "Batteries",
-            "Government policies and international commitments",
-            "Major semiconductor producers and the global environment -Major semiconductor producers and the global environment"
+            "Overview of electromobility in the world",
+            "Production and supply chain",
+            "Policies and regulations",
+            "Emerging applications of semiconductors",
+            "Environmental impact and sustainability"
         ]
     },
     "program": {
         "title": "Program",
-        "empty": "There are no scheduled activities at the moment"
+        "empty": "Coming soon"
     },
     "speakers": {
-        "title": "Speakers"
+        "title": "Speakers",
+        "empty": "Coming soon"
+    },
+    "partners": {
+        "title": "Partners",
+        "empty": "Coming soon"
     },
     "gallery": {
-        "title": "Gallery"
+        "title": "Highlights 2023"
     },
+    "edition_2023": "Edition 2023",
     "register": {
         "title": "Register",
         "form": {

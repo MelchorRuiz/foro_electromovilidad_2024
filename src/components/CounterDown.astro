@@ -1,0 +1,233 @@
+---
+// TODO: Solve performance problems
+---
+
+<div class="cards grid grid-cols-4 gap-4">
+    <div class="days text-center text-xl flex flex-col items-center">
+        <div class="flip-card flex flex-col relative mx-auto my-4">
+            <div class="top-half">00</div>
+            <div class="bottom-half">00</div>
+        </div>
+        <p class="text-indigo-800 text-base uppercase">Days</p>
+    </div>
+
+    <div class="hours text-center text-xl flex flex-col items-center">
+        <div class="flip-card flex flex-col relative mx-auto my-4">
+            <div class="top-half">00</div>
+            <div class="bottom-half">00</div>
+        </div>
+        <p class="text-indigo-800 text-base uppercase">Hours</p>
+    </div>
+
+    <div class="minutes text-center text-xl flex flex-col items-center">
+        <div class="flip-card flex flex-col relative mx-auto my-4">
+            <div class="top-half">00</div>
+            <div class="bottom-half">00</div>
+        </div>
+        <p class="text-indigo-800 text-base uppercase">Minutes</p>
+    </div>
+
+    <div class="seconds text-center text-xl flex flex-col items-center">
+        <div class="flip-card flex flex-col relative mx-auto my-4">
+            <div class="top-half">00</div>
+            <div class="bottom-half">00</div>
+        </div>
+        <p class="text-indigo-800 text-base uppercase">Seconds</p>
+    </div>
+</div>
+
+<style is:inline>
+    @keyframes flip-top {
+        to {
+            transform: rotateX(90deg);
+        }
+    }
+    @keyframes flip-bottom {
+        to {
+            transform: rotateX(0deg);
+        }
+    }
+
+    .top-half,
+    .bottom-half,
+    .top-flip,
+    .bottom-flip {
+        color: #f05252;
+        font-size: 36px;
+        line-height: 48px;
+        height: 44px;
+        width: 80px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 8px;
+        padding-right: 8px;
+        background-color: #42389d;
+        overflow: hidden;
+        text-align: center;
+        will-change: transform !important;
+    }
+
+    .top-half,
+    .top-flip {
+        color: #e02424;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        &::before {
+            content: "";
+            background-color: white;
+            height: 12px;
+            width: 12px;
+            border-radius: 100%;
+            position: absolute;
+            bottom: -6px;
+            left: -6px;
+        }
+        &::after {
+            content: "";
+            background-color: white;
+            height: 12px;
+            width: 12px;
+            border-radius: 100%;
+            position: absolute;
+            bottom: -6px;
+            right: -6px;
+        }
+    }
+
+    .bottom-half,
+    .bottom-flip {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        color: #e02424;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        &::before {
+            content: "";
+            background-color: white;
+            height: 12px;
+            width: 12px;
+            border-radius: 100%;
+            position: absolute;
+            top: -6px;
+            left: -6px;
+        }
+        &::after {
+            content: "";
+            background-color: white;
+            height: 12px;
+            width: 12px;
+            border-radius: 100%;
+            position: absolute;
+            top: -6px;
+            right: -6px;
+        }
+    }
+
+    .top-flip {
+        position: absolute;
+        transform-origin: bottom;
+        transform: rotateX(0deg);
+        animation: flip-top 0.5s ease-in forwards;
+    }
+    .bottom-flip {
+        position: absolute;
+        bottom: 0;
+        transform-origin: top;
+        transform: rotateX(90deg);
+        animation: flip-bottom 0.5s ease-out 0.5s;
+    }
+</style>
+
+<script is:inline>
+    const countdown = new Date("23 sept 2024 00:00:00").getTime();
+
+    const days = document
+        .querySelector(".days")
+        ?.querySelector(".flip-card");
+    const hours = document
+        .querySelector(".hours")
+        ?.querySelector(".flip-card");
+    const minutes = document
+        .querySelector(".minutes")
+        ?.querySelector(".flip-card");
+    const seconds = document
+        .querySelector(".seconds")
+        ?.querySelector(".flip-card");
+
+    // ** get the time totals, return them
+    function getTimeRemaining(countdown) {
+        const now = new Date().getTime();
+        const diff = countdown - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        return {
+            diff,
+            days,
+            hours,
+            minutes,
+            seconds,
+        };
+    }
+
+    function initializeClock(countdown) {
+        function updateClock() {
+            const t = getTimeRemaining(countdown);
+            addFlip(days, t.days);
+            addFlip(hours, t.hours);
+            addFlip(minutes, t.minutes);
+            addFlip(seconds, t.seconds);
+
+            if (t.diff <= 0) {
+                clearInterval(timeinterval);
+            }
+        }
+
+        updateClock();
+        const timeinterval = setInterval(updateClock, 1000);
+    }
+
+    const addFlip = (card, time) => {
+        // ** confirm time has changed
+        const currTime = card.querySelector(".top-half").textContent;
+        if (time === parseInt(currTime || "")) return;
+
+        let t = time <= 9 ? `0${time}` : time;
+        const topHalf = card.querySelector(".top-half");
+        const bottomHalf = card.querySelector(".bottom-half");
+        const topFlip = document.createElement("div");
+        const bottomFlip = document.createElement("div");
+
+        // ** add animation, populate with current time
+        topFlip.classList.add("top-flip");
+        topFlip.innerText = currTime;
+
+        bottomFlip.classList.add("bottom-flip");
+
+        // ** animation begins, update top-half to new time
+        topFlip.addEventListener("animationstart", () => {
+            topHalf.innerText = t;
+        });
+
+        // ** animation ends, remove animated div, update bottom animation to new time
+        topFlip.addEventListener("animationend", () => {
+            topFlip.remove();
+            bottomFlip.innerText = t;
+        });
+
+        // ** animation ends, update bottom-half to new time, remove animated div
+        bottomFlip.addEventListener("animationend", () => {
+            bottomHalf.innerText = t;
+            bottomFlip.remove();
+        });
+
+        card.appendChild(topFlip);
+        card.appendChild(bottomFlip);
+    };
+
+    initializeClock(countdown);
+</script>
